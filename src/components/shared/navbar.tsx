@@ -15,7 +15,7 @@ const Navbar = () => {
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Blog</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Shop</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Contact</Link></li>
-                    <Button className='rounded-none text-lg ' size={'lg'}>Became a Member</Button>
+                    <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
                 </ul>
             </div>
         </div>
