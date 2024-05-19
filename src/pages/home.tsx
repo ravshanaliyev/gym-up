@@ -1,7 +1,10 @@
+import Navbar from "@/components/shared/navbar"
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <div>
+            <Navbar />
+        </div>
     )
 }
 
