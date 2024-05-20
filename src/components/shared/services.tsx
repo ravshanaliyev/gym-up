@@ -1,6 +1,5 @@
 import { IoIosFitness, IoMdFitness } from "react-icons/io";
 import { IoFitness } from "react-icons/io5";
-
 import { Button } from "../ui/button";
 
 const Services = () => {
