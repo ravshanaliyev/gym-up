@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/button'
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger, } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import { IoMdMenu } from "react-icons/io";
 
 const Navbar = () => {
