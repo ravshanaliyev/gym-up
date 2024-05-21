@@ -1,4 +1,5 @@
 import AboutGym from "@/components/shared/about-gym"
+import Footer from "@/components/shared/footer"
 import Header from "@/components/shared/header"
 import HomeGallery from "@/components/shared/home-gallery"
 import Navbar from "@/components/shared/navbar"
@@ -16,6 +17,7 @@ const Home = () => {
             <OurClientSaying />
             <HomeGallery />
             <Offer />
+            <Footer />
         </div>
     )
 }
