@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Button } from '../ui/button'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger, } from "@/components/ui/sheet"
+import { IoMdMenu } from "react-icons/io";
 
 const Navbar = () => {
     return (
@@ -16,6 +18,25 @@ const Navbar = () => {
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Contact</Link></li>
                     <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
                 </ul>
+                <div className='block md:hidden'>
+                    <Sheet>
+                        <SheetTrigger>
+                            <IoMdMenu className='block md:hidden text-3xl text-white' />
+                        </SheetTrigger>
+                        <SheetContent side={'left'}>
+                            <ul className='flex flex-col gap-4 mt-8 items-center'>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Home</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">About</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Classes</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Gallery</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Blog</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Shop</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Contact</Link></li>
+                                <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
+                            </ul>
+                        </SheetContent>
+                    </Sheet>
+                </div>
             </div>
         </div>
     )
