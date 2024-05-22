@@ -8,7 +8,7 @@ const AboutGym = () => {
                     <div className="w-full lg:w-1/2">
                         <img className='w-full' src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png" alt="" />
                     </div>
-                    <div className="w-full lg:w-1/2">
+                    <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
                         <div className="flex items-center gap-4 text-[#ff1313]">
                             <div className='h-[3px] w-[80px] bg-[#ff1313]'></div>
                             <h3 className='uppercase  text-2xl '>About Me</h3>

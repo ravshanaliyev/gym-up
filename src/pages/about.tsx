@@ -1,16 +1,16 @@
 import AboutGym from "@/components/shared/about-gym"
-import AboutPage from "@/components/shared/about-page"
 import Footer from "@/components/shared/footer"
 import HomeGallery from "@/components/shared/home-gallery"
 import Navbar from "@/components/shared/navbar"
 import Offer from "@/components/shared/offer"
 import OurClientSaying from "@/components/shared/our-client-saying"
+import PagesHeader from "@/components/shared/pages-header"
 
 const About = () => {
     return (
         <div>
             <Navbar />
-            <AboutPage />
+            <PagesHeader title={'About Me'} />
             <AboutGym />
             <HomeGallery />
             <OurClientSaying />

@@ -5,8 +5,8 @@ import { TbWorld } from "react-icons/tb";
 
 const Footer = () => {
     return (
-        <div className="h-[500px] w-full " style={{ backgroundImage: 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/section_bg03.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="w-[1200px] mx-auto h-full flex items-center justify-between">
+        <div className="h-fit md:h-[500px] w-full " style={{ backgroundImage: 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/section_bg03.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="w-full px-4 lg:w-[1200px] lg:mx-auto h-full grid grid-cols-2 lg:grid-cols-4 gap-4 py-10 place-items-center  ">
                 <div>
                     <h4 className="text-white text-xl mb-4">COMPANY</h4>
                     <ul>

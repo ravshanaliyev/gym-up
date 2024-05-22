@@ -11,7 +11,7 @@ const Navbar = () => {
                 <ul className='hidden lg:flex gap-8 items-center'>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Home</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/about">About Me</Link></li>
-                    <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Courses</Link></li>
+                    <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/courses">Courses</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Gallery</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">My Service</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Blog</Link></li>
@@ -28,7 +28,7 @@ const Navbar = () => {
                             <ul className='flex flex-col gap-4 mt-8 items-center'>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Home</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/about">About Me</Link></li>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Courses</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/courses">Courses</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Gallery</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">My Service</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Blog</Link></li>
