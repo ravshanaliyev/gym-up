@@ -1,5 +1,5 @@
 import About from "./about";
-import Classes from "./classes";
+import Classes from "./courses";
 import Gallery from "./gallery";
 import Home from "./home";
 import Login from "./login";

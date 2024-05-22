@@ -2,7 +2,7 @@ import { Button } from '../ui/button'
 
 const AboutGym = () => {
     return (
-        <div className='container my-12'>
+        <div className='container my-16'>
             <div className="w-full lg:w-[1200px] mx-auto">
                 <div className="w-full block lg:flex items-center gap-10">
                     <div className="w-full lg:w-1/2">
@@ -10,8 +10,8 @@ const AboutGym = () => {
                     </div>
                     <div className="w-full lg:w-1/2">
                         <div className="flex items-center gap-4 text-[#ff1313]">
-                            <div className='h-[3px] w-[100px] bg-[#ff1313]'></div>
-                            <h3 className='uppercase  text-2xl '>Abput Our Gym</h3>
+                            <div className='h-[3px] w-[80px] bg-[#ff1313]'></div>
+                            <h3 className='uppercase  text-2xl '>About Me</h3>
                         </div>
                         <h2 className='text-[44px] font-bold text-[#2c234d] leading-snug my-4'>Safe Body building proper Solutions That Saves our Valuable Time!</h2>
                         <p className='text-2xl text-[#212025] font-thin mb-4'>Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replication of the designers is intended.</p>

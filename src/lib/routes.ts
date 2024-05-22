@@ -2,7 +2,7 @@ export enum ROUTES {
     HOME = "/",
     LOGIN = "/login",
     REGISTER = "/register",
-    CLASSESS = "/classes",
+    COURSES = "/courses",
     GALLERY = "/gallery",
     SHOP = "/shop",
     ABOUT = "/about",

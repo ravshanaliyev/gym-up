@@ -10,7 +10,7 @@ function App() {
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.REGISTER} element={<Register />} />
         <Route path={ROUTES.GALLERY} element={<Gallery />} />
-        <Route path={ROUTES.CLASSESS} element={<Classes />} />
+        <Route path={ROUTES.COURSES} element={<Classes />} />
         <Route path={ROUTES.SHOP} element={<Shop />} />
         <Route path={ROUTES.ABOUT} element={<About />} />
         <Route path={ROUTES.NOT_FOUND} element={<div>*</div>} />
