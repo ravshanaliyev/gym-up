@@ -51,13 +51,13 @@ const AdminHeader = () => {
                             </DropdownMenuItem>
                         </Link>
                         <Link to={'/admin/add-course'}>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem className='cursor-pointer'>
                                 Add Course
                                 <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         </Link>
                         <Link to={'/admin/settings'}>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem className='cursor-pointer'>
                                 Settings
                                 <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                             </DropdownMenuItem>
