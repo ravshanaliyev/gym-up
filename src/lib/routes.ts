@@ -7,5 +7,11 @@ export enum ROUTES {
     SHOP = "/shop",
     ABOUT = "/about",
     NOT_FOUND = "*",
-    CONTACT = "/contact"
+    CONTACT = "/contact",
+    ADMIN = "/admin",
+    SETTINGS = "/admin/settings",
+    PROFILE = "/admin/profile",
+    ADD_COURSE = "/admin/add-course",
+    CATEGORIES = "/admin/categories",
+    ADMIN_COURSES = "/admin/courses",
 }

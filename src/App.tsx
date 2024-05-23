@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { ROUTES } from "./lib/routes"
 import { Home, Login, Register, Gallery, Classes, Shop, About } from "./pages"
 import Contact from "./pages/contact"
+import AdminDashboard from "./pages/admin-dashboard"
 
 function App() {
   return (
@@ -16,6 +17,12 @@ function App() {
         <Route path={ROUTES.ABOUT} element={<About />} />
         <Route path={ROUTES.CONTACT} element={<Contact />} />
         <Route path={ROUTES.NOT_FOUND} element={<div>*</div>} />
+        <Route path={ROUTES.ADMIN} element={<AdminDashboard />}>
+          <Route path={ROUTES.ADD_COURSE} element={<>iojige</>} />
+          <Route path={ROUTES.PROFILE} element={<>iojige</>} />
+          <Route path={ROUTES.SETTINGS} element={<>iojige</>} />
+          <Route path={ROUTES.ADMIN_COURSES} element={<>iojige</>} />
+        </Route>
       </Routes>
     </>
   )

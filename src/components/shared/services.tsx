@@ -9,27 +9,27 @@ const Services = () => {
                 <div className="w-full lg:w-[1200px] mx-auto">
                     <div className="flex items-center justify-center lg:justify-start  gap-4 text-[#ff1313]">
                         <div className='h-[3px] w-[100px] bg-[#ff1313]'></div>
-                        <h3 className='uppercase  text-[22px] '>OUR SERVICES FOR YOU</h3>
+                        <h3 className='uppercase  text-[22px] teko'>OUR SERVICES FOR YOU</h3>
                     </div>
-                    <h3 className="text-[24px] my-4 font-bold text-white text-center lg:text-left">PUSH YOUR LIMITS FORWARD WE OFFER TO YOU</h3>
+                    <h3 className="text-[24px] my-4 font-bold text-white text-center lg:text-left teko">PUSH YOUR LIMITS FORWARD WE OFFER TO YOU</h3>
                     <div className="cards grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 place-items-center">
                         <div className="card bg-white text-black w-[370px] h-[370px] py-10 px-12 text-center group mb-4">
                             <IoIosFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[24px] font-semibold mt-6 mb-4">QUALITY EQUIPMENT</h3>
-                            <p className="text-lg">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
-                            <Button className='rounded-none text-lg px-10 h-[45px] mt-6 w-full hidden group-hover:block transition duration-300'>Discover More About Us</Button>
+                            <h3 className="text-[24px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
+                            <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
+                            <Button className='rounded-none teko text-lg px-10 h-[45px] mt-6 w-full hidden group-hover:block transition duration-300'>Discover More About Us</Button>
                         </div>
                         <div className="card bg-white text-black w-[370px] h-[370px] py-10 px-12 text-center group mb-4">
                             <IoFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[24px] font-semibold mt-6 mb-4">QUALITY EQUIPMENT</h3>
-                            <p className="text-lg">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
-                            <Button className='rounded-none text-lg px-10 h-[45px] mt-6 w-full hidden group-hover:block transition duration-300'>Discover More About Us</Button>
+                            <h3 className="text-[24px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
+                            <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
+                            <Button className='rounded-none teko text-lg px-10 h-[45px] mt-6 w-full hidden group-hover:block transition duration-300'>Discover More About Us</Button>
                         </div>
                         <div className="card bg-white text-black w-[370px] h-[370px] py-10 px-12 text-center group mb-4">
                             <IoMdFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[24px] font-semibold mt-6 mb-4">QUALITY EQUIPMENT</h3>
-                            <p className="text-lg">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
-                            <Button className='rounded-none text-lg px-10 h-[45px] mt-6 w-full hidden group-hover:block transition duration-300'>Discover More About Us</Button>
+                            <h3 className="text-[24px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
+                            <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
+                            <Button className='rounded-none teko text-lg px-10 h-[45px] mt-6 w-full hidden group-hover:block transition duration-300'>Discover More About Us</Button>
                         </div>
                     </div>
                 </div>

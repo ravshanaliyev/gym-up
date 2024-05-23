@@ -14,7 +14,7 @@ const Contact = () => {
         <div>
             <Navbar />
             <PagesHeader title={'Contact Us'} />
-            <div className="sm:my-[40px] md:my-[60xp] lg:my-[100px] w-full p-6 lg:p-0 lg:w-[1200px] mx-auto">
+            <div className="sm:my-[40px] barlow md:my-[60xp] lg:my-[100px] w-full p-6 lg:p-0 lg:w-[1200px] mx-auto">
                 <h3 className="text-[28px]">Get In Touch</h3>
                 <div className="w-full block lg:flex justify-between gap-8">
                     <div className="w-full lg:w-2/3">

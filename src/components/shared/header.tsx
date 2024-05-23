@@ -2,7 +2,7 @@ import { Button } from '../ui/button'
 
 const Header = () => {
     return (
-        <div className='h-[600px] md:h-[800px] bg-black w-full flex justify-start items-center' style={{ backgroundImage: 'url("https://themewagon.github.io/fitnessclub/assets/img/hero/h1_hero.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className='teko h-[600px] md:h-[800px] bg-black w-full flex justify-start items-center' style={{ backgroundImage: 'url("https://themewagon.github.io/fitnessclub/assets/img/hero/h1_hero.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="container">
                 <div className=" flex flex-col justify-start w-full  md:w-[670px] md:ml-12">
                     <div className="flex items-center gap-4 text-[#ff1313]">

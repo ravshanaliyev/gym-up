@@ -17,9 +17,9 @@ const OurClientSaying = () => {
                     <div className="w-full mt-6 md:w-1/2 md:mt-0">
                         <div className="flex items-center justify-center lg:justify-start  gap-4 text-[#ff1313]">
                             <div className='h-[2px] w-[100px] bg-[#ff1313]'></div>
-                            <h3 className='uppercase  text-[22px]'>CLIENT FEEDBACK</h3>
+                            <h3 className='uppercase  text-[22px] teko'>CLIENT FEEDBACK</h3>
                         </div>
-                        <h3 className="text-[32px] md:text-[50px] my-4 font-bold  text-center lg:text-left">WHAT OUR CLIENT THIK ABOUT OUR GYM</h3>
+                        <h3 className="text-[32px] md:text-[50px] my-4 font-bold  text-center lg:text-left teko">WHAT OUR CLIENT THIK ABOUT OUR GYM</h3>
                         <div className="relative">
                             <img className="absolute left-[-195px]" src="https://themewagon.github.io/fitnessclub/assets/img//gallery/qutaion.png" alt="" />
                         </div>
@@ -29,10 +29,10 @@ const OurClientSaying = () => {
                                     {data.map((item, index) => (
                                         <CarouselItem key={index}>
                                             <div className="p-1">
-                                                <p className="text-[20px]">{item.comment}</p>
+                                                <p className="text-lg barlow">{item.comment}</p>
                                                 <div className="flex items-center gap-4">
-                                                    <h3 className="text-[24px] font-semibold mt-4 mb-4">{item.name}</h3>
-                                                    <p className="text-lg">Gym Member</p>
+                                                    <h3 className="text-[24px] font-semibold mt-4 mb-4 teko">{item.name}</h3>
+                                                    <p className="text-lg teko">Gym Member</p>
                                                 </div>
                                             </div>
                                         </CarouselItem>
