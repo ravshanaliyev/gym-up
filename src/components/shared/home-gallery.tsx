@@ -3,7 +3,6 @@ const HomeGallery = () => {
     return (
         <>
             <div className="my-10 hidden lg:block">
-                <h1 className="text-3xl text-center">Our Gallery</h1>
                 <div className="w-full h-[700px]  lg:flex gap-8 my-6">
                     <div className="w-1/2 lg:mb-0">
                         <img src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery1.png" alt="" />
@@ -21,7 +20,6 @@ const HomeGallery = () => {
                 </div>
             </div>
             <div className="my-10 lg:hidden">
-                <h1 className="text-3xl text-center">Our Gallery</h1>
                 <div className="w-full  grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
                     <img className="w-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery1.png" alt="" />
                     <img className="w-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png" alt="" />

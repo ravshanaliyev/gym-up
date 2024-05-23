@@ -6,5 +6,6 @@ export enum ROUTES {
     GALLERY = "/gallery",
     SHOP = "/shop",
     ABOUT = "/about",
-    NOT_FOUND = "*"
+    NOT_FOUND = "*",
+    CONTACT = "/contact"
 }
