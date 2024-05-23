@@ -30,7 +30,6 @@ const Footer = () => {
                     <ul>
                         <li className="text-lg text-[#c4c4c4] mb-2"><Link to={'/'}>Home Insurance</Link></li>
                         <li className="text-lg text-[#c4c4c4] mb-2"><Link to={'/'}>Travel Insurance</Link></li>
-                        <li className="text-lg text-[#c4c4c4] mb-2"><Link to={'/'}> Car Insurance</Link></li>
                         <li className="text-lg text-[#c4c4c4] mb-2"><Link to={'/'}> Business Insurance</Link></li>
                         <li className="text-lg text-[#c4c4c4] mb-2"><Link to={'/'}> Health Insurance</Link></li>
                     </ul>
