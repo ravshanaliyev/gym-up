@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
+import { Eye, Pencil, Trash2 } from "lucide-react"
 import { Link } from "react-router-dom"
 
 
@@ -72,6 +73,7 @@ const AdminCourses = () => {
                             <TableHead>Price</TableHead>
                             <TableHead>Total Lessons</TableHead>
                             <TableHead>Total Sold</TableHead>
+                            <TableHead>Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -82,6 +84,13 @@ const AdminCourses = () => {
                                 <TableCell>{invoice.price}</TableCell>
                                 <TableCell>{invoice.totalLessons}</TableCell>
                                 <TableCell>{invoice.totalSold}</TableCell>
+                                <TableCell>
+                                    <div className="flex gap-2">
+                                        <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
+                                        <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
+                                        <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
+                                    </div>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
