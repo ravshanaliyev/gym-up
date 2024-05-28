@@ -8,7 +8,7 @@ const AdminDashboard = () => {
                 <AdminSidebar />
                 <div className="ml-[280px] w-full">
                     <AdminHeader />
-                    <div className="w-full bg-[#F1F5F9] min-h-screen">
+                    <div className="w-full bg-[#F1F5F9] p-8 h-[calc(100vh-80px)] overflow-auto">
                         <Outlet />
                     </div>
                 </div>

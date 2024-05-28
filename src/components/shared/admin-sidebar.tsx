@@ -23,11 +23,6 @@ export default AdminSidebar
 
 const sidebarLinks = [
     {
-        label: "Home",
-        icon: Home,
-        path: "/admin",
-    },
-    {
         label: "Courses",
         icon: Computer,
         path: "/admin/courses",
