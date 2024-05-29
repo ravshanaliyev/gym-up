@@ -14,7 +14,7 @@ const Navbar = () => {
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/courses">Courses</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/gallery">Gallery</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">My Service</Link></li>
-                    <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">Blog</Link></li>
+                    <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/admin">Blog</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/shop">Shop</Link></li>
                     <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">Contact</Link></li>
                     <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
@@ -31,7 +31,7 @@ const Navbar = () => {
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/courses">Courses</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/gallery">Gallery</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">My Service</Link></li>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Blog</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/admin">Blog</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/shop">Shop</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">Contact</Link></li>
                                 <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
