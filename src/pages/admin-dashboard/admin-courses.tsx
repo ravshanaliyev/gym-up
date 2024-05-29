@@ -73,7 +73,7 @@ const AdminCourses = () => {
                             <TableHead>Price</TableHead>
                             <TableHead>Total Lessons</TableHead>
                             <TableHead>Total Sold</TableHead>
-                            <TableHead>Actions</TableHead>
+                            <TableHead className="text-center">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -85,7 +85,7 @@ const AdminCourses = () => {
                                 <TableCell>{invoice.totalLessons}</TableCell>
                                 <TableCell>{invoice.totalSold}</TableCell>
                                 <TableCell>
-                                    <div className="flex gap-2">
+                                    <div className="flex gap-2 items-center justify-center">
                                         <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
                                         <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
                                         <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
@@ -96,7 +96,7 @@ const AdminCourses = () => {
                     </TableBody>
                     <TableFooter>
                         <TableRow>
-                            <TableCell colSpan={3}>Total</TableCell>
+                            <TableCell colSpan={5}>Total</TableCell>
                             <TableCell className="text-right">$2,500.00</TableCell>
                         </TableRow>
                     </TableFooter>
