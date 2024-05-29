@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { Eye, Pencil, Trash2 } from "lucide-react"
 import { Link } from "react-router-dom"
 
