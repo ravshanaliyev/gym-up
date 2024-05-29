@@ -65,7 +65,6 @@ const AdminCourses = () => {
             </div>
             <div className="my-6">
                 <Table className="">
-                    <TableCaption>A list of your recent invoices.</TableCaption>
                     <TableHeader>
                         <TableRow>
                             <TableHead>Image</TableHead>
@@ -94,12 +93,6 @@ const AdminCourses = () => {
                             </TableRow>
                         ))}
                     </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TableCell colSpan={5}>Total</TableCell>
-                            <TableCell className="text-right">$2,500.00</TableCell>
-                        </TableRow>
-                    </TableFooter>
                 </Table>
             </div>
         </div>

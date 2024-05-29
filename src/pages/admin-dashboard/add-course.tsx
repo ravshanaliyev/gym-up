@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -53,8 +52,8 @@ const AddCourse = () => {
             <div>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                        <div className="flex items-start gap-6 mt-4">
-                            <div className="w-1/2 space-y-4 bg-white p-4 rounded-xl">
+                        <div className="block lg:flex items-start gap-6 mt-4">
+                            <div className="w-full lg:w-1/2 space-y-4 bg-white p-4 rounded-xl">
                                 <FormField
                                     control={form.control}
                                     name="course_title"
