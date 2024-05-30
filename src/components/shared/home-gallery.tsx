@@ -3,20 +3,51 @@ const HomeGallery = () => {
     return (
         <>
             <div className="my-10 hidden lg:block">
-                <div className="w-full h-[700px]  lg:flex gap-8 my-6">
-                    <div className="w-1/2 lg:mb-0">
-                        <img src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery1.png" alt="" />
+                <div className="w-full h-[700px]   lg:grid grid-cols-2 gap-1 my-6">
+                    <div className="max-w-[650px] h-[580px] lg:mb-0 group overflow-hidden relative">
+                        <img className="w-full h-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery1.png" alt="" />
+                        <div className=" translate-y-[100%] absolute left-0 top-0 w-full h-full transition duration-300 bg-[#000000b6] flex flex-col  items-center justify-center gap-y-2 group-hover:translate-y-0  ">
+                                <span className="material-symbols-outlined rounded-[50%] bg-[#ff0000] p-3.5 text-[#fff] text-[28px] hover:bg-[#fff] hover:text-[#ff0000] hover:cursor-pointer">arrow_right_alt</span>
+                                <h5 className="text-[#fff] font-[700] text-[1.8rem] ">Best fitness gallery</h5>
+                                <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
+                            </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex flex-col gap-7">
-                        <div className="flex flex-col md:flex-row justify-between gap-4">
-                            <img className="w-full lg:w-[357px]" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png" alt="" />
-                            <img className="w-full lg:w-[357px]" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery3.png" alt="" />
+
+                    <div className="w-full lg grid grid-cols-2 grid-rows-2 gap-2">
+                        <div className="group overflow-hidden relative">
+                            <img className="   lg:max-w-[387px] object-cover w-full max-h-[340px] h-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png" alt="" />
+                            <div className=" translate-y-[100%] absolute left-0 top-0 w-full h-full transition duration-300 bg-[#000000b6] flex flex-col  items-center justify-center gap-y-2 group-hover:translate-y-0  ">
+                                <span className="material-symbols-outlined rounded-[50%] bg-[#ff0000] p-3.5 text-[#fff] text-[28px] hover:bg-[#fff] hover:text-[#ff0000] hover:cursor-pointer">arrow_right_alt</span>
+                                <h5 className="text-[#fff] font-[700] text-[1.8rem] ">Best fitness gallery</h5>
+                                <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
+                            </div>
                         </div>
-                        <div className="flex flex-col md:flex-row justify-between gap-4">
-                            <img className="w-full lg:w-[357px]" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery4.png" alt="" />
-                            <img className="w-full lg:w-[357px]" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery5.png" alt="" />
+                        <div className="group overflow-hidden relative">
+                            <img className="   lg:max-w-[387px] object-cover w-full max-h-[340px] h-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery3.png" alt="" />
+                            <div className=" translate-y-[100%] absolute left-0 top-0 w-full h-full transition duration-300 bg-[#000000b6] flex flex-col  items-center justify-center gap-y-2 group-hover:translate-y-0  ">
+                                <span className="material-symbols-outlined rounded-[50%] bg-[#ff0000] p-3.5 text-[#fff] text-[28px] hover:bg-[#fff] hover:text-[#ff0000] hover:cursor-pointer">arrow_right_alt</span>
+                                <h5 className="text-[#fff] font-[700] text-[1.8rem] ">Best fitness gallery</h5>
+                                <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
+                            </div>
                         </div>
-                    </div>
+                        <div className="group overflow-hidden relative">
+                            <img className="   lg:max-w-[387px] object-cover w-full max-h-[340px] h-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery4.png" alt="" />
+                            <div className=" translate-y-[100%] absolute left-0 top-0 w-full h-full transition duration-300 bg-[#000000b6] flex flex-col  items-center justify-center gap-y-2 group-hover:translate-y-0  ">
+                                <span className="material-symbols-outlined rounded-[50%] bg-[#ff0000] p-3.5 text-[#fff] text-[28px] hover:bg-[#fff] hover:text-[#ff0000] hover:cursor-pointer">arrow_right_alt</span>
+                                <h5 className="text-[#fff] font-[700] text-[1.8rem] ">Best fitness gallery</h5>
+                                <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
+                            </div>
+                        </div>
+                        <div className="group overflow-hidden relative">
+                            <img className="   lg:max-w-[387px] object-cover w-full max-h-[340px] h-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery5.png" alt="" />
+                            <div className=" translate-y-[100%] absolute left-0 top-0 w-full h-full transition duration-300 bg-[#000000b6] flex flex-col  items-center justify-center gap-y-2 group-hover:translate-y-0  ">
+                                <span className="material-symbols-outlined rounded-[50%] bg-[#ff0000] p-3.5 text-[#fff] text-[28px] hover:bg-[#fff] hover:text-[#ff0000] hover:cursor-pointer">arrow_right_alt</span>
+                                <h5 className="text-[#fff] font-[700] text-[1.8rem] ">Best fitness gallery</h5>
+                                <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
+                            </div>
+                        </div>
+                      
+                        </div>
                 </div>
             </div>
             <div className="my-10 lg:hidden">
