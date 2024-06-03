@@ -14,4 +14,6 @@ export enum ROUTES {
     ADD_COURSE = "/admin/add-course",
     CATEGORIES = "/admin/categories",
     ADMIN_COURSES = "/admin/courses",
+    USER_DASHBOARD = "/user-dashboard",
+    USER_DASHBOARD_COURSES = "/user-dashboard/courses",
 }

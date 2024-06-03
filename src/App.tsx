@@ -7,6 +7,7 @@ import AddCourse from "./pages/admin-dashboard/add-course"
 import AdminProfile from "./pages/admin-dashboard/admin-profile"
 import Settings from "./pages/admin-dashboard/settings"
 import AdminCourses from "./pages/admin-dashboard/admin-courses"
+import UserDashboard from "./pages/user-dashboard/dashboard"
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           <Route path={ROUTES.PROFILE} element={<AdminProfile />} />
           <Route path={ROUTES.SETTINGS} element={<Settings />} />
           <Route path={ROUTES.ADMIN_COURSES} element={<AdminCourses />} />
+        </Route>
+        <Route path={ROUTES.USER_DASHBOARD} element={<UserDashboard />}>
+          <Route path={ROUTES.USER_DASHBOARD_COURSES} element={<div>oiugher</div>} />
         </Route>
       </Routes>
     </>
