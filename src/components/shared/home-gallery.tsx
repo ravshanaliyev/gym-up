@@ -3,7 +3,7 @@ const HomeGallery = () => {
     return (
         <>
             <div className="my-10 hidden lg:block">
-                <div className="w-full h-[700px]   lg:grid grid-cols-2 gap-1 my-6">
+                <div className="w-full h-[700px]   lg:grid grid-cols-2  gap-1 my-6">
                     <div className="max-w-[650px] h-[580px] lg:mb-0 group overflow-hidden relative">
                         <img className="w-full h-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery1.png" alt="" />
                         <div className=" translate-y-[100%] absolute left-0 top-0 w-full h-full transition duration-300 bg-[#000000b6] flex flex-col  items-center justify-center gap-y-2 group-hover:translate-y-0  ">
