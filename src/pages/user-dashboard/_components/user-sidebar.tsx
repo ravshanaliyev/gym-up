@@ -28,41 +28,41 @@ const sidebarLinks = [
     {
         label: "Jumping Jacks",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
     {
         label: "Abdominal Crunches",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
     {
         label: "Russian Twists",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
     {
         label: "Mountain Climbers",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
     {
         label: "Plank",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
     {
         label: "Heel Touch",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
     {
         label: "Leg Lifts",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
     {
         label: "Arm Raises",
         icon: CirclePlay,
-        path: "/user/dashboard",
+        path: "/user-dashboard",
     },
 ];

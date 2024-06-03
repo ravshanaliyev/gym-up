@@ -1,2 +1,1 @@
-import UserDashboard from "./dashboard";
 
