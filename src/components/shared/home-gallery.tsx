@@ -7,10 +7,10 @@ const HomeGallery = () => {
                     <div className="max-w-[650px] h-[580px] lg:mb-0 group overflow-hidden relative">
                         <img className="w-full h-full" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery1.png" alt="" />
                         <div className=" translate-y-[100%] absolute left-0 top-0 w-full h-full transition duration-300 bg-[#000000b6] flex flex-col  items-center justify-center gap-y-2 group-hover:translate-y-0  ">
-                                <span className="material-symbols-outlined rounded-[50%] bg-[#ff0000] p-3.5 text-[#fff] text-[28px] hover:bg-[#fff] hover:text-[#ff0000] hover:cursor-pointer">arrow_right_alt</span>
-                                <h5 className="text-[#fff] font-[700] text-[1.8rem] ">Best fitness gallery</h5>
-                                <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
-                            </div>
+                            <span className="material-symbols-outlined rounded-[50%] bg-[#ff0000] p-3.5 text-[#fff] text-[28px] hover:bg-[#fff] hover:text-[#ff0000] hover:cursor-pointer">arrow_right_alt</span>
+                            <h5 className="text-[#fff] font-[700] text-[1.8rem] ">Best fitness gallery</h5>
+                            <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
+                        </div>
                     </div>
 
                     <div className="w-full lg grid grid-cols-2 grid-rows-2 gap-2">
@@ -46,8 +46,8 @@ const HomeGallery = () => {
                                 <p className="text-[#fff] text-[15px] font-[600]">Fitness, Body</p>
                             </div>
                         </div>
-                      
-                        </div>
+
+                    </div>
                 </div>
             </div>
             <div className="my-10 lg:hidden">

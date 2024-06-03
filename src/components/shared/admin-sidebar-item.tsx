@@ -1,9 +1,8 @@
 import { cn } from "@/lib/utils";
 import { useLocation } from "react-router-dom";
 
-const AdminSidebarItem = ({ icon: Icon, label, path }: any) => {
+const AdminSidebarItem = ({ icon: Icon, label, path }: { icon: any, label: string, path: string }) => {
     const { pathname } = useLocation()
-
     const isActive = pathname === path;
     return (
         <div
