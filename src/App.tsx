@@ -7,9 +7,13 @@ import AddCourse from "./pages/admin-dashboard/add-course"
 import AdminProfile from "./pages/admin-dashboard/admin-profile"
 import Settings from "./pages/admin-dashboard/settings"
 import AdminCourses from "./pages/admin-dashboard/admin-courses"
+
 import CourseVideos from "./pages/admin-dashboard/course-videos/CourseVideos"
 import SingleCourse from "./pages/SingleCourse"
 import Auth from "./pages/auth/Auth"
+
+import UserDashboard from "./pages/user-dashboard/dashboard"
+
 
 function App() {
   return (
@@ -33,8 +37,10 @@ function App() {
           <Route path={ROUTES.ADMIN_COURSE_SINGLE} element={<CourseVideos/>}/>
         </Route>
 
-    {/* AUTH */}
     <Route path="auth" element={<Auth/>}/>
+        <Route path={ROUTES.USER_DASHBOARD} element={<UserDashboard />}>
+          <Route path={ROUTES.USER_DASHBOARD_COURSES} element={<div>oiugher</div>} />
+        </Route>
       </Routes>
     </>
   )

@@ -20,7 +20,7 @@ const AdminHeader = () => {
                         <div className="flex flex-col space-y-6 mt-8">
                             {sidebarLinks.map((link) => (
                                 <Link to={link.path} key={link.path}>
-                                    <AdminSidebarItem  label={link.label} path={link.path} />
+                                    <AdminSidebarItem icon={link.icon} label={link.label} path={link.path} />
                                 </Link>
                             ))}
                         </div>
