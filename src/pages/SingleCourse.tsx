@@ -1,19 +1,19 @@
 import { VideoType } from '@/@types/types'
 import Navbar from '@/components/shared/navbar'
 import { useGetCourseVideos } from '@/service/query/useGetCourseVideos'
-import { ChangeEvent, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { ChangeEvent, useEffect,  useLayoutEffect,  useState } from 'react'
+import { useLocation,  useNavigate,  useParams } from 'react-router-dom'
 
 const SingleCourse = () => {
 
     const { id } = useParams<string>()
+    const navigate = useNavigate()
+    const {pathname} = useLocation()
     const { data: CourseVideos } = useGetCourseVideos(id)
+    
 
     const [searchValue, setSearchValue] = useState<string>("")
     const [searchedData, setSearchedData] = useState<VideoType[]>([])
-    console.log(searchedData);
-    
-
 
     useEffect(() => {
         if (searchValue.length > 0) {
@@ -26,6 +26,16 @@ const SingleCourse = () => {
     }, [searchValue, CourseVideos?.data])
 
 
+    const token = false
+
+    useLayoutEffect(() => {
+        if(token){
+           return;
+        }
+        else{
+            navigate("/courses")
+        }
+    }, [pathname])
 
     return (
         <div>
@@ -45,7 +55,6 @@ const SingleCourse = () => {
                                     searchedData.map((video: VideoType) =>
                                         <div className='max-w-[390px]' key={video.id}>
                                             <video className='w-full rounded-sm h-[230px]' src={video.attachment.filePath} controls></video>
-                                            {/* <p className='mt-[.6rem] font-[600] text-[17px]'><span className='font-[400]'>teacher:</span> {video.teacher}</p> */}
                                             <h3 className='tracking-[1px] font-[600] text-[18px]'><span className='font-[400]'>title:</span> {video.name}</h3>
                                         </div>
                                     )

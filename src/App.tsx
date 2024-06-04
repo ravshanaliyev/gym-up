@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { ROUTES } from "./lib/routes"
-import { Home, Login, Register, Gallery, Classes, Shop, About } from "./pages"
+import { Home,  Gallery, Classes, Shop, About } from "./pages"
 import Contact from "./pages/contact"
 import AdminDashboard from "./pages/admin-dashboard"
 import AddCourse from "./pages/admin-dashboard/add-course"
@@ -12,7 +12,8 @@ import CourseVideos from "./pages/admin-dashboard/course-videos/CourseVideos"
 import SingleCourse from "./pages/SingleCourse"
 import Auth from "./pages/auth/Auth"
 
-import UserDashboard from "./pages/user-dashboard/dashboard"
+import Register from "./pages/auth/register/Register"
+import Login from "./pages/auth/login/Login"
 
 
 function App() {
@@ -20,8 +21,6 @@ function App() {
     <>
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
-        <Route path={ROUTES.LOGIN} element={<Login />} />
-        <Route path={ROUTES.REGISTER} element={<Register />} />
         <Route path={ROUTES.GALLERY} element={<Gallery />} />
         <Route path={ROUTES.COURSES} element={<Classes />} />
         <Route path={ROUTES.SINGLE_COURSE} element={<SingleCourse/>}/>
@@ -33,14 +32,14 @@ function App() {
           <Route path={ROUTES.ADD_COURSE} element={<AddCourse />} />
           <Route path={ROUTES.PROFILE} element={<AdminProfile />} />
           <Route path={ROUTES.SETTINGS} element={<Settings />} />
-          <Route path={ROUTES.ADMIN_COURSES} element={<AdminCourses />} />
+        <Route path={ROUTES.ADMIN_COURSES} element={<AdminCourses />} />
           <Route path={ROUTES.ADMIN_COURSE_SINGLE} element={<CourseVideos/>}/>
         </Route>
 
-    <Route path="auth" element={<Auth/>}/>
-        <Route path={ROUTES.USER_DASHBOARD} element={<UserDashboard />}>
-          <Route path={ROUTES.USER_DASHBOARD_COURSES} element={<div>oiugher</div>} />
-        </Route>
+    {/* <Route path={ROUTES.AUTH} element={<Auth/>}>
+        <Route path={ROUTES.REGISTER} element={<Register />}/>
+          <Route path={ROUTES.LOGIN} element={<Login/>} />
+        </Route> */}
       </Routes>
     </>
   )
