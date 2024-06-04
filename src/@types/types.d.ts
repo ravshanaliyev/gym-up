@@ -24,3 +24,9 @@ export type VideoType = {
 
 
 
+export interface NewUserType  {
+    firstname: string ,
+    lastname: string,
+    phone: string,
+    password: string
+}

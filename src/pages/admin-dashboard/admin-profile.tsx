@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import User from '../../assets/User.jpg'
 import Background from '../../assets/Bg.jpg'
 import Bg from '@/assets/cover-01.png'
-import User from '@/assets/user-06.png'
 
 const AdminProfile = () => {
     return (
@@ -35,6 +34,7 @@ const AdminProfile = () => {
                 </div>
             </div>
         </div>
+      </div>
     )
 }
 

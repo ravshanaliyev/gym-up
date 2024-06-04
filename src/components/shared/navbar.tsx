@@ -5,7 +5,7 @@ import { IoMdMenu } from "react-icons/io";
 
 const Navbar = () => {
     return (
-        <div className='navbar bg-black py-7 teko'>
+        <div className='navbar bg-black py-4 teko'>
             <div className="container flex items-center justify-between">
                 <Link to={'/'}><img src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" alt="" /></Link>
                 <ul className='hidden lg:flex gap-8 items-center'>

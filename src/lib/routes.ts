@@ -1,7 +1,8 @@
 export enum ROUTES {
     HOME = "/",
-    LOGIN = "/login",
-    REGISTER = "/register",
+    AUTH = "/auth",
+    LOGIN = "login",
+    REGISTER = "register",
     COURSES = "/courses",
     SINGLE_COURSE = "/courses/:id",
     GALLERY = "/gallery",
@@ -15,7 +16,7 @@ export enum ROUTES {
     ADD_COURSE = "/admin/add-course",
     CATEGORIES = "/admin/categories",
     ADMIN_COURSES = "/admin/courses",
-    ADMIN_COURSE_SINGLE = "/admin/courses/:id"
+    ADMIN_COURSE_SINGLE = "/admin/courses/:id",
     USER_DASHBOARD = "/user-dashboard",
     USER_DASHBOARD_COURSES = "/user-dashboard/courses",
 }

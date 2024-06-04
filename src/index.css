@@ -34,6 +34,13 @@
   font-family: 'Barlow', sans-serif;
 }
 
+
+
+.link-active{
+  color: #ff1414;
+  font-weight: 600;
+}
+
 /* .action-btn {
   position: relative;
   display: inline-block;
