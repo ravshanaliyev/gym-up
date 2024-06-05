@@ -35,6 +35,17 @@
 }
 
 
+.MuiOutlinedInput-notchedOutline{
+  border: none !important;
+}
+
+.MuiSelect-select{
+  display: flex !important;
+  column-gap: 6px;
+}
+.MuiList-root{
+  background: black !important;
+}
 
 .link-active{
   color: #ff1414;
@@ -147,3 +158,5 @@
     @apply bg-background text-foreground;
   }
 }
+
+
