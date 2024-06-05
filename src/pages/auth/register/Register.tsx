@@ -3,7 +3,7 @@ import { useRegister } from "@/service/mutation/useRegister";
 import { ChangeEvent, FormEvent, useState } from "react"
 import Login from "../login/Login";
 
-const Register = ({ isLogin, setIsLogin, setIsRegistered }: {isLogin: boolean, setIsLogin: Function, setIsRegistered: Function }) => {
+const Register = ({ isLogin, setIsLogin, setIsRegistered }: { isLogin: boolean, setIsLogin: Function, setIsRegistered: Function }) => {
 
     const [passwordType, setPasswordType] = useState<string>("password")
     const [changeIcon, setChangeIcon] = useState<boolean>(false)
