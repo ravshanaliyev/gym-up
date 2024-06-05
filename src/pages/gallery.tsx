@@ -21,6 +21,8 @@ const Gallery = () => {
 
 
     const ImageData = [Image1, Image2, Image3, Image4, Image5]
+    console.log(ImageData);
+    
 
 
 
@@ -33,7 +35,7 @@ const Gallery = () => {
                 &nbsp;
             </div>
 
-            <marquee >
+            {/* <marquee >
                 <div className="flex items-center justify-center gap-x-[2rem]">
                     {
                         ImageData.map((image, index) =>
@@ -41,7 +43,7 @@ const Gallery = () => {
                         )
                     }
                 </div>
-            </marquee>
+            </marquee> */}
 
             <Footer />
         </div>

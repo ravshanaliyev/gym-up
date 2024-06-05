@@ -1,9 +1,7 @@
 import Register from "./register/Register";
-import Login from "./login/Login";
 import { useEffect, useState } from "react";
 import { Modal } from "@mui/material";
 import Verify from "./verify/Verify";
-import { Outlet } from "react-router-dom";
 
 const Auth = ({ openAuth, setOpenAuth }: { openAuth: boolean, setOpenAuth: Function }) => {
 
