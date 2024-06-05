@@ -3,6 +3,7 @@ import AdminSidebar from "@/components/shared/admin-sidebar";
 import { Outlet } from "react-router-dom";
 
 const AdminDashboard = () => {
+
     return (
         <div className="w-full">
             <div className="block md:flex">

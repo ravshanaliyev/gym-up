@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import User from '../../assets/User.jpg'
 import Background from '../../assets/Bg.jpg'
-import Bg from '@/assets/cover-01.png'
 
 const AdminProfile = () => {
     return (
@@ -14,11 +13,8 @@ const AdminProfile = () => {
             <div className="relative h-full pb-4 lg:h-[600px] my-4 bg-white">
                 <img className="w-full h-[250px] " src={Background} alt="" />
                 <div className="absolute top-3/3 left-1/2 transform backdrop-blur rounded-full p-3 -translate-x-1/2 -translate-y-1/2">
-                    <img className="w-40 backdrop-blur rounded-full" src={User} alt="" />
 
-                <img className="w-full h-[250px]" src={Bg} alt="" />
-                <div className="absolute top-3/3 left-1/2 transform backdrop-blur rounded-full p-3 -translate-x-1/2 -translate-y-1/2">
-                    <img className="w-40 backdrop-blur " src={User} alt="" />
+                    <img className="w-40 backdrop-blur rounded-full" src={User} alt="" />
 
                 </div>
                 <div className="flex flex-col items-center mt-24 w-full lg:w-[700px] mx-auto">
@@ -34,7 +30,6 @@ const AdminProfile = () => {
                 </div>
             </div>
         </div>
-      </div>
     )
 }
 
