@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import User from '../../assets/User.jpg'
 import Background from '../../assets/Bg.jpg'
-import Bg from '@/assets/cover-01.png'
 
 const AdminProfile = () => {
     return (

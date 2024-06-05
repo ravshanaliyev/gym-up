@@ -1,71 +1,13 @@
 import { CourseType } from "@/@types/types"
-import ApiInctance from "@/api"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { useGetCourses } from "@/service/query/useGetCourses"
 import { Eye, Pencil, Trash2 } from "lucide-react"
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
-
-const invoices = [
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-]
-
 const AdminCourses = () => {
-
-    const {data: AllCourses} = useGetCourses()
+    const { data: AllCourses } = useGetCourses()
     console.log(AllCourses);
-    
-
 
     return (
         <div>
@@ -87,22 +29,22 @@ const AdminCourses = () => {
                     </TableHeader>
                     <TableBody>
                         {
-                        AllCourses?.data.map((course: CourseType, index: number) => (
-                            <TableRow key={index}>
-                                <TableCell><Link to={`${course.id}`}><img className="w-24" src={'https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75'} alt="" /></Link></TableCell>
-                                <TableCell><Link to={`${course.id}`}>{course.title}</Link></TableCell>
-                                <TableCell>100$</TableCell>
-                                <TableCell>5</TableCell>
-                                <TableCell>5</TableCell> 
-                                <TableCell>
-                                    <div className="flex gap-2 items-center justify-center">
-                                        <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
-                                        <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
-                                        <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
-                                    </div>
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                            AllCourses?.data.map((course: CourseType, index: number) => (
+                                <TableRow key={index}>
+                                    <TableCell><Link to={`${course.id}`}><img className="w-24" src={'https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75'} alt="" /></Link></TableCell>
+                                    <TableCell><Link to={`${course.id}`}>{course.title}</Link></TableCell>
+                                    <TableCell>100$</TableCell>
+                                    <TableCell>5</TableCell>
+                                    <TableCell>5</TableCell>
+                                    <TableCell>
+                                        <div className="flex gap-2 items-center justify-center">
+                                            <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
+                                            <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
+                                            <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
+                                        </div>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </div>
