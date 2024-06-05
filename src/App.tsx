@@ -10,11 +10,6 @@ import AdminCourses from "./pages/admin-dashboard/admin-courses"
 
 import CourseVideos from "./pages/admin-dashboard/course-videos/CourseVideos"
 import SingleCourse from "./pages/SingleCourse"
-import Auth from "./pages/auth/Auth"
-
-import Register from "./pages/auth/register/Register"
-import Login from "./pages/auth/login/Login"
-
 
 function App() {
   return (
@@ -35,11 +30,6 @@ function App() {
         <Route path={ROUTES.ADMIN_COURSES} element={<AdminCourses />} />
           <Route path={ROUTES.ADMIN_COURSE_SINGLE} element={<CourseVideos/>}/>
         </Route>
-
-    {/* <Route path={ROUTES.AUTH} element={<Auth/>}>
-        <Route path={ROUTES.REGISTER} element={<Register />}/>
-          <Route path={ROUTES.LOGIN} element={<Login/>} />
-        </Route> */}
       </Routes>
     </>
   )

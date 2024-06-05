@@ -1,64 +1,11 @@
 import { CourseType } from "@/@types/types"
-import ApiInctance from "@/api"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { useGetCourses } from "@/service/query/useGetCourses"
 import { Eye, Pencil, Trash2 } from "lucide-react"
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 
-const invoices = [
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-    {
-        img: "https://sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fa8573b7c-95b2-4459-8414-8eacde874b0a-kilwdl.png&w=1920&q=75",
-        title: 'React Bootcamp',
-        price: "$250.00",
-        totalLessons: "10",
-        totalSold: "5",
-    },
-]
 
 const AdminCourses = () => {
 

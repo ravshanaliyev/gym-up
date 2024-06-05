@@ -1,0 +1,11 @@
+{
+    "navbar": {
+        "home": "HOME",
+        "about": "ABOUT US",
+        "course": "COURSES",
+        "gallery": "GALLERY",
+        "shop": "SHOP",
+        "contact": "CONTACT",
+        "become": "BECOME A MEMBER"
+    }
+}
