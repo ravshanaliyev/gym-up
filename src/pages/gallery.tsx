@@ -33,7 +33,7 @@ const Gallery = () => {
                 &nbsp;
             </div>
 
-            <marquee >
+            {/* <marquee >
                 <div className="flex items-center justify-center gap-x-[2rem]">
                     {
                         ImageData.map((image, index) =>
@@ -41,7 +41,7 @@ const Gallery = () => {
                         )
                     }
                 </div>
-            </marquee>
+            </marquee> */}
 
             <Footer />
         </div>
