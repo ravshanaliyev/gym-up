@@ -21,6 +21,8 @@ const Gallery = () => {
 
 
     const ImageData = [Image1, Image2, Image3, Image4, Image5]
+    console.log(ImageData);
+    
 
 
 
