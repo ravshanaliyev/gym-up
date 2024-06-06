@@ -3,7 +3,7 @@ import Navbar from '@/components/shared/navbar'
 import { useGetCourseVideos } from '@/service/query/useGetCourseVideos'
 import { ChangeEvent, useEffect,  useLayoutEffect,  useState } from 'react'
 import { useLocation,  useNavigate,  useParams } from 'react-router-dom'
-
+import Videos from '../assets/Todo.mp4'
 const SingleCourse = () => {
 
     const { id } = useParams<string>()
@@ -14,6 +14,9 @@ const SingleCourse = () => {
 
     const [searchValue, setSearchValue] = useState<string>("")
     const [searchedData, setSearchedData] = useState<VideoType[]>([])
+
+    console.log(searchedData);
+    
 
     useEffect(() => {
         if (searchValue.length > 0) {
@@ -54,7 +57,7 @@ const SingleCourse = () => {
                                 {
                                     searchedData.map((video: VideoType) =>
                                         <div className='max-w-[390px]' key={video.id}>
-                                            <video className='w-full rounded-sm h-[230px]' src={video.attachment.filePath} controls></video>
+                                            <video className='w-full rounded-sm h-[230px]' src={Videos} controls></video>
                                             <h3 className='tracking-[1px] font-[600] text-[18px]'><span className='font-[400]'>title:</span> {video.name}</h3>
                                         </div>
                                     )
