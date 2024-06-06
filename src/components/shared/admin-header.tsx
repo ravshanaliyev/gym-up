@@ -16,7 +16,7 @@ const AdminHeader = () => {
                         <SquareMenu className='cursor-pointer block lg:hidden' />
                     </SheetTrigger>
                     <SheetContent side={'left'} className='bg-[#1c2434] text-white'>
-                         <h3 className="text-white text-center text-xl barlow font-semibold">Gym Up Admin</h3>
+                        <h3 className="text-white text-center text-xl barlow font-semibold">Gym Up Admin</h3>
                         <div className="flex flex-col space-y-6 mt-8">
                             {sidebarLinks.map((link) => (
                                 <Link to={link.path} key={link.path}>
@@ -27,7 +27,8 @@ const AdminHeader = () => {
                     </SheetContent>
                 </Sheet>
             </div>
-            <Input className='hidden md:block md:w-[300px] text-base' placeholder='Type To Search' />
+            {/* <Input className='hidden md:block md:w-[300px] text-base' placeholder='Type To Search' /> */}
+            <div></div>
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <div className="flex items-center gap-2 cursor-pointer">

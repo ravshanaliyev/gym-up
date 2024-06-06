@@ -1,4 +1,4 @@
-import { BadgePlus, Settings, Computer, UserRound } from "lucide-react";
+import { BadgePlus, Settings, Computer, UserRound, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import AdminSidebarItem from "./admin-sidebar-item";
 
@@ -30,6 +30,11 @@ const sidebarLinks = [
         label: "Add Course",
         icon: BadgePlus,
         path: "/admin/add-course",
+    },
+    {
+        label: "Users",
+        icon: Users,
+        path: "/admin/users",
     },
     {
         label: "Profile",
