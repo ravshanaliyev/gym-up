@@ -9,9 +9,11 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { useToast } from "@/components/ui/use-toast"
 import { useCreateCourse } from "@/service/mutation/useCreateCourse"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
 import { z } from "zod"
 
 const formSchema = z.object({
@@ -27,6 +29,7 @@ const formSchema = z.object({
 
 
 const AddCourse = () => {
+    const { toast } = useToast()
     const { mutate } = useCreateCourse()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -40,9 +43,18 @@ const AddCourse = () => {
         mutate(values, {
             onSuccess: (res) => {
                 console.log(res);
+                toast({
+                    title: "Course added successfully",
+                    description: "You can add more courses",
+                    action: <Link to="/admin/courses"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white text-[12px] py-1 px-3" >View Courses</Button></Link>,
+                })
             },
             onError: (error) => {
                 console.log(error);
+                toast({
+                    title: "There was an error",
+                    description: error.message,
+                })
             }
         })
     }
