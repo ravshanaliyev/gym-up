@@ -12,11 +12,9 @@ import { useState } from "react"
 const AdminGallery = () => {
     const { data } = useGetGallery()
     const { register, handleSubmit } = useForm()
-    console.log(data);
-
     const { mutate } = useCreateImage()
     const [image, setImage] = useState(null)
-    console.log(image);
+    const [search, setSearch] = useState("")
 
     function onSubmit(values: any) {
         const formData = new FormData()
@@ -34,10 +32,13 @@ const AdminGallery = () => {
             }
         })
     }
+    const filteredData = data?.data?.data?.filter((course: any) => {
+        return course.name.toLowerCase().includes(search.toLowerCase())
+    })
     return (
         <div>
             <div className="flex items-center justify-between py-3 border-b-2">
-                <Input className="max-w-[400px] h-[40px]" placeholder="Search Image" />
+                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Image" />
                 <Dialog>
                     <DialogTrigger asChild>
                         <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add Image</Button>
@@ -61,63 +62,13 @@ const AdminGallery = () => {
                             </div>
                             <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
                         </form>
-                        {/* <Form >
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <DialogHeader>
-                                    <DialogTitle className="text-center my-2">Create Image</DialogTitle>
-                                </DialogHeader>
-                                <div className="grid gap-4 py-4">
-                                    <FormField
-                                        {...register("name")}
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Name</FormLabel>
-                                                <FormControl>
-                                                    <Input className="text-base" placeholder="" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="description"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Description</FormLabel>
-                                                <FormControl>
-                                                    <Input className="text-base" placeholder="" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="image"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Image</FormLabel>
-                                                <FormControl>
-                                                    <Input type="file" className="text-base" placeholder="" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                </div>
-                                <DialogFooter>
-                                    <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Save changes</Button>
-                                </DialogFooter>
-                            </form>
-                        </Form> */}
                     </DialogContent>
                 </Dialog>
             </div>
 
             <div className="grid grid-cols-4 gap-4">
                 {
-                    data?.data?.data?.map((item: any) => (
+                    filteredData?.map((item: any) => (
                         <div key={item.id}>
                             <img src={item?.attachment?.fileName} alt="" />
                         </div>

@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form"
 import { useCreateUser } from "@/service/mutation/useCreateUser"
 import { client } from "@/service/QueryClient"
+import { useState } from "react"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Title must be at least 2 characters.",
@@ -31,8 +32,7 @@ const formSchema = z.object({
 
 const AdminUsers = () => {
     const { data } = useGetUsers()
-    console.log(data);
-
+    const [search, setSearch] = useState("")
     const { mutate } = useCreateUser()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -54,10 +54,13 @@ const AdminUsers = () => {
             }
         })
     }
+    const filteredData = data?.data?.filter((course: any) => {
+        return course.firstname.toLowerCase().includes(search.toLowerCase())
+    })
     return (
         <div>
             <div className="flex items-center justify-between py-3 border-b-2">
-                <Input className="max-w-[400px] h-[40px]" placeholder="Search User" />
+                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search User" />
                 <Dialog>
                     <DialogTrigger asChild>
                         <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add User</Button>
@@ -143,7 +146,7 @@ const AdminUsers = () => {
                     </TableHeader>
                     <TableBody>
                         {
-                            data?.data.map((course: any, index: number) => (
+                            filteredData?.map((course: any, index: number) => (
                                 <TableRow key={index}>
                                     <TableCell>{course?.firstname}</TableCell>
                                     <TableCell><Link to={`${course.id}`}>{course?.lastname}</Link></TableCell>

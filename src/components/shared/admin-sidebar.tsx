@@ -27,11 +27,6 @@ const sidebarLinks = [
         path: "/admin/courses",
     },
     {
-        label: "Add Course",
-        icon: BadgePlus,
-        path: "/admin/add-course",
-    },
-    {
         label: "Users",
         icon: Users,
         path: "/admin/users",
