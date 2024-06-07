@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { useCreateVideo } from "@/service/mutation/useCreateVideo";
-import { useForm } from "react-hook-form"
-
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 

@@ -4,12 +4,12 @@ import { VideoType } from "@/@types/types";
 
 const VideoCard = ({ video }: { video: VideoType }) => {
   const { id } = useParams()
-  console.log(id);
+  console.log(`http://45.138.158.207:8080/videos${video?.attachment?.filePath}`);
 
   return (
-    <div className="bg-white max-w-[350px] border shadow-sm">
-      <video className="h-[280px] rounded-t-lg" autoPlay muted loop controls >
-        <source src={video?.attachment?.filePath} />
+    <div className="bg-white max-w-[320px] w-full border shadow-sm">
+      <video className="h-[280px] max-w-[350px] w-full rounded-t-lg" autoPlay muted loop controls >
+        <source className="max-w-[350px] w-full" src={`http://45.138.158.207:8080/videos/${video?.attachment?.fileName}`} />
       </video>
       <div className="p-2">
         <h3 className="text-[#1c2434] font-[600] text-[18px] mt-2">{video.name}</h3>

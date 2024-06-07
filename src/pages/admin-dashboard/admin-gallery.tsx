@@ -7,14 +7,17 @@ import { useGetGallery } from "@/service/query/useGetGallery"
 import { useCreateImage } from "@/service/mutation/useCreateImage"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
+import { useDeleteImage } from "@/service/mutation/useDeleteImage"
 
 
 const AdminGallery = () => {
     const { data } = useGetGallery()
     const { register, handleSubmit } = useForm()
     const { mutate } = useCreateImage()
+    const { mutate: deleteImage } = useDeleteImage()
     const [image, setImage] = useState(null)
     const [search, setSearch] = useState("")
+    console.log(data);
 
     function onSubmit(values: any) {
         const formData = new FormData()
@@ -35,6 +38,18 @@ const AdminGallery = () => {
     const filteredData = data?.data?.data?.filter((course: any) => {
         return course.name.toLowerCase().includes(search.toLowerCase())
     })
+
+    const deleteImg = (id: number) => {
+        deleteImage(id, {
+            onSuccess: (res) => {
+                console.log(res);
+                client.invalidateQueries({ queryKey: ['get-gallery'] })
+            },
+            onError: (error) => {
+                console.log(error);
+            }
+        })
+    }
     return (
         <div>
             <div className="flex items-center justify-between py-3 border-b-2">
@@ -66,11 +81,16 @@ const AdminGallery = () => {
                 </Dialog>
             </div>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6">
                 {
                     filteredData?.map((item: any) => (
-                        <div key={item.id}>
-                            <img src={item?.attachment?.fileName} alt="" />
+                        <div key={item.id} className="border rounded-xl">
+                            <img className="w-full h-[220px] object-cover rounded-t-xl" src={`http://45.138.158.207:8080/images/${item?.attachment?.fileName}`} alt="" />
+                            <div className="flex flex-col p-2">
+                                <h3 className="text-lg">{item.name}</h3>
+                                <h3 className="text-sm my-2">{item.description}</h3>
+                                <Button onClick={() => deleteImg(item.id)}>Delete</Button>
+                            </div>
                         </div>
                     ))
                 }

@@ -19,6 +19,7 @@ import {
 import { useCreateUser } from "@/service/mutation/useCreateUser"
 import { client } from "@/service/QueryClient"
 import { useState } from "react"
+import { useDeleteUser } from "@/service/mutation/useDeleteUser"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Title must be at least 2 characters.",
@@ -34,6 +35,7 @@ const AdminUsers = () => {
     const { data } = useGetUsers()
     const [search, setSearch] = useState("")
     const { mutate } = useCreateUser()
+    const { mutate: delUser } = useDeleteUser()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -57,6 +59,18 @@ const AdminUsers = () => {
     const filteredData = data?.data?.filter((course: any) => {
         return course.firstname.toLowerCase().includes(search.toLowerCase())
     })
+
+    const handleDelUser = (id: number) => {
+        delUser(id, {
+            onSuccess: (res) => {
+                console.log(res);
+                client.invalidateQueries({ queryKey: ['get-users'] })
+            },
+            onError: (error) => {
+                console.log(error);
+            }
+        })
+    }
     return (
         <div>
             <div className="flex items-center justify-between py-3 border-b-2">
@@ -156,7 +170,7 @@ const AdminUsers = () => {
                                         <div className="flex gap-2 items-center justify-center">
                                             <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
                                             <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
-                                            <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
+                                            <Button onClick={() => handleDelUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
                                         </div>
                                     </TableCell>
                                 </TableRow>
