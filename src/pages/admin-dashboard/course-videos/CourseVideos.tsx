@@ -3,10 +3,9 @@ import { useGetCourseVideos } from "@/service/query/useGetCourseVideos";
 import VideoCard from "@/utils/VideoCard";
 import { useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { useCreateVideo } from "@/service/mutation/useCreateVideo";
-import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
 import { useState } from "react";

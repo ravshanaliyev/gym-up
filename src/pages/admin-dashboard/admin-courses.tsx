@@ -1,5 +1,4 @@
 import { CourseType } from "@/@types/types"
-import LoaderSimple from "@/components/shared/loader"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { client } from "@/service/QueryClient"
@@ -10,7 +9,7 @@ import { Link } from "react-router-dom"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
 
 const AdminCourses = () => {
-    const { data: AllCourses, isLoading } = useGetCourses()
+    const { data: AllCourses } = useGetCourses()
     console.log(AllCourses);
     const { mutate } = useDeleteCourse()
     const deleteCourse = (id: number) => {
