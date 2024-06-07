@@ -1,4 +1,4 @@
-import { BadgePlus, Settings, Computer, UserRound, Users } from "lucide-react";
+import { BadgePlus, Settings, Computer, UserRound, Users, Images } from "lucide-react";
 import { Link } from "react-router-dom";
 import AdminSidebarItem from "./admin-sidebar-item";
 
@@ -35,6 +35,11 @@ const sidebarLinks = [
         label: "Users",
         icon: Users,
         path: "/admin/users",
+    },
+    {
+        label: "Gallery",
+        icon: Images,
+        path: "/admin/gallery",
     },
     {
         label: "Profile",

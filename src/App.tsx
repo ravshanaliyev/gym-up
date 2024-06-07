@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { ROUTES } from "./lib/routes"
-import { Home, Gallery, Classes, Shop, About, SingleCourse, AdminDashboard, AddCourse, AdminProfile, Contact, Settings, AdminCourses, CourseVideos, AdminUsers } from "./pages"
+import { Home, Gallery, Classes, Shop, About, SingleCourse, AdminDashboard, AddCourse, AdminProfile, Contact, Settings, AdminCourses, CourseVideos, AdminUsers, AdminGallery } from "./pages"
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path={ROUTES.ADMIN_COURSES} element={<AdminCourses />} />
           <Route path={ROUTES.ADMIN_COURSE_SINGLE} element={<CourseVideos />} />
           <Route path={ROUTES.ADMIN_USERS} element={<AdminUsers />} />
+          <Route path={ROUTES.ADMIN_GALLERY} element={<AdminGallery />} />
         </Route>
       </Routes>
     </>

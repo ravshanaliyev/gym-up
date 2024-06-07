@@ -12,6 +12,6 @@ import AdminCourses from "./admin-dashboard/admin-courses";
 import CourseVideos from "./admin-dashboard/course-videos/CourseVideos";
 import SingleCourse from "./SingleCourse";
 import Settings from "./admin-dashboard/settings";
+import AdminGallery from "./admin-dashboard/admin-gallery";
 
-
-export { About, Classes, Gallery, Home, Shop, AdminUsers, Contact, AdminDashboard, AddCourse, AdminProfile, Settings, AdminCourses, CourseVideos, SingleCourse }
+export { About, Classes, Gallery, Home, Shop, AdminUsers, Contact, AdminDashboard, AddCourse, AdminProfile, Settings, AdminCourses, CourseVideos, SingleCourse, AdminGallery }

@@ -4,7 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "
 import { useGetUsers } from "@/service/query/useGetUsers"
 import { Eye, Pencil, Trash2 } from "lucide-react"
 import { Link } from "react-router-dom"
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -17,6 +17,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { useCreateUser } from "@/service/mutation/useCreateUser"
+import { client } from "@/service/QueryClient"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Title must be at least 2 characters.",
@@ -46,6 +47,7 @@ const AdminUsers = () => {
         mutate(values, {
             onSuccess: (res) => {
                 console.log(res);
+                client.invalidateQueries({ queryKey: ['get-users'] })
             },
             onError: (error) => {
                 console.log(error);
@@ -135,6 +137,7 @@ const AdminUsers = () => {
                             <TableHead>First Name</TableHead>
                             <TableHead>Last Name</TableHead>
                             <TableHead>Phone No</TableHead>
+                            <TableHead>Payed</TableHead>
                             <TableHead className="text-center">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -142,9 +145,10 @@ const AdminUsers = () => {
                         {
                             data?.data.map((course: any, index: number) => (
                                 <TableRow key={index}>
-                                    <TableCell>{course?.first_name}</TableCell>
-                                    <TableCell><Link to={`${course.id}`}>{course?.last_name}</Link></TableCell>
+                                    <TableCell>{course?.firstname}</TableCell>
+                                    <TableCell><Link to={`${course.id}`}>{course?.lastname}</Link></TableCell>
                                     <TableCell>{course?.phone}</TableCell>
+                                    <TableCell>{course?.isPayed ? "Yes" : "No"}</TableCell>
                                     <TableCell>
                                         <div className="flex gap-2 items-center justify-center">
                                             <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
