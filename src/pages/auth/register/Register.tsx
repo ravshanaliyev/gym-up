@@ -1,7 +1,6 @@
 import { NewUserType } from "@/@types/types";
 import { useRegister } from "@/service/mutation/useRegister";
 import { ChangeEvent, FormEvent, useState } from "react"
-import Login from "../login/Login";
 import { Link } from "react-router-dom";
 
 const Register = () => {

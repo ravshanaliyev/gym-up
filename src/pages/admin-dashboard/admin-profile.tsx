@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import User from '../../assets/User.jpg'
 import Background from '../../assets/Bg.jpg'
-import { useEffect } from "react"
 
 const AdminProfile = () => {
 
