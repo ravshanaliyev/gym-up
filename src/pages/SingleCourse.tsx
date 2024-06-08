@@ -4,6 +4,7 @@ import { useGetCourseVideos } from '@/service/query/useGetCourseVideos'
 import { ChangeEvent, useEffect,  useLayoutEffect,  useState } from 'react'
 import { useLocation,  useNavigate,  useParams } from 'react-router-dom'
 import Videos from '../assets/Todo.mp4'
+
 const SingleCourse = () => {
 
     const { id } = useParams<string>()
@@ -11,12 +12,8 @@ const SingleCourse = () => {
     const {pathname} = useLocation()
     const { data: CourseVideos } = useGetCourseVideos(id)
     
-
     const [searchValue, setSearchValue] = useState<string>("")
-    const [searchedData, setSearchedData] = useState<VideoType[]>([])
-
-    console.log(searchedData);
-    
+    const [searchedData, setSearchedData] = useState<VideoType[]>([])    
 
     useEffect(() => {
         if (searchValue.length > 0) {
@@ -29,7 +26,7 @@ const SingleCourse = () => {
     }, [searchValue, CourseVideos?.data])
 
 
-    const token = false
+    const token = localStorage.getItem("token")
 
     useLayoutEffect(() => {
         if(token){

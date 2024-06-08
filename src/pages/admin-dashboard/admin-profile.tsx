@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import User from '../../assets/User.jpg'
 import Background from '../../assets/Bg.jpg'
+import { useEffect } from "react"
 
 const AdminProfile = () => {
+
+  
     return (
         <div>
             <div className="flex justify-between items-center">

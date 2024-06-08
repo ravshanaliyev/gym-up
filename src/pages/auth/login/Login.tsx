@@ -1,7 +1,8 @@
 import { useLogin } from "@/service/mutation/useLogin";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Login = ({setIsLogin}: {setIsLogin: Function}) => {
+const Login = () => {
     const [passwordType, setPasswordType] = useState<string>("password")
     const [number, setNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
@@ -40,7 +41,7 @@ const Login = ({setIsLogin}: {setIsLogin: Function}) => {
                 <span onClick={handleShowPassword} className="material-symbols-outlined absolute right-[2%] top-[60%] text-[20px] text-[#464545]">{changeIcon ? "visibility_off" : "visibility"}</span>
             </label>
             <button type="submit" className="w-full mt-5 transition duration-[0.2s] bg-[#1752e0] rounded-[6px] text-[#fff]  text-[18px] font-[400] py-[5px] hover:bg-[#366ef3]">Login</button>
-            <button onClick={() => setIsLogin(false)} type="button"  className="mt-3 text-center inline-block font-[400] text-[#1752e0] m-auto hover:underline" >If you don't exist an account ? Register</button>
+            <Link to={"/auth/register"}  className="mt-3 text-center inline-block font-[400] text-[#1752e0] m-auto hover:underline" >If you don't exist an account ? Register</Link>
         </form>
     </div>
   )
