@@ -1,4 +1,4 @@
-import { BadgePlus, Settings, Computer, UserRound, Users, Images } from "lucide-react";
+import {  Settings, Computer, UserRound, Users, Images } from "lucide-react";
 import { Link } from "react-router-dom";
 import AdminSidebarItem from "./admin-sidebar-item";
 

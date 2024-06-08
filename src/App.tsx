@@ -1,6 +1,10 @@
 import { Route, Routes } from "react-router-dom"
 import { ROUTES } from "./lib/routes"
-import { Home, Gallery, Classes, Shop, About } from "./pages"
+import Gallery from "./pages/gallery"
+import Home from "./pages/home"
+import { AdminGallery, AdminUsers, Classes } from "./pages"
+import Shop from "./pages/shop"
+import About from "./pages/about"
 import Contact from "./pages/contact"
 import AdminDashboard from "./pages/admin-dashboard"
 import AddCourse from "./pages/admin-dashboard/add-course"
@@ -13,7 +17,6 @@ import Auth from "./pages/auth/Auth"
 import Register from "./pages/auth/register/Register"
 import Login from "./pages/auth/login/Login"
 
-import { Home, Gallery, Classes, Shop, About, SingleCourse, AdminDashboard, AddCourse, AdminProfile, Contact, Settings, AdminCourses, CourseVideos, AdminUsers, AdminGallery } from "./pages"
 
 function App() {
   return (
