@@ -1,9 +1,7 @@
-import { useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button";
 import { VideoType } from "@/@types/types";
 
 const VideoCard = ({ video }: { video: VideoType }) => {
-  const { id } = useParams()
   console.log(`http://45.138.158.207:8080/videos${video?.attachment?.filePath}`);
 
   return (
