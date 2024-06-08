@@ -1,30 +1,35 @@
-import Register from "./register/Register";
-import { useEffect, useState } from "react";
-import { Modal } from "@mui/material";
-import Verify from "./verify/Verify";
-
-const Auth = ({ openAuth, setOpenAuth }: { openAuth: boolean, setOpenAuth: Function }) => {
+import {  useLayoutEffect } from "react";
+import {  Outlet, useNavigate, useParams } from "react-router-dom";
 
 
-  const [isLogin, setIsLogin] = useState<boolean>(false)
-  const [isRegistered, setIsRegistered] = useState<boolean>(false)
+const Auth = () => {
 
-  useEffect(() => {
-    openAuth ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
-  }, [openAuth])
+  const token = localStorage.getItem("token")
+
+  const {pathname} = useParams()
+  const navigate = useNavigate()
+
+  useLayoutEffect(() => {
+    if(token){
+        navigate("/")
+    }
+    else{
+      navigate("/auth/login")
+    }
+  }, [pathname])
+
+
+
+
+
+
 
   return (
-    <Modal className=" flex justify-center items-center" aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description"
-      open={openAuth}
-      onClose={() => setOpenAuth(false)}
-    >
-      <div className="relative max-w-[500px] text-center w-full bg-[#fff] rounded-[6px] p-[1.4rem] ">
-        <span onClick={() => setOpenAuth(false)} className="material-symbols-outlined absolute right-3 top-3 cursor-pointer">close</span>
-        {
-          isRegistered ? <Verify /> : <Register setIsRegistered={setIsRegistered} isLogin={isLogin} setIsLogin={setIsLogin} />
-        }
+    <div className="auth-overlay">
+      <div className= "flex auth-card backdrop-filter backdrop-brightness-100 bg-black max-w-[500px] w-full  shadow-[0_0_3px_#000]  rounded-[6px] p-4 m-auto mt-[4rem]">
+        <Outlet />
       </div>
-    </Modal>
+    </div>
   )
 }
 
