@@ -3,62 +3,30 @@ import { useGetCourseVideos } from "@/service/query/useGetCourseVideos";
 import VideoCard from "@/utils/VideoCard";
 import { useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { useCreateVideo } from "@/service/mutation/useCreateVideo";
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
-
-const formSchema = z.object({
-    name: z.string().min(2, {
-        message: "Title must be at least 2 characters.",
-    }),
-
-    description: z.string().min(2, {
-        message: "Description must be at least 2 characters.",
-    }),
-
-    video: z.any(),
-
-    courseId: z.string(),
-
-    teacher: z.string(),
-})
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { Label } from "@/components/ui/label";
 
 
 const CourseVideos = () => {
+    const { register, handleSubmit } = useForm()
     const { id } = useParams()
-
+    const [video, setVideo] = useState<VideoType | null>(null)
     const { data } = useGetCourseVideos(id)
     const { mutate } = useCreateVideo()
     console.log(data?.data?.data);
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            name: "",
-            description: "",
-            courseId: id!,
-            teacher: "",
-        },
-    })
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        const formData = new FormData()
-        formData.append("name", values.name)
-        formData.append("description", values.description)
-        formData.append("video", values.video)
-        formData.append("courseId", values.courseId)
-        formData.append("teacher", values.teacher)
 
+    function onSubmit(values: any) {
+        const formData = new FormData()
+        formData.append("Name", values.name)
+        formData.append("Description", values.description)
+        formData.append("Video", video as any)
+        formData.append("CourseId", id as any)
+        formData.append("Teacher", values.teacher)
         mutate(formData, {
             onSuccess: (res) => {
                 console.log(res);
@@ -77,77 +45,31 @@ const CourseVideos = () => {
                         <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add Video</Button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)}>
-                                <DialogHeader>
-                                    <DialogTitle>Add Video</DialogTitle>
-                                    <DialogDescription>
-                                        Make changes to your profile here. Click save when you're done.
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <div className="grid gap-4 py-4">
-                                    <FormField
-                                        control={form.control}
-                                        name="name"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel> Title</FormLabel>
-                                                <FormControl>
-                                                    <Input className="text-base" placeholder="example: gym for beginners" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="teacher"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Teacher</FormLabel>
-                                                <FormControl>
-                                                    <Input className="text-base" placeholder="example: gym for beginners" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="description"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Description</FormLabel>
-                                                <FormControl>
-                                                    <Input className="text-base" placeholder="example: gym for beginners" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="video"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>Video</FormLabel>
-                                                <FormControl>
-                                                    <Input type="file" className="text-base" placeholder="example: gym for beginners" {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                </div>
-                                <DialogFooter>
-                                    <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Save changes</Button>
-                                </DialogFooter>
-                            </form>
-                        </Form>
+                        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="name">Name</Label>
+                                <Input type="text" id="name" placeholder="" {...register("name")} />
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="name">Description</Label>
+                                <Input type="text" id="name" placeholder="" {...register("description")} />
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="name">Video</Label>
+                                <Input type="file" id="name" placeholder="" onChange={(e) =>
+                                    // @ts-ignore
+                                    setVideo(e.target.files[0])} />
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="name">Teacher</Label>
+                                <Input type="text" id="name" placeholder="" {...register("teacher")} />
+                            </div>
+                            <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
+                        </form>
                     </DialogContent>
                 </Dialog>
             </div>
-            <div className="w-full grid grid-cols-3 gap-2 mt-10">
+            <div className="w-full grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 place-items-center">
                 {
                     data?.data?.data?.map((video: VideoType) =>
                         <VideoCard video={video} key={video.id} />

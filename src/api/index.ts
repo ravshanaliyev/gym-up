@@ -7,6 +7,7 @@ const ApiInctance: Axios = axios.create({
     headers: {
         "Content-type": "Application/json",
         "Authorization": token && `Bearer ${token}`
+
     }
 })
 

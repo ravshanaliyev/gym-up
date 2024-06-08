@@ -7,12 +7,13 @@ import AddCourse from "./pages/admin-dashboard/add-course"
 import AdminProfile from "./pages/admin-dashboard/admin-profile"
 import Settings from "./pages/admin-dashboard/settings"
 import AdminCourses from "./pages/admin-dashboard/admin-courses"
-
 import CourseVideos from "./pages/admin-dashboard/course-videos/CourseVideos"
 import SingleCourse from "./pages/SingleCourse"
 import Auth from "./pages/auth/Auth"
 import Register from "./pages/auth/register/Register"
 import Login from "./pages/auth/login/Login"
+
+import { Home, Gallery, Classes, Shop, About, SingleCourse, AdminDashboard, AddCourse, AdminProfile, Contact, Settings, AdminCourses, CourseVideos, AdminUsers, AdminGallery } from "./pages"
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           <Route path={ROUTES.SETTINGS} element={<Settings />} />
           <Route path={ROUTES.ADMIN_COURSES} element={<AdminCourses />} />
           <Route path={ROUTES.ADMIN_COURSE_SINGLE} element={<CourseVideos />} />
+
+          <Route path={ROUTES.ADMIN_USERS} element={<AdminUsers />} />
+          <Route path={ROUTES.ADMIN_GALLERY} element={<AdminGallery />} />
         </Route>
 
 
