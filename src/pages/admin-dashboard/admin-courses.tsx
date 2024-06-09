@@ -16,6 +16,7 @@ import { useState } from "react"
 
 const AdminCourses = () => {
     const [search, setSearch] = useState("")
+    const [isOpen, setIsOpen] = useState(false)
     const { register, handleSubmit } = useForm()
     const { data: AllCourses } = useGetCourses()
     const { mutate } = useCreateCourse()
@@ -26,6 +27,7 @@ const AdminCourses = () => {
             onSuccess: (res) => {
                 console.log(res);
                 client.invalidateQueries({ queryKey: ['get-courses'] })
+                setIsOpen(false)
             },
             onError: (error) => {
                 console.log(error);
@@ -52,7 +54,7 @@ const AdminCourses = () => {
             <div>
                 <div className="flex justify-between items-center">
                     <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Course" />
-                    <Dialog>
+                    <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger>
                             <Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white">Add Course</Button>                        </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">

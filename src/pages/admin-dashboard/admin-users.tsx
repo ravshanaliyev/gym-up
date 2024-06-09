@@ -34,6 +34,7 @@ const formSchema = z.object({
 const AdminUsers = () => {
     const { data } = useGetUsers()
     const [search, setSearch] = useState("")
+    const [isOpen, setIsOpen] = useState(false)
     const { mutate } = useCreateUser()
     const { mutate: delUser } = useDeleteUser()
     const form = useForm<z.infer<typeof formSchema>>({
@@ -50,6 +51,7 @@ const AdminUsers = () => {
             onSuccess: (res) => {
                 console.log(res);
                 client.invalidateQueries({ queryKey: ['get-users'] })
+                setIsOpen(false)
             },
             onError: (error) => {
                 console.log(error);
@@ -75,7 +77,7 @@ const AdminUsers = () => {
         <div>
             <div className="flex items-center justify-between py-3 border-b-2">
                 <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search User" />
-                <Dialog>
+                <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger asChild>
                         <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add User</Button>
                     </DialogTrigger>
