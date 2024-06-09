@@ -4,6 +4,8 @@ import User from '../../assets/User.jpg'
 import Background from '../../assets/Bg.jpg'
 
 const AdminProfile = () => {
+
+  
     return (
         <div>
             <div className="flex justify-between items-center">

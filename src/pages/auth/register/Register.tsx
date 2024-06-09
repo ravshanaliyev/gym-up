@@ -1,9 +1,9 @@
 import { NewUserType } from "@/@types/types";
 import { useRegister } from "@/service/mutation/useRegister";
 import { ChangeEvent, FormEvent, useState } from "react"
-import Login from "../login/Login";
+import { Link } from "react-router-dom";
 
-const Register = ({ isLogin, setIsLogin, setIsRegistered }: { isLogin: boolean, setIsLogin: Function, setIsRegistered: Function }) => {
+const Register = () => {
 
     const [passwordType, setPasswordType] = useState<string>("password")
     const [changeIcon, setChangeIcon] = useState<boolean>(false)
@@ -29,7 +29,6 @@ const Register = ({ isLogin, setIsLogin, setIsRegistered }: { isLogin: boolean, 
             onSuccess: (res) => {
                 if (res.statusCode === 200) {
                     localStorage.setItem('verify-number', phone)
-                    setTimeout(() => { setIsRegistered(true) }, 2000)
                 }
                 console.log(res);
             }
@@ -38,9 +37,7 @@ const Register = ({ isLogin, setIsLogin, setIsRegistered }: { isLogin: boolean, 
 
 
     return (
-        <>
-            {
-                isLogin ? <Login setIsLogin={setIsLogin} /> :
+
                     <div >
                         <h3 className="text-center text-[30px] font-[400] tracking-[2px]">Register</h3>
                         <form onSubmit={handleRegister as any} className="w-full text-center">
@@ -58,11 +55,9 @@ const Register = ({ isLogin, setIsLogin, setIsRegistered }: { isLogin: boolean, 
                                 <span onClick={handleShowPassword} className="material-symbols-outlined absolute right-[2%] top-[60%] text-[20px] text-[#464545]">{changeIcon ? "visibility_off" : "visibility"}</span>
                             </label>
                             <button type="submit" className="w-full mt-5 transition duration-[0.2s] bg-[#1752e0] rounded-[6px] text-[#fff]  text-[18px] font-[400] py-[5px] hover:bg-[#366ef3]">Register</button>
-                            <button onClick={() => setIsLogin(true)} className="mt-3 text-center inline-block font-[400] text-[#1752e0] m-auto hover:underline" >If already have an account ? Login</button>
+                            <Link to={'/auth/login'}  className="mt-3 text-center inline-block font-[400] text-[#1752e0] m-auto hover:underline" >If already have an account ? Login</Link>
                         </form>
                     </div>
-            }
-        </>
     )
 }
 

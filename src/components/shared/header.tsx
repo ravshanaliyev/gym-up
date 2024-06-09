@@ -1,8 +1,11 @@
 import { useEffect } from 'react'
 import { Button } from '../ui/button'
 import Aos  from 'aos'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         Aos.init()
@@ -18,7 +21,7 @@ const Header = () => {
                     </div>
                     <h1 data-aos='fade-right' data-aos-delay='400' data-aos-duration='800' className='text-white text-[36px]  md:text-[64px] font-bold uppercase leading-snug my-4'>Build Perfect body Shape for good and Healthy life.</h1>
                     <div>
-                        <Button data-aos='fade-right' data-aos-delay='200' data-aos-duration='800' className='rounded-none text-lg md:text-xl uppercase px-8 md:px-12 py-4 md:!py-7' size={'lg'}>Became a Member</Button>
+                        <Button onClick={() => navigate("/auth/login")} data-aos='fade-right' data-aos-delay='200' data-aos-duration='800' className='rounded-none text-lg md:text-xl uppercase px-8 md:px-12 py-4 md:!py-7' size={'lg'}>Became a Member</Button>
                     </div>
                 </div>
             </div>

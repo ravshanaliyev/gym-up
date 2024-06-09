@@ -44,12 +44,14 @@ const Verify = () => {
             phone: phone,
              code: '0000'
             }
-            console.log(verifyData);
-            
 
         mutate(verifyData, {
             onSuccess: (res) => {
                 console.log(res);
+                if(res.statusCode === 200){
+                    localStorage.setItem("token", res.data)
+                    window.location.reload()
+                }
             }
         })
 

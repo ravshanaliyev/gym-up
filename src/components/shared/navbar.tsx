@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '../ui/button'
 import { Sheet, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import { IoMdMenu } from "react-icons/io";
@@ -13,6 +13,7 @@ const Navbar = () => {
 
     const { i18n, t } = useTranslation()
     const currentLang: any = localStorage.getItem("lang")
+    const navigate = useNavigate()
 
 
     const [language, setLanguage] = useState<string>(currentLang);
@@ -36,7 +37,6 @@ const Navbar = () => {
                         <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/courses">{t("navbar.course")}</Link></li>
                         <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/gallery">{t("navbar.gallery")}</Link></li>
                         <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/about">{t("navbar.about")}</Link></li>
-                        {/* <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/shop">{t("navbar.shop")}</Link></li> */}
                         <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">{t("navbar.contact")}</Link></li>
                     </ul>
                     <Select className="language-select" value={language} onChange={(e: SelectChangeEvent<string>) => setLanguage(e.target.value)} labelId="demo-simple-select-autowidth-label" id="demo-simple-select-autowidth" autoWidth  >
@@ -44,7 +44,7 @@ const Navbar = () => {
                         <MenuItem className='text-[#fff] flex ' value="ru"><img src={RussiaFlag} /><span className='text-[#fff]'>RU</span></MenuItem>
                         <MenuItem className='text-[#fff] flex ' value="en"><img src={EnglishFlag} /><span className='text-[#fff]'>EN</span></MenuItem>
                     </Select>
-                    <Button className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
+                    <Button size={'lg'} onClick={() => navigate("/auth/login") } className='rounded-none text-lg uppercase' >{t("navbar.become")}</Button>
                 </div>
                 <div className='block lg:hidden'>
                     <Sheet>
