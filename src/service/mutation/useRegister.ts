@@ -9,7 +9,7 @@ export const useRegister = () => {
             console.log(data);
             return ApiInctance.post("/auth/register", data)
             .then(res => res?.data)
-            .catch(error => console.log(error))
+            .catch(error => {return error})
         }
     })
 }

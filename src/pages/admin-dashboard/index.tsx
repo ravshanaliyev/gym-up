@@ -10,9 +10,11 @@ const AdminDashboard = () => {
 
     const token: string | null = localStorage.getItem("token")
 
-    const tokenAdmin: string | null = token && jwtDecode(token)
-    // @ts-ignore
-    const role = token && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+
+    const tokenAdmin: any = token && jwtDecode(token)
+   
+    const role: any = token && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+
 
     useEffect(() => {
         role === "Admin" ? navigate("/admin/courses") : navigate("/auth/login")
