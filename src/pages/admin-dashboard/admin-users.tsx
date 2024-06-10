@@ -2,30 +2,24 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { useGetUsers } from "@/service/query/useGetUsers"
-import { Eye, Pencil, Trash2 } from "lucide-react"
-import { Link } from "react-router-dom"
+import { ArrowDown, ArrowUp, Pencil, Trash2 } from "lucide-react"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
 import { useCreateUser } from "@/service/mutation/useCreateUser"
 import { client } from "@/service/QueryClient"
 import { useState } from "react"
 import { useDeleteUser } from "@/service/mutation/useDeleteUser"
+import { useUpgradeUser } from "@/service/mutation/useUpgradeUser"
+import { useDowngradeUser } from "@/service/mutation/useDowngradeUser"
 const formSchema = z.object({
     firstname: z.string().min(2, {
-        message: "Title must be at least 2 characters.",
+        message: "Firstname must be at least 2 characters.",
     }),
     lastname: z.string().min(2, {
-        message: "Description must be at least 2 characters.",
+        message: "Lastname must be at least 2 characters.",
     }),
     phone: z.any(),
     password: z.any(),
@@ -37,12 +31,16 @@ const AdminUsers = () => {
     const [isOpen, setIsOpen] = useState(false)
     const { mutate } = useCreateUser()
     const { mutate: delUser } = useDeleteUser()
+    const { mutate: upgradeUser } = useUpgradeUser()
+    const { mutate: downgradeUser } = useDowngradeUser()
+    console.log(data?.data);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             firstname: "",
             lastname: "",
-            phone: 0,
+            phone: "",
             password: "",
         },
     })
@@ -64,6 +62,28 @@ const AdminUsers = () => {
 
     const handleDelUser = (id: number) => {
         delUser(id, {
+            onSuccess: (res) => {
+                console.log(res);
+                client.invalidateQueries({ queryKey: ['get-users'] })
+            },
+            onError: (error) => {
+                console.log(error);
+            }
+        })
+    }
+    const handleUpgradeUser = (id: number) => {
+        upgradeUser(id, {
+            onSuccess: (res) => {
+                console.log(res);
+                client.invalidateQueries({ queryKey: ['get-users'] })
+            },
+            onError: (error) => {
+                console.log(error);
+            }
+        })
+    }
+    const handleDowngradeUser = (id: number) => {
+        downgradeUser(id, {
             onSuccess: (res) => {
                 console.log(res);
                 client.invalidateQueries({ queryKey: ['get-users'] })
@@ -157,6 +177,7 @@ const AdminUsers = () => {
                             <TableHead>Last Name</TableHead>
                             <TableHead>Phone No</TableHead>
                             <TableHead>Payed</TableHead>
+                            <TableHead>Role</TableHead>
                             <TableHead className="text-center">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -165,12 +186,15 @@ const AdminUsers = () => {
                             filteredData?.map((course: any, index: number) => (
                                 <TableRow key={index}>
                                     <TableCell>{course?.firstname}</TableCell>
-                                    <TableCell><Link to={`${course.id}`}>{course?.lastname}</Link></TableCell>
+                                    <TableCell>{course?.lastname}</TableCell>
                                     <TableCell>{course?.phone}</TableCell>
                                     <TableCell>{course?.isPayed ? "Yes" : "No"}</TableCell>
+                                    <TableCell>{course?.role === 1 ? "Admin" : "User"}</TableCell>
                                     <TableCell>
                                         <div className="flex gap-2 items-center justify-center">
-                                            <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
+                                            {
+                                                course?.role === 1 ? <Button onClick={() => handleDowngradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowDown className="h-5 w-5" /></Button> : <Button onClick={() => handleUpgradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowUp className="h-5 w-5" /></Button>
+                                            }
                                             <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
                                             <Button onClick={() => handleDelUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
                                         </div>

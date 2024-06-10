@@ -13,21 +13,27 @@ import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import { useCreateCourse } from "@/service/mutation/useCreateCourse"
 import { useState } from "react"
+import { useToast } from "@/components/ui/use-toast"
 
 const AdminCourses = () => {
+    const { toast } = useToast()
     const [search, setSearch] = useState("")
     const [isOpen, setIsOpen] = useState(false)
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, reset } = useForm()
     const { data: AllCourses } = useGetCourses()
     const { mutate } = useCreateCourse()
-    console.log(AllCourses);
     const { mutate: delCourse } = useDeleteCourse()
     function onSubmit(values: any) {
         mutate(values, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-courses'] })
                 setIsOpen(false)
+                reset()
+                toast({
+                    title: "Course added successfully",
+                    description: "You can add more courses",
+                    action: <Link to="/admin/courses"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white text-[12px] py-1 px-3" >View Courses</Button></Link>,
+                })
             },
             onError: (error) => {
                 console.log(error);
