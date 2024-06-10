@@ -59,6 +59,8 @@ const AdminUsers = () => {
     const filteredData = data?.data?.filter((course: any) => {
         return course.firstname.toLowerCase().includes(search.toLowerCase())
     })
+    console.log(filteredData);
+
 
     const handleDelUser = (id: number) => {
         delUser(id, {
@@ -188,15 +190,15 @@ const AdminUsers = () => {
                                     <TableCell>{course?.firstname}</TableCell>
                                     <TableCell>{course?.lastname}</TableCell>
                                     <TableCell>{course?.phone}</TableCell>
-                                    <TableCell>{course?.isPayed ? "Yes" : "No"}</TableCell>
-                                    <TableCell>{course?.role === 1 ? "Admin" : "User"}</TableCell>
+                                    <TableCell>{course?.role === 1 ? <p className="text-green-500 font-semibold">Yes</p> : <p className="text-red-500 font-semibold">No</p>}</TableCell>
+                                    <TableCell>{course?.role === 1 ? <p className="text-green-500 font-semibold">Admin</p> : <p className="text-red-500 font-semibold">User</p>}</TableCell>
                                     <TableCell>
                                         <div className="flex gap-2 items-center justify-center">
                                             {
-                                                course?.role === 1 ? <Button onClick={() => handleDowngradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowDown className="h-5 w-5" /></Button> : <Button onClick={() => handleUpgradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowUp className="h-5 w-5" /></Button>
+                                                course?.role === 1 ? <Button onClick={() => handleDowngradeUser(course.id)} className="bg-green-500 h-9 w-9 hover:bg-green-500 hover:bg-opacity-90 text-white" size={'icon'}><ArrowDown className="h-5 w-5" /></Button> : <Button onClick={() => handleUpgradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowUp className="h-5 w-5" /></Button>
                                             }
                                             <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
-                                            <Button onClick={() => handleDelUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
+                                            <Button onClick={() => handleDelUser(course.id)} className="bg-red-500 h-9 w-9 hover:bg-red-500 hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
                                         </div>
                                     </TableCell>
                                 </TableRow>
