@@ -8,10 +8,11 @@ const AdminDashboard = () => {
     const { pathname } = useParams()
     const navigate = useNavigate()
 
+
     const token: string | null = localStorage.getItem("token")
 
     const tokenAdmin: string | null = token && jwtDecode(token)
-    // @ts-ignore
+   
     const role = token && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
 
     useEffect(() => {

@@ -1,8 +1,7 @@
 import { useVerify } from "@/service/mutation/useVerify";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-const Verify = () => {
-
+const Verify = ({openVerify, setOpenVerify}: {openVerify: boolean, setOpenVerify: Function}) => {
 
     const phone = localStorage.getItem('verify-number') || ""
 
@@ -50,6 +49,7 @@ const Verify = () => {
                 console.log(res);
                 if(res.statusCode === 200){
                     localStorage.setItem("token", res.data)
+                    setOpenVerify(false)
                     window.location.reload()
                 }
             }
@@ -58,7 +58,7 @@ const Verify = () => {
     }
 
     return (
-        <div>
+        <div style={openVerify ? {display: "block"} : {display: 'none'}} className="absolute left-0 top-[10%]">
             <h3 className="text-center text-[30px] font-[400] tracking-[2px]">Verification</h3>
             <p>Enter the code we just send on your mobile phone </p>
                 <form onSubmit={handleVerify}>

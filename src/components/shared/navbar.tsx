@@ -15,8 +15,11 @@ const Navbar = () => {
     const currentLang: any = localStorage.getItem("lang")
     const navigate = useNavigate()
 
-
     const [language, setLanguage] = useState<string>(currentLang);
+
+
+    const userData = localStorage.getItem("user");
+    const user = userData ? JSON.parse(userData) : null;
 
     useEffect(() => {
         if (i18n && i18n.changeLanguage) {
@@ -44,7 +47,12 @@ const Navbar = () => {
                         <MenuItem className='text-[#fff] flex ' value="ru"><img src={RussiaFlag} /><span className='text-[#fff]'>RU</span></MenuItem>
                         <MenuItem className='text-[#fff] flex ' value="en"><img src={EnglishFlag} /><span className='text-[#fff]'>EN</span></MenuItem>
                     </Select>
-                    <Button size={'lg'} onClick={() => navigate("/auth/login") } className='rounded-none text-lg uppercase' >{t("navbar.become")}</Button>
+                    {
+                        user.state.UserData ? <Button className=' max-w-3 h-8 flex text-lg uppercase rounded-[50%]' size={'lg'}>{user?.state?.UserData?.firstname?.slice(0, 1)}</Button>
+                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase' >{t("navbar.become")}</Button>
+
+                    }
+
                 </div>
                 <div className='block lg:hidden'>
                     <Sheet>
@@ -59,7 +67,11 @@ const Navbar = () => {
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/gallery">Gallery</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/shop">Shop</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">Contact</Link></li>
-                                <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
+                                {
+                                    user.state.UserData ? <Button className='rounded-none text-lg uppercase' size={'lg'}>{user?.state?.UserData?.firstname?.slice(0, 1)}</Button>
+                                        : <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
+                                }
+
                             </ul>
                         </SheetContent>
                     </Sheet>
