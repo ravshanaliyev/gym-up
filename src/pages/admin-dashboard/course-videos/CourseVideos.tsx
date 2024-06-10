@@ -1,7 +1,7 @@
 import { VideoType } from "@/@types/types";
 import { useGetCourseVideos } from "@/service/query/useGetCourseVideos";
 import VideoCard from "@/utils/VideoCard";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
@@ -9,16 +9,18 @@ import { useCreateVideo } from "@/service/mutation/useCreateVideo";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
+import { client } from "@/service/QueryClient";
 
 
 const CourseVideos = () => {
-    const { register, handleSubmit } = useForm()
+    const { toast } = useToast()
+    const [isOpen, setIsOpen] = useState(false)
+    const { register, handleSubmit, reset } = useForm()
     const { id } = useParams()
     const [video, setVideo] = useState<VideoType | null>(null)
     const { data } = useGetCourseVideos(id)
-    const { mutate } = useCreateVideo()
-    console.log(data?.data?.data);
-
+    const { mutate, isPending } = useCreateVideo()
 
     function onSubmit(values: any) {
         const formData = new FormData()
@@ -28,8 +30,15 @@ const CourseVideos = () => {
         formData.append("CourseId", id as any)
         formData.append("Teacher", values.teacher)
         mutate(formData, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
+                setIsOpen(false)
+                reset()
+                client.invalidateQueries({ queryKey: ['get-course-videos', id] })
+                toast({
+                    title: "Video added successfully",
+                    description: "You can add more courses",
+                    action: <Link to="/admin/courses"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white text-[12px] py-1 px-3" >View Courses</Button></Link>,
+                })
             },
             onError: (error) => {
                 console.log(error);
@@ -40,7 +49,7 @@ const CourseVideos = () => {
         <>
             <div className="flex justify-between border-b border-gray-400 pb-[1rem]">
                 <Input className="max-w-[400px] h-[40px]" placeholder="Search Video" />
-                <Dialog>
+                <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger asChild>
                         <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add Video</Button>
                     </DialogTrigger>
@@ -64,7 +73,7 @@ const CourseVideos = () => {
                                 <Label htmlFor="name">Teacher</Label>
                                 <Input type="text" id="name" placeholder="" {...register("teacher")} />
                             </div>
-                            <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
+                            <Button type="submit" className={`bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] ${isPending ? "cursor-not-allowed" : ""}`} disabled={isPending}>{isPending ? "Loading..." : "Submit"}</Button>
                         </form>
                     </DialogContent>
                 </Dialog>

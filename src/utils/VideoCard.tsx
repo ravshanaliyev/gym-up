@@ -1,12 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { VideoType } from "@/@types/types";
+import { useDeleteVideo } from "@/service/mutation/useDeleteVideo";
+import { useToast } from "@/components/ui/use-toast";
+import { client } from "@/service/QueryClient";
 
 const VideoCard = ({ video }: { video: VideoType }) => {
-  console.log(`http://45.138.158.207:8080/videos${video?.attachment?.filePath}`);
-
+  const { toast } = useToast()
+  const { mutate } = useDeleteVideo()
+  const handleDeleteVideo = (id: number) => {
+    mutate(id, {
+      onSuccess: () => {
+        client.invalidateQueries({ queryKey: ['get-course-videos'] })
+        toast({
+          title: "Video deleted successfully",
+          description: "You can add more videos",
+        })
+      },
+      onError: (error) => {
+        console.log(error);
+      }
+    })
+  }
   return (
     <div className="bg-white max-w-[320px] w-full border shadow-sm">
-      <video className="h-[280px] max-w-[350px] w-full rounded-t-lg" autoPlay muted loop controls >
+      <video controlsList="nodownload" className="h-[280px] max-w-[350px] w-full rounded-t-lg" autoPlay muted loop controls >
         <source className="max-w-[350px] w-full" src={`http://45.138.158.207:8080/videos/${video?.attachment?.fileName}`} />
       </video>
       <div className="p-2">
@@ -14,7 +31,7 @@ const VideoCard = ({ video }: { video: VideoType }) => {
         <p className="my-2">{video.description}</p>
         <div className="flex items-center gap-3 w-full justify-between">
           <Button className="w-full bg-[#3C50E0] hover:bg-[#5162e2] " size={'sm'}>Edit</Button>
-          <Button className="w-full bg-[#3C50E0] hover:bg-[#5162e2] " size={'sm'}>Delete</Button>
+          <Button onClick={() => handleDeleteVideo(video.id)} className="w-full bg-[#3C50E0] hover:bg-[#5162e2] " size={'sm'}>Delete</Button>
         </div>
       </div>
     </div>

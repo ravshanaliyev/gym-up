@@ -1,4 +1,5 @@
 import { useLogin } from "@/service/mutation/useLogin";
+import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -7,9 +8,10 @@ const Login = () => {
     const [number, setNumber] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [changeIcon, setChangeIcon] = useState<boolean>(false)
-    console.log(passwordType);
+
 
     const navigate = useNavigate()
+
 
 
     const handleShowPassword = () => {
@@ -26,13 +28,20 @@ const Login = () => {
         const loginData: any = { phone:number, password } 
 
         mutate(loginData, {
-            onSuccess: (res) => {
-                if(res.data){
-                    localStorage.setItem("token", res.data)
-                    setTimeout(() => {navigate("/")}, 2000)
+                if (res.statusCode === 200) {
+                    const token = localStorage.getItem('token')
+                    const role = token && jwtDecode(token)
+                    // @ts-ignore
+                    if (role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === "Admin") {
+                        navigate("/admin/courses")
+                    } else {
+                        navigate("/")
+                    }
                 }
             }
-        })
+        }
+        )
+
     }
 
     return (
@@ -47,6 +56,7 @@ const Login = () => {
                                 <span onClick={handleShowPassword} className="material-symbols-outlined absolute right-[2%] top-[60%] text-[20px] text-[#464545]">{changeIcon ? "visibility_off" : "visibility"}</span>
                             </label>
                 <button type="submit" className="w-full mt-5 transition duration-[0.2s] bg-[#ff1414] rounded-[6px] text-[#fff]  text-[18px] font-[400] py-[5px] hover:bg-[#fa5757]">Login</button>
+
                 <Link to={"/auth/register"} className="mt-3 text-center inline-block font-[400] text-[#1752e0] m-auto hover:underline" >If you don't exist an account ? Register</Link>
             </form>
         </div>

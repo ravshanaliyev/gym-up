@@ -13,19 +13,27 @@ import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import { useCreateCourse } from "@/service/mutation/useCreateCourse"
 import { useState } from "react"
+import { useToast } from "@/components/ui/use-toast"
 
 const AdminCourses = () => {
+    const { toast } = useToast()
     const [search, setSearch] = useState("")
-    const { register, handleSubmit } = useForm()
+    const [isOpen, setIsOpen] = useState(false)
+    const { register, handleSubmit, reset } = useForm()
     const { data: AllCourses } = useGetCourses()
     const { mutate } = useCreateCourse()
-    console.log(AllCourses);
     const { mutate: delCourse } = useDeleteCourse()
     function onSubmit(values: any) {
         mutate(values, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-courses'] })
+                setIsOpen(false)
+                reset()
+                toast({
+                    title: "Course added successfully",
+                    description: "You can add more courses",
+                    action: <Link to="/admin/courses"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white text-[12px] py-1 px-3" >View Courses</Button></Link>,
+                })
             },
             onError: (error) => {
                 console.log(error);
@@ -52,7 +60,7 @@ const AdminCourses = () => {
             <div>
                 <div className="flex justify-between items-center">
                     <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Course" />
-                    <Dialog>
+                    <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger>
                             <Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white">Add Course</Button>                        </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">

@@ -17,6 +17,7 @@ const AdminGallery = () => {
     const { mutate: deleteImage } = useDeleteImage()
     const [image, setImage] = useState(null)
     const [search, setSearch] = useState("")
+    const [isOpen, setIsOpen] = useState(false)
     console.log(data);
 
     function onSubmit(values: any) {
@@ -29,6 +30,7 @@ const AdminGallery = () => {
             onSuccess: (res) => {
                 console.log(res);
                 client.invalidateQueries({ queryKey: ['get-gallery'] })
+                setIsOpen(false)
             },
             onError: (error) => {
                 console.log(error);
@@ -54,7 +56,7 @@ const AdminGallery = () => {
         <div>
             <div className="flex items-center justify-between py-3 border-b-2">
                 <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Image" />
-                <Dialog>
+                <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger asChild>
                         <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add Image</Button>
                     </DialogTrigger>
