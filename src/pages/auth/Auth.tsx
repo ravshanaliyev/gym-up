@@ -25,11 +25,13 @@ const Auth = () => {
 
 
   return (
+    <>
     <div className="auth-overlay">
-      <div className= "flex auth-card backdrop-filter backdrop-brightness-100 bg-black max-w-[360px] w-full  shadow-[0_0_3px_#000]  rounded-[6px] p-4 m-auto mt-[4rem]">
+      <div className= "flex auth-card backdrop-filter backdrop-brightness-100 bg-black max-w-[400px] w-full  shadow-[0_0_3px_#000]  rounded-[6px] p-4 m-auto mt-[4rem]">
         <Outlet />
       </div>
     </div>
+    </>
   )
 }
 

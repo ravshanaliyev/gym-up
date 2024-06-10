@@ -17,6 +17,9 @@ import Auth from "./pages/auth/Auth"
 import Register from "./pages/auth/register/Register"
 import Login from "./pages/auth/login/Login"
 
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
@@ -48,6 +51,7 @@ function App() {
     </Route>
 
       </Routes>
+      <ToastContainer/>
     </>
   )
 }
