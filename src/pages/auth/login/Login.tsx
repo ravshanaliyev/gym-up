@@ -26,6 +26,7 @@ const Login = () => {
     const handleLogin = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+
         const loginData: any = { phone: phoneNumber, password }
 
         console.log(loginData);
@@ -42,13 +43,10 @@ const Login = () => {
                     localStorage.setItem("token", res.data)
                     if (isAdmin === "Admin") {
                         navigate("/admin/courses")
-                    } else {
-                        navigate("/")
-                    }
-                }
-            }
-        }
-        )
+
+  
+
+      
 
     }
 
@@ -86,7 +84,9 @@ const Login = () => {
                     <input value={password} onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} id="password" type={passwordType} name="password" className="  bg-[#1b1b1b] p-[10px]    w-full h-[45px]  mt-[5px] outline-none indent-[5px] py-2  rounded-[6px] " />
                     <span onClick={handleShowPassword} className="material-symbols-outlined absolute right-[2%] top-[60%] text-[20px] text-[#464545] cursor-pointer">{changeIcon ? "visibility_off" : "visibility"}</span>
                 </label>
+
                 <button type="submit" className="w-full  transition duration-[0.2s] bg-[#ff1414] rounded-[6px] text-[#fff] mt-[2rem]  text-[18px] font-[400] py-[5px] hover:bg-[#fa5757]">Login</button>
+
 
                 <Link to={"/auth/register"} className="mt-3 text-center inline-block font-[400] text-[#1752e0] m-auto hover:underline" >If you don't exist an account ? Register</Link>
             </form>

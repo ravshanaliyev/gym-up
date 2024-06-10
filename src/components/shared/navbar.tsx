@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import EnglishFlag from "../../assets/englishFlag.svg"
 import RussiaFlag from "../../assets/russiaFlag.svg"
 import UzbFlag from "../../assets/UzbFlag.svg"
+import { jwtDecode } from 'jwt-decode';
 
 const Navbar = () => {
 
@@ -18,8 +19,9 @@ const Navbar = () => {
     const [language, setLanguage] = useState<string>(currentLang);
 
 
-    const userData = localStorage.getItem("user");
-    const user = userData ? JSON.parse(userData) : null;
+    const userData = localStorage.getItem("token");
+    const user = userData && jwtDecode(userData);
+
 
     useEffect(() => {
         if (i18n && i18n.changeLanguage) {
@@ -48,7 +50,8 @@ const Navbar = () => {
                         <MenuItem className='text-[#fff] flex ' value="en"><img src={EnglishFlag} /><span className='text-[#fff]'>EN</span></MenuItem>
                     </Select>
                     {
-                        user.state.UserData ? <Button className=' max-w-3 h-8 flex text-lg uppercase rounded-[50%]' size={'lg'}>{user?.state?.UserData?.firstname?.slice(0, 1)}</Button>
+                        // @ts-ignore
+                        user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
                             : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase' >{t("navbar.become")}</Button>
 
                     }
@@ -68,7 +71,8 @@ const Navbar = () => {
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/shop">Shop</Link></li>
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">Contact</Link></li>
                                 {
-                                    user.state.UserData ? <Button className='rounded-none text-lg uppercase' size={'lg'}>{user?.state?.UserData?.firstname?.slice(0, 1)}</Button>
+                                    // @ts-ignore
+                                    user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10' size={'lg'}>{user?.FirstName?.slice(0, 1)}</Button>
                                         : <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
                                 }
 
