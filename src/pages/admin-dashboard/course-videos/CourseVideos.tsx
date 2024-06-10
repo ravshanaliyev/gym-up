@@ -21,8 +21,6 @@ const CourseVideos = () => {
     const [video, setVideo] = useState<VideoType | null>(null)
     const { data } = useGetCourseVideos(id)
     const { mutate, isPending } = useCreateVideo()
-    console.log(data?.data?.data);
-
 
     function onSubmit(values: any) {
         const formData = new FormData()
