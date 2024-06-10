@@ -8,7 +8,6 @@ const AdminDashboard = () => {
     const { pathname } = useParams()
     const navigate = useNavigate()
 
-
     const token: string | null = localStorage.getItem("token")
 
     const tokenAdmin: string | null = token && jwtDecode(token)
@@ -17,7 +16,7 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         role === "Admin" ? navigate("/admin/courses") : navigate("/auth/login")
-    }, [pathname, token, role])
+    }, [pathname, token])
 
     return (
         <div className="w-full">

@@ -29,12 +29,13 @@ const Login = () => {
 
         mutate(loginData, {
             onSuccess: (res) => {
+                localStorage.setItem('token', res.data)
                 if (res.statusCode === 200) {
                     const token = localStorage.getItem('token')
                     const role = token && jwtDecode(token)
                     // @ts-ignore
                     if (role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === "Admin") {
-                        navigate("/admin/courses")
+                        window.location.href = "/admin/courses"
                     } else {
                         navigate("/")
                     }
