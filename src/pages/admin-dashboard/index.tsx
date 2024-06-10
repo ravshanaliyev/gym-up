@@ -8,12 +8,11 @@ const AdminDashboard = () => {
     const { pathname } = useParams()
     const navigate = useNavigate()
 
-    const token: string | null = localStorage.getItem("token")
-
+    const token: string | null = localStorage.getItem("token") 
 
     useEffect(() => {
-        token ? navigate("/") : navigate("/auth/login")
-    }, [pathname])
+        token ? navigate("/admin") : navigate("/auth/login")
+    }, [pathname, token])
 
     return (
         <div className="w-full">
