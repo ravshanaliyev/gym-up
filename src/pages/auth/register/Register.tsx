@@ -27,8 +27,6 @@ const Register = () => {
     const { setRegisteredUser } = useStore()
 
     const newUserData: NewUserType = { firstname, lastname, phone: phoneNumber, password }
-
-    console.log(newUserData);
     
     
 
@@ -71,10 +69,11 @@ const Register = () => {
     };
 
     const handleInputBlur = () => {
-        if (!phoneNumber.replace(/\s/g, '')) {
-            setPhoneNumber('');
-        }
-        setFocused(false);
+        console.log('');
+        // if (!phoneNumber.replace(/\s/g, '')) {
+        //     setPhoneNumber('');
+        // }
+        // setFocused(false);
     };
 
     return (
