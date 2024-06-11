@@ -5,19 +5,17 @@ import Background from '../../assets/Bg.jpg'
 
 const AdminProfile = () => {
 
-  
+
     return (
         <div>
             <div className="flex justify-between items-center">
                 <h3 className="text-2xl font-semibold">My Profile</h3>
-                <Link to="/admin/add-course"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white">Update Profile</Button></Link>
+                <Link to="/admin/settings"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white">Update Profile</Button></Link>
             </div>
             <div className="relative h-full pb-4 lg:h-[600px] my-4 bg-white">
                 <img className="w-full h-[250px] " src={Background} alt="" />
                 <div className="absolute top-3/3 left-1/2 transform backdrop-blur rounded-full p-3 -translate-x-1/2 -translate-y-1/2">
-
                     <img className="w-40 backdrop-blur rounded-full" src={User} alt="" />
-
                 </div>
                 <div className="flex flex-col items-center mt-24 w-full lg:w-[700px] mx-auto">
                     <h3 className="text-2xl font-semibold">Danish Heilium</h3>
