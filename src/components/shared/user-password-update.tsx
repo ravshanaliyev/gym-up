@@ -14,11 +14,11 @@ const UserPasswordUpdate = ({ onSubmitPassword }: { onSubmitPassword: any }) => 
                 <div className="block md:flex gap-6 my-6">
                     <div className="w-full md:w-1/3">
                         <Label htmlFor="currentPassword">Current Password</Label>
-                        <Input {...register('oldPass', { required: true })} type="text" placeholder="Current Password" id="currentPassword" />
+                        <Input  {...register('oldPass', { required: true })} type="password" placeholder="Current Password" id="currentPassword" />
                     </div>
                     <div className="w-full md:w-1/3 mt-4 md:mt-0">
                         <Label htmlFor="newPassword">New Password</Label>
-                        <Input {...register('newPass', { required: true })} type="text" placeholder="New Password" id="newPassword" />
+                        <Input {...register('newPass', { required: true })} type="password" placeholder="New Password" id="newPassword" />
                     </div>
                 </div>
                 <div className="flex justify-end">

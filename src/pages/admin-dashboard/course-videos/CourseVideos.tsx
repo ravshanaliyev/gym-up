@@ -31,9 +31,9 @@ const CourseVideos = () => {
         formData.append("Teacher", values.teacher)
         mutate(formData, {
             onSuccess: () => {
+                client.invalidateQueries({ queryKey: ['get-course-videos'] })
                 setIsOpen(false)
                 reset()
-                client.invalidateQueries({ queryKey: ['get-course-videos', id] })
                 toast({
                     title: "Video added successfully",
                     description: "You can add more courses",

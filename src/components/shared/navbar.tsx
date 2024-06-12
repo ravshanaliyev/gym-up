@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
         <div className='navbar bg-black py-4 teko'>
             <div className="container flex items-center justify-between">
-                <Link to={'/'}><img src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" alt="" /></Link>
+                <Link to={'/'}><img className='w-[120px] md:w-full' src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" alt="" /></Link>
                 <div className='flex items-center gap-x-[1rem]'>
                     <ul className='hidden lg:flex gap-8 items-center'>
                         <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">{t("navbar.home")}</Link></li>
