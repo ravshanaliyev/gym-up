@@ -97,7 +97,7 @@ const AdminUsers = () => {
     }
     return (
         <div>
-            <div className="flex items-center justify-between py-3 border-b-2">
+            <div className="flex items-center justify-between py-3 border-b-2 gap-4">
                 <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search User" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger asChild>

@@ -52,10 +52,8 @@ const Navbar = () => {
                     {
                         // @ts-ignore
                         user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
-                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase' >{t("navbar.become")}</Button>
-
+                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase hidden md:block' >{t("navbar.become")}</Button>
                     }
-
                 </div>
                 <div className='block lg:hidden'>
                     <Sheet>
@@ -73,7 +71,7 @@ const Navbar = () => {
                                 {
                                     // @ts-ignore
                                     user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10' size={'lg'}>{user?.FirstName?.slice(0, 1)}</Button>
-                                        : <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
+                                        : <Button className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
                                 }
 
                             </ul>

@@ -32,7 +32,6 @@ const AdminCourses = () => {
                 toast({
                     title: "Course added successfully",
                     description: "You can add more courses",
-                    action: <Link to="/admin/courses"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white text-[12px] py-1 px-3" >View Courses</Button></Link>,
                 })
             },
             onError: (error) => {
@@ -58,7 +57,7 @@ const AdminCourses = () => {
     return (
         <>
             <div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                     <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Course" />
                     <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger>
