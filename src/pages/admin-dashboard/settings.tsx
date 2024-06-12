@@ -1,14 +1,10 @@
 import UserPasswordUpdate from "@/components/shared/user-password-update"
 import UserUpdate from "@/components/shared/user-update"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 import { useUpdatePassword } from "@/service/mutation/useUpdatePassword"
 import { useUpdateUser } from "@/service/mutation/useUpdateUser"
 import { useGetUser } from "@/service/query/useGetUser"
 import { jwtDecode } from "jwt-decode"
-import { useForm } from "react-hook-form"
 
 const Settings = () => {
     const { toast } = useToast()
