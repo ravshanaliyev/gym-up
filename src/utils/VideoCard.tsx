@@ -31,7 +31,7 @@ const VideoCard = ({ video }: { video: VideoType }) => {
         <p className="my-2">{video.description}</p>
         <div className="flex items-center gap-3 w-full justify-between">
           <Button className="w-full bg-[#3C50E0] hover:bg-[#5162e2] " size={'sm'}>Edit</Button>
-          <Button onClick={() => handleDeleteVideo(video.id)} className="w-full bg-[#3C50E0] hover:bg-[#5162e2] " size={'sm'}>Delete</Button>
+          <Button onClick={() => handleDeleteVideo(video.id)} className="w-full bg-[#ff1414] hover:bg-[#5162e2] " size={'sm'}>Delete</Button>
         </div>
       </div>
     </div>
