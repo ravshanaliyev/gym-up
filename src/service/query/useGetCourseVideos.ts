@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetCourseVideos = (id: string | undefined) => {
     return useQuery({
-        queryKey: ['get-course-videos'],
+        queryKey: ['get-course-videos', id],
         queryFn:() => {
             return ApiInctance.get(`/videos/get-by-course?courseId=${id}`)
         }

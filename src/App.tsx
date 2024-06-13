@@ -16,10 +16,10 @@ import SingleCourse from "./pages/SingleCourse"
 import Auth from "./pages/auth/Auth"
 import Register from "./pages/auth/register/Register"
 import Login from "./pages/auth/login/Login"
-
+import CourseDashboard from "./pages/courseDashboard"
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-
+import CoursesTable from "./components/shared/courses-table"
 
 function App() {
   return (
@@ -45,11 +45,15 @@ function App() {
         </Route>
 
 
+
     <Route path="auth" element={<Auth/>}>
         <Route  path="register" element={<Register/>}/>
         <Route  path="login" element={<Login/>}/>
     </Route>
 
+      <Route path="/courses-dashboard" element={<CourseDashboard/>}>
+        <Route path="course/:id" element={<CoursesTable/>}/>
+      </Route>
       </Routes>
       <ToastContainer/>
     </>

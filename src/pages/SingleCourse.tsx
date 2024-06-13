@@ -54,7 +54,7 @@ const SingleCourse = () => {
                                 {
                                     searchedData.map((video: VideoType) =>
                                         <div className='max-w-[390px]' key={video.id}>
-                                            <video className='w-full rounded-sm h-[230px]' src={Videos} controls></video>
+                                            <video className='w-full rounded-sm h-[230px] ' src={`http://45.138.158.207:8080/videos/${video?.attachment?.fileName}`} controls></video>
                                             <h3 className='tracking-[1px] font-[600] text-[18px]'><span className='font-[400]'>title:</span> {video.name}</h3>
                                         </div>
                                     )

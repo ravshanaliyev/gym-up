@@ -80,6 +80,9 @@ input[type="number"]::-webkit-inner-spin-button{
   background-color: rgb(0, 0, 0);
 }
 
+
+
+
 /* HTML: <div class="loader"></div> */
 .register-loader {
   width: 25px;
