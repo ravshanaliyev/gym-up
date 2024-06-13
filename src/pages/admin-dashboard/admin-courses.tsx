@@ -4,9 +4,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "
 import { client } from "@/service/QueryClient"
 import { useDeleteCourse } from "@/service/mutation/useDeleteCourse"
 import { useGetCourses } from "@/service/query/useGetCourses"
-import { Eye, Pencil, Trash2 } from "lucide-react"
+import { Eye } from "lucide-react"
 import { Link } from "react-router-dom"
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -14,7 +13,8 @@ import { useForm } from "react-hook-form"
 import { useCreateCourse } from "@/service/mutation/useCreateCourse"
 import { useState } from "react"
 import { useToast } from "@/components/ui/use-toast"
-
+import DeleteCoursebtn from "@/components/shared/delete-coursebtn"
+import UpdateCourse from "@/components/shared/update-course"
 const AdminCourses = () => {
     const { toast } = useToast()
     const [search, setSearch] = useState("")
@@ -32,7 +32,6 @@ const AdminCourses = () => {
                 toast({
                     title: "Course added successfully",
                     description: "You can add more courses",
-                    action: <Link to="/admin/courses"><Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white text-[12px] py-1 px-3" >View Courses</Button></Link>,
                 })
             },
             onError: (error) => {
@@ -40,6 +39,7 @@ const AdminCourses = () => {
             }
         })
     }
+
     const deleteCourse = (id: number) => {
         delCourse(id, {
             onSuccess: (res) => {
@@ -55,24 +55,26 @@ const AdminCourses = () => {
     const filteredCourses = AllCourses?.data?.filter((course: CourseType) => {
         return course.title.toLowerCase().includes(search.toLowerCase())
     })
+
     return (
         <>
             <div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                     <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Course" />
                     <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger>
-                            <Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white">Add Course</Button>                        </DialogTrigger>
+                            <Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white">Add Course</Button>
+                        </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                             <h3 className="text-lg text-center">Add Course</h3>
                             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
                                 <div className="flex flex-col gap-2">
                                     <Label htmlFor="name">Name</Label>
-                                    <Input type="text" id="name" placeholder="Name" {...register("title")} />
+                                    <Input type="text" id="name" placeholder="Name" {...register("title", { required: true })} />
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <Label htmlFor="desc">Description</Label>
-                                    <Input type="text" id="desc" placeholder="Description" {...register("description")} />
+                                    <Input type="text" id="desc" placeholder="Description" {...register("description", { required: true })} />
                                 </div>
                                 <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
                             </form>
@@ -99,25 +101,8 @@ const AdminCourses = () => {
                                         <TableCell>
                                             <div className="flex gap-2 items-center justify-center">
                                                 <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
-                                                <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
-                                                <AlertDialog>
-                                                    <AlertDialogTrigger asChild>
-                                                        <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
-                                                    </AlertDialogTrigger>
-                                                    <AlertDialogContent>
-                                                        <AlertDialogHeader>
-                                                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                                                            <AlertDialogDescription>
-                                                                This action cannot be undone. This will permanently delete your
-                                                                account and remove your data from our servers.
-                                                            </AlertDialogDescription>
-                                                        </AlertDialogHeader>
-                                                        <AlertDialogFooter>
-                                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                                            <AlertDialogAction className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" onClick={() => deleteCourse(course.id)}>Continue</AlertDialogAction>
-                                                        </AlertDialogFooter>
-                                                    </AlertDialogContent>
-                                                </AlertDialog>
+                                                <UpdateCourse course={course} />
+                                                <DeleteCoursebtn id={course.id} deleteCourse={deleteCourse} />
                                             </div>
                                         </TableCell>
                                     </TableRow>

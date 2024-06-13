@@ -34,6 +34,7 @@ const Login = () => {
                     localStorage.setItem("token", res.data);
                     if (isAdmin === "Admin") {
                         setTimeout(() => { navigate("/admin/courses") }, 2000);
+
                     } else {
                         setTimeout(() => { navigate("/user/dashboard") }, 2000)
 

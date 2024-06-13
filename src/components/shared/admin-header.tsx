@@ -1,4 +1,4 @@
-import { BadgePlus, Settings, Computer, UserRound } from "lucide-react";
+import { Settings, Computer, UserRound, Users, Images } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 import { SquareMenu } from 'lucide-react'
@@ -84,7 +84,6 @@ const AdminHeader = () => {
 export default AdminHeader
 
 
-
 const sidebarLinks = [
     {
         label: "Courses",
@@ -92,9 +91,14 @@ const sidebarLinks = [
         path: "/admin/courses",
     },
     {
-        label: "Add Course",
-        icon: BadgePlus,
-        path: "/admin/add-course",
+        label: "Users",
+        icon: Users,
+        path: "/admin/users",
+    },
+    {
+        label: "Gallery",
+        icon: Images,
+        path: "/admin/gallery",
     },
     {
         label: "Profile",

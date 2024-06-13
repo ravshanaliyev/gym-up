@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
         <div className='navbar bg-black py-4 teko'>
             <div className="container flex items-center justify-between">
-                <Link to={'/'}><img src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" alt="" /></Link>
+                <Link to={'/'}><img className='w-[120px] md:w-full' src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" alt="" /></Link>
                 <div className='flex items-center gap-x-[1rem]'>
                     <ul className='hidden lg:flex gap-8 items-center'>
                         <li className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">{t("navbar.home")}</Link></li>
@@ -52,10 +52,8 @@ const Navbar = () => {
                     {
                         // @ts-ignore
                         user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
-                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase' >{t("navbar.become")}</Button>
-
+                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase hidden md:block' >{t("navbar.become")}</Button>
                     }
-
                 </div>
                 <div className='block lg:hidden'>
                     <Sheet>
@@ -73,7 +71,7 @@ const Navbar = () => {
                                 {
                                     // @ts-ignore
                                     user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10' size={'lg'}>{user?.FirstName?.slice(0, 1)}</Button>
-                                        : <Button className='rounded-none text-lg uppercase' size={'lg'}>Became a Member</Button>
+                                        : <Button className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
                                 }
 
                             </ul>

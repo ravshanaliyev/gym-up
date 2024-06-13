@@ -5,9 +5,9 @@ const token = localStorage.getItem("token")
 const ApiInctance: Axios = axios.create({
     baseURL: "http://45.138.158.207:8080/api",
     headers: {
-        "Content-type": "Application/json",
-        "Authorization": token && `Bearer ${token}`
-
+        "Content-Type": "application/json charset=utf-8",
+        "Authorization": token && `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*"
     }
 })
 
