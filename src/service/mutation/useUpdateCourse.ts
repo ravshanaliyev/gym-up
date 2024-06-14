@@ -7,6 +7,7 @@ export const useUpdateCourse = () => {
         mutationKey: ['update-course'],
         mutationFn: (data: any) => {
             return ApiInctance.put("/courses/update", data).then(res => res.data)
+            .catch((error) => console.log(error))
         }
     })
 }

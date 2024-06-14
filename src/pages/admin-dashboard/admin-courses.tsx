@@ -1,28 +1,29 @@
 import { CourseType } from "@/@types/types"
 import { Button } from "@/components/ui/button"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
+import { Table, TableBody, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { client } from "@/service/QueryClient"
-import { useDeleteCourse } from "@/service/mutation/useDeleteCourse"
 import { useGetCourses } from "@/service/query/useGetCourses"
-import { Eye } from "lucide-react"
-import { Link } from "react-router-dom"
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import { useCreateCourse } from "@/service/mutation/useCreateCourse"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useToast } from "@/components/ui/use-toast"
-import DeleteCoursebtn from "@/components/shared/delete-coursebtn"
-import UpdateCourse from "@/components/shared/update-course"
+import AdminCourseTr from "./admin-course-tr"
+
+
 const AdminCourses = () => {
     const { toast } = useToast()
     const [search, setSearch] = useState("")
+    const [AllCourses, setAllCourses] = useState<CourseType[]>([])
     const [isOpen, setIsOpen] = useState(false)
     const { register, handleSubmit, reset } = useForm()
-    const { data: AllCourses } = useGetCourses()
+    const { data: Courses } = useGetCourses()
+
+
     const { mutate } = useCreateCourse()
-    const { mutate: delCourse } = useDeleteCourse()
+
     function onSubmit(values: any) {
         mutate(values, {
             onSuccess: () => {
@@ -40,21 +41,25 @@ const AdminCourses = () => {
         })
     }
 
-    const deleteCourse = (id: number) => {
-        delCourse(id, {
-            onSuccess: (res) => {
-                console.log(res);
-                client.invalidateQueries({ queryKey: ['get-courses'] })
-            },
-            onError: (error) => {
-                console.log(error);
-            }
-        })
-    }
+    
 
-    const filteredCourses = AllCourses?.data?.filter((course: CourseType) => {
-        return course.title.toLowerCase().includes(search.toLowerCase())
-    })
+    // const filteredCourses = Courses?.data?.filter((course: CourseType) => {
+    //     return course.title.toLowerCase().includes(search.toLowerCase())
+    // })
+
+
+    useEffect(() => {
+        if(search.length > 0){
+            const searchedData = Courses?.data?.filter((course: CourseType) => course.title.toLowerCase().includes(search.toLowerCase()))
+            setAllCourses(searchedData)
+        }
+        else {
+            setAllCourses(Courses?.data)
+        }
+    }, [search, Courses])
+
+
+    
 
     return (
         <>
@@ -93,19 +98,8 @@ const AdminCourses = () => {
                         </TableHeader>
                         <TableBody>
                             {
-                                filteredCourses?.map((course: CourseType, index: number) => (
-                                    <TableRow key={index}>
-                                        <TableCell><Link to={`${course.id}`}><img className="w-24" src={'https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery1.png'} alt="" /></Link></TableCell>
-                                        <TableCell><Link className="text-base font-semibold" to={`${course.id}`}>{course.title}</Link></TableCell>
-                                        <TableCell>{course.description}</TableCell>
-                                        <TableCell>
-                                            <div className="flex gap-2 items-center justify-center">
-                                                <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
-                                                <UpdateCourse course={course} />
-                                                <DeleteCoursebtn id={course.id} deleteCourse={deleteCourse} />
-                                            </div>
-                                        </TableCell>
-                                    </TableRow>
+                                AllCourses?.map((course: CourseType, index: number) => (
+                                 <AdminCourseTr course={course} key={index}/>
                                 ))}
                         </TableBody>
                     </Table>
