@@ -20,12 +20,17 @@ const AdminCourses = () => {
     const [isOpen, setIsOpen] = useState(false)
     const { register, handleSubmit, reset } = useForm()
     const { data: Courses } = useGetCourses()
+    const [image, setImage] = useState(null)
 
 
     const { mutate } = useCreateCourse()
 
     function onSubmit(values: any) {
-        mutate(values, {
+        const formData = new FormData()
+        formData.append("title", values.title)
+        formData.append("description", values.description)
+        formData.append("image", image as any)
+        mutate(formData, {
             onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-courses'] })
                 setIsOpen(false)
@@ -41,7 +46,7 @@ const AdminCourses = () => {
         })
     }
 
-    
+
 
     // const filteredCourses = Courses?.data?.filter((course: CourseType) => {
     //     return course.title.toLowerCase().includes(search.toLowerCase())
@@ -49,7 +54,7 @@ const AdminCourses = () => {
 
 
     useEffect(() => {
-        if(search.length > 0){
+        if (search.length > 0) {
             const searchedData = Courses?.data?.filter((course: CourseType) => course.title.toLowerCase().includes(search.toLowerCase()))
             setAllCourses(searchedData)
         }
@@ -58,8 +63,10 @@ const AdminCourses = () => {
         }
     }, [search, Courses])
 
+    console.log(AllCourses);
 
-    
+
+
 
     return (
         <>
@@ -81,6 +88,12 @@ const AdminCourses = () => {
                                     <Label htmlFor="desc">Description</Label>
                                     <Input type="text" id="desc" placeholder="Description" {...register("description", { required: true })} />
                                 </div>
+                                <div className="flex flex-col gap-2">
+                                    <Label htmlFor="name">Image</Label>
+                                    <Input type="file" id="name" placeholder="Name" onChange={(e) =>
+                                        // @ts-ignore
+                                        setImage(e.target.files[0])} required />
+                                </div>
                                 <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
                             </form>
                         </DialogContent>
@@ -99,7 +112,7 @@ const AdminCourses = () => {
                         <TableBody>
                             {
                                 AllCourses?.map((course: CourseType, index: number) => (
-                                 <AdminCourseTr course={course} key={index}/>
+                                    <AdminCourseTr course={course} key={index} />
                                 ))}
                         </TableBody>
                     </Table>
