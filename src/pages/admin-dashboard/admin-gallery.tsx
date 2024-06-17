@@ -8,7 +8,7 @@ import { useCreateImage } from "@/service/mutation/useCreateImage"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { useDeleteImage } from "@/service/mutation/useDeleteImage"
-import { SquarePen, Trash2 } from "lucide-react"
+import { Trash2 } from "lucide-react"
 import AdminGalleryUpdate from "@/components/shared/admin-gallery-update"
 
 

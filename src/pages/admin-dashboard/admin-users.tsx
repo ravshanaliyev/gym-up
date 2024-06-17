@@ -15,6 +15,7 @@ import { useDeleteUser } from "@/service/mutation/useDeleteUser"
 import { useUpgradeUser } from "@/service/mutation/useUpgradeUser"
 import { useDowngradeUser } from "@/service/mutation/useDowngradeUser"
 import AdminUserUpdate from "@/components/shared/admin-user-update"
+import { useToast } from "@/components/ui/use-toast"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Firstname must be at least 2 characters.",
@@ -27,6 +28,7 @@ const formSchema = z.object({
 })
 
 const AdminUsers = () => {
+    const { toast } = useToast()
     const { data } = useGetUsers()
     const [search, setSearch] = useState("")
     const [isOpen, setIsOpen] = useState(false)
@@ -51,9 +53,17 @@ const AdminUsers = () => {
                 console.log(res);
                 client.invalidateQueries({ queryKey: ['get-users'] })
                 setIsOpen(false)
+                toast({
+                    title: "User added successfully",
+                    description: "You can add more users",
+                })
             },
             onError: (error) => {
                 console.log(error);
+                toast({
+                    title: "Error",
+                    description: error.message,
+                })
             }
         })
     }
@@ -101,8 +111,8 @@ const AdminUsers = () => {
             <div className="flex items-center justify-between py-3 border-b-2 gap-4">
                 <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search User" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                    <DialogTrigger asChild>
-                        <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add User</Button>
+                    <DialogTrigger>
+                        <div className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] text-white px-4 py-2 rounded-md">Add User</div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
                         <Form {...form}>

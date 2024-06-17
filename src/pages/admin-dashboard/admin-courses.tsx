@@ -75,7 +75,7 @@ const AdminCourses = () => {
                     <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Course" />
                     <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger>
-                            <Button className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white">Add Course</Button>
+                            <div className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white px-4 py-2 rounded-md">Add Course</div>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                             <h3 className="text-lg text-center">Add Course</h3>
