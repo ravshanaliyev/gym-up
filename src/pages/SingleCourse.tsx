@@ -1,19 +1,18 @@
 import { VideoType } from '@/@types/types'
 import Navbar from '@/components/shared/navbar'
 import { useGetCourseVideos } from '@/service/query/useGetCourseVideos'
-import { ChangeEvent, useEffect,  useLayoutEffect,  useState } from 'react'
-import { useLocation,  useNavigate,  useParams } from 'react-router-dom'
-import Videos from '../assets/Todo.mp4'
+import { ChangeEvent, useEffect, useLayoutEffect, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 const SingleCourse = () => {
 
     const { id } = useParams<string>()
     const navigate = useNavigate()
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
     const { data: CourseVideos } = useGetCourseVideos(id)
-    
+
     const [searchValue, setSearchValue] = useState<string>("")
-    const [searchedData, setSearchedData] = useState<VideoType[]>([])    
+    const [searchedData, setSearchedData] = useState<VideoType[]>([])
 
     useEffect(() => {
         if (searchValue.length > 0) {
@@ -29,10 +28,10 @@ const SingleCourse = () => {
     const token = localStorage.getItem("token")
 
     useLayoutEffect(() => {
-        if(token){
-           return;
+        if (token) {
+            return;
         }
-        else{
+        else {
             navigate("/courses")
         }
     }, [pathname])
