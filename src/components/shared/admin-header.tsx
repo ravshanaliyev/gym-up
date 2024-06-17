@@ -55,13 +55,19 @@ const AdminHeader = () => {
                         </Link>
                         <Link to={'/admin/courses'}>
                             <DropdownMenuItem className='cursor-pointer'>
-                                My Courses
+                                Courses
                                 <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         </Link>
-                        <Link to={'/admin/add-course'}>
+                        <Link to={'/admin/users'}>
                             <DropdownMenuItem className='cursor-pointer'>
-                                Add Course
+                                Users
+                                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                            </DropdownMenuItem>
+                        </Link>
+                        <Link to={'/admin/gallery'}>
+                            <DropdownMenuItem className='cursor-pointer'>
+                                Gallery
                                 <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         </Link>

@@ -89,10 +89,10 @@ const AdminGallery = () => {
                 {
                     filteredData?.map((item: any) => (
                         <div key={item.id} className="border rounded-xl">
-                            <img className="w-full h-[220px] object-cover rounded-t-xl" src={`http://45.138.158.207:8080/images/${item?.attachment?.fileName}`} alt="" />
-                            <div className="flex flex-col p-2">
-                                <h3 className="text-lg">{item.name}</h3>
-                                <h3 className="text-sm my-2">{item.description}</h3>
+                            <img className="w-full h-[220px] object-cover rounded-t-xl" src={`https://api.bekgym.uz/images/${item?.attachment?.fileName}`} alt="" />
+                            <div className="flex flex-col p-2 truncate">
+                                <h3 className="text-lg ">{item.name?.length > 25 ? item.name.substring(0, 25) + "..." : item.name}</h3>
+                                <h3 className="text-sm my-2">{item.description.length > 25 ? item.description.substring(0, 25) + "..." : item.description}</h3>
                                 <div className="flex items-center gap-4 justify-between mt-2">
                                     <AdminGalleryUpdate gallery={item} />
                                     <Button onClick={() => deleteImg(item.id)} className="w-1/2"><Trash2 className="h-4 w-4 mr-1" /> Delete</Button>

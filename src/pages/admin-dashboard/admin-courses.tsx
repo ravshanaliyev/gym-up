@@ -113,7 +113,8 @@ const AdminCourses = () => {
                             {
                                 AllCourses?.map((course: CourseType, index: number) => (
                                     <AdminCourseTr course={course} key={index} />
-                                ))}
+                                ))
+                            }
                         </TableBody>
                     </Table>
                 </div>

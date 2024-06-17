@@ -33,12 +33,11 @@ const AdminCourseTr = ({ course }: { course: CourseType }) => {
     }
     return (
         <TableRow>
-            <TableCell><Link to={`${course.id}`}><img className="w-24" src={`http://45.138.158.207:8080/images/${course?.attachment?.fileName}`} alt="" /></Link></TableCell>
-            <TableCell><Link className="text-base font-semibold" to={`${course.id}`}>{course.title}</Link></TableCell>
-            <TableCell>{course.description}</TableCell>
+            <TableCell><Link to={`${course.id}`}><img className="w-24" src={`https://api.bekgym.uz/images/${course?.attachment?.fileName}`} alt="" /></Link></TableCell>
+            <TableCell><Link className="text-base font-semibold" to={`${course.id}`}>{course.title.length > 25 ? course.title.slice(0, 25) + "..." : course.title}</Link></TableCell>
+            <TableCell className='truncate'>{course.description.length > 25 ? course.description.slice(0, 25) + "..." : course.description}</TableCell>
             <TableCell>
                 <div className="flex gap-2 items-center justify-center">
-                    <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Eye className="h-[18px] w-[18px]" /></Button>
                     <Button onClick={() => { setIsOpen(true); setCurrentCourse(course) }} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><PenBox className="h-[18px] w-[18px]" /></Button>
                     <DeleteCoursebtn id={course.id} deleteCourse={deleteCourse} />
                     <UpdateCourse isOpen={isOpen} setIsOpen={setIsOpen} course={course} />
