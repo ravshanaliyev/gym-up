@@ -41,7 +41,7 @@ const AdminUserUpdate = ({ user }: { user: any }) => {
         <div>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger>
-                    <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
+                    <div className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white flex items-center justify-center rounded-md"><Pencil className="h-4 w-4" /></div>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <h3 className="text-lg text-center">Update User</h3>

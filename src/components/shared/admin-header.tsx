@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 import { SquareMenu } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { Sheet, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
+import { Sheet, SheetClose, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import AdminSidebarItem from './admin-sidebar-item'
 
 const AdminHeader = () => {
@@ -18,9 +18,11 @@ const AdminHeader = () => {
                         <h3 className="text-white text-center text-xl barlow font-semibold">Gym Up Admin</h3>
                         <div className="flex flex-col space-y-6 mt-8">
                             {sidebarLinks.map((link) => (
-                                <Link to={link.path} key={link.path}>
-                                    <AdminSidebarItem icon={link.icon} label={link.label} path={link.path} />
-                                </Link>
+                                <SheetClose asChild key={link.path}>
+                                    <Link to={link.path} >
+                                        <AdminSidebarItem icon={link.icon} label={link.label} path={link.path} />
+                                    </Link>
+                                </SheetClose>
                             ))}
                         </div>
                     </SheetContent>

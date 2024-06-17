@@ -112,7 +112,7 @@ const AdminUsers = () => {
                 <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search User" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger>
-                        <div className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] text-white px-4 py-2 rounded-md">Add User</div>
+                        <div className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] text-white  py-2 rounded-md w-[110px]">Add User</div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
                         <Form {...form}>

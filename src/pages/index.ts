@@ -1,6 +1,5 @@
 import About from "./about";
 import AdminDashboard from "./admin-dashboard";
-import AddCourse from "./admin-dashboard/add-course";
 import AdminProfile from "./admin-dashboard/admin-profile";
 import AdminUsers from "./admin-dashboard/admin-users";
 import Contact from "./contact";
@@ -14,4 +13,4 @@ import SingleCourse from "./SingleCourse";
 import Settings from "./admin-dashboard/settings";
 import AdminGallery from "./admin-dashboard/admin-gallery";
 
-export { About, Classes, Gallery, Home, Shop, AdminUsers, Contact, AdminDashboard, AddCourse, AdminProfile, Settings, AdminCourses, CourseVideos, SingleCourse, AdminGallery }
+export { About, Classes, Gallery, Home, Shop, AdminUsers, Contact, AdminDashboard, AdminProfile, Settings, AdminCourses, CourseVideos, SingleCourse, AdminGallery }
