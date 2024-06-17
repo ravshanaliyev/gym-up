@@ -6,7 +6,7 @@ import { useDeleteCourse } from '@/service/mutation/useDeleteCourse'
 import { TableCell, TableRow } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { client } from "@/service/QueryClient"
-import { Eye, PenBox } from 'lucide-react'
+import { PenBox } from 'lucide-react'
 import { useState } from 'react'
 
 const AdminCourseTr = ({ course }: { course: CourseType }) => {
