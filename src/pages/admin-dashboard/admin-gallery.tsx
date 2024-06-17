@@ -8,6 +8,8 @@ import { useCreateImage } from "@/service/mutation/useCreateImage"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { useDeleteImage } from "@/service/mutation/useDeleteImage"
+import { SquarePen, Trash2 } from "lucide-react"
+import AdminGalleryUpdate from "@/components/shared/admin-gallery-update"
 
 
 const AdminGallery = () => {
@@ -65,11 +67,11 @@ const AdminGallery = () => {
                         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
                                 <Label htmlFor="name">Name</Label>
-                                <Input type="text" id="name" placeholder="Name" {...register("name")} />
+                                <Input type="text" id="name" placeholder="Name" {...register("name", { required: true })} />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <Label htmlFor="name">Description</Label>
-                                <Input type="text" id="name" placeholder="Name" {...register("description")} />
+                                <Input type="text" id="name" placeholder="Name" {...register("description", { required: true })} />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <Label htmlFor="name">Image</Label>
@@ -83,7 +85,7 @@ const AdminGallery = () => {
                 </Dialog>
             </div>
 
-            <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6">
+            <div className="grid  grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6">
                 {
                     filteredData?.map((item: any) => (
                         <div key={item.id} className="border rounded-xl">
@@ -91,7 +93,10 @@ const AdminGallery = () => {
                             <div className="flex flex-col p-2">
                                 <h3 className="text-lg">{item.name}</h3>
                                 <h3 className="text-sm my-2">{item.description}</h3>
-                                <Button onClick={() => deleteImg(item.id)}>Delete</Button>
+                                <div className="flex items-center gap-4 justify-between mt-2">
+                                    <AdminGalleryUpdate gallery={item} />
+                                    <Button onClick={() => deleteImg(item.id)} className="w-1/2"><Trash2 className="h-4 w-4 mr-1" /> Delete</Button>
+                                </div>
                             </div>
                         </div>
                     ))
