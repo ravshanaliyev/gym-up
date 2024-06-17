@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { useGetUsers } from "@/service/query/useGetUsers"
-import { ArrowDown, ArrowUp, Pencil, Trash2 } from "lucide-react"
+import { ArrowDown, ArrowUp, Trash2 } from "lucide-react"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -14,6 +14,7 @@ import { useState } from "react"
 import { useDeleteUser } from "@/service/mutation/useDeleteUser"
 import { useUpgradeUser } from "@/service/mutation/useUpgradeUser"
 import { useDowngradeUser } from "@/service/mutation/useDowngradeUser"
+import AdminUserUpdate from "@/components/shared/admin-user-update"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Firstname must be at least 2 characters.",
@@ -197,7 +198,7 @@ const AdminUsers = () => {
                                             {
                                                 course?.role === 1 ? <Button onClick={() => handleDowngradeUser(course.id)} className="bg-green-500 h-9 w-9 hover:bg-green-500 hover:bg-opacity-90 text-white" size={'icon'}><ArrowDown className="h-5 w-5" /></Button> : <Button onClick={() => handleUpgradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowUp className="h-5 w-5" /></Button>
                                             }
-                                            <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
+                                            <AdminUserUpdate user={course} />
                                             <Button onClick={() => handleDelUser(course.id)} className="bg-red-500 h-9 w-9 hover:bg-red-500 hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
                                         </div>
                                     </TableCell>
