@@ -33,7 +33,7 @@ const Login = () => {
                     const isAdmin = role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
                     localStorage.setItem("token", res.data);
                     if (isAdmin === "Admin") {
-                        setTimeout(() => { navigate("/admin/courses") }, 2000);
+                        setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
 
                     } else {
                         setTimeout(() => { navigate("/user/dashboard") }, 2000)
@@ -70,8 +70,8 @@ const Login = () => {
     };
 
     console.log(password);
-    
-    
+
+
 
     return (
         <div>
