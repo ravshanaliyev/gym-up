@@ -21,6 +21,7 @@ const CourseVideos = () => {
     const [video, setVideo] = useState<VideoType | null>(null)
     const { data } = useGetCourseVideos(id)
     const { mutate, isPending } = useCreateVideo()
+    console.log(data?.data);
 
     function onSubmit(values: any) {
         const formData = new FormData()
@@ -60,12 +61,12 @@ const CourseVideos = () => {
                                 <Input type="text" id="name" placeholder="" {...register("name")} />
                             </div>
                             <div className="flex flex-col gap-2">
-                                <Label htmlFor="name">Description</Label>
-                                <Input type="text" id="name" placeholder="" {...register("description")} />
+                                <Label htmlFor="description">Description</Label>
+                                <Input type="text" id="description" placeholder="" {...register("description")} />
                             </div>
                             <div className="flex flex-col gap-2">
-                                <Label htmlFor="name">Video</Label>
-                                <Input type="file" id="name" placeholder="" onChange={(e) =>
+                                <Label htmlFor="video">Video</Label>
+                                <Input type="file" id="video" placeholder="" onChange={(e) =>
                                     // @ts-ignore
                                     setVideo(e.target.files[0])} />
                             </div>
