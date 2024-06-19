@@ -36,7 +36,7 @@ const Login = () => {
                         setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
 
                     } else {
-                        setTimeout(() => { navigate("/user/dashboard") }, 2000)
+                        setTimeout(() => { navigate("/courses-dashboard") }, 2000)
 
                             ;
                     }

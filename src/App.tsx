@@ -19,6 +19,7 @@ import CourseDashboard from "./pages/courseDashboard"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import CoursesTable from "./components/shared/courses-table"
+import UserDashboard from "./pages/user-dashboard/dashboard"
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
           <Route path={ROUTES.ADMIN_COURSE_SINGLE} element={<CourseVideos />} />
           <Route path={ROUTES.ADMIN_USERS} element={<AdminUsers />} />
           <Route path={ROUTES.ADMIN_GALLERY} element={<AdminGallery />} />
+        </Route>
+        <Route path={ROUTES.USER_DASHBOARD} element={<UserDashboard />}>
+          <Route path={ROUTES.USER_DASHBOARD_COURSES} element={<CourseDashboard />} />
         </Route>
         <Route path="auth" element={<Auth />}>
           <Route path="register" element={<Register />} />
