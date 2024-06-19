@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { BadgeCheck } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
 const UserSidebarItem = ({ icon: Icon, label, path }: { icon?: any, label: string, path: string }) => {
