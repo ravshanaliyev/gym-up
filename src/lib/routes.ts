@@ -19,6 +19,7 @@ export enum ROUTES {
     ADMIN_COURSE_SINGLE = "/admin/courses/:id",
     USER_DASHBOARD = "/user-dashboard",
     USER_DASHBOARD_COURSES = "/user-dashboard/courses/:id",
+    USER_DASHBOARD_ACCOUNT = "/user-dashboard/account",
     ADMIN_USERS = "/admin/users",
     ADMIN_GALLERY = "/admin/gallery",
 }
