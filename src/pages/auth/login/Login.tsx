@@ -34,7 +34,7 @@ const Login = () => {
                     localStorage.setItem("token", res.data);
                     console.log(role);
                     // isAdmin === "Admin" && role.isPayed === true
-                    if (isAdmin === "Admin") {
+                    if (isAdmin === "Admin" && role.IsPayed === "True") {
                         setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
                     } else {
                         setTimeout(() => { navigate("/courses-dashboard") }, 2000);

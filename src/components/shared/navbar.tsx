@@ -21,6 +21,7 @@ const Navbar = () => {
 
     const userData = localStorage.getItem("token");
     const user = userData && jwtDecode(userData);
+    console.log(user);
 
 
     useEffect(() => {
@@ -51,7 +52,7 @@ const Navbar = () => {
                     </Select>
                     {
                         // @ts-ignore
-                        user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
+                        user ? <Button onClick={() => navigate("/profile")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
                             : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase hidden md:block' >{t("navbar.become")}</Button>
                     }
                 </div>
