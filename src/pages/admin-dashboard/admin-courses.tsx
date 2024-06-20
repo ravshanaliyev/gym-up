@@ -23,12 +23,12 @@ const AdminCourses = () => {
     const [image, setImage] = useState(null)
 
 
-    const { mutate } = useCreateCourse()
+    const { mutate, isPending } = useCreateCourse()
 
     function onSubmit(values: any) {
         const formData = new FormData()
-        formData.append("title", values.title)
-        formData.append("description", values.description)
+        formData.append("title", values.title.trimStart())
+        formData.append("description", values.description.trimStart())
         formData.append("image", image as any)
         mutate(formData, {
             onSuccess: () => {
@@ -94,7 +94,7 @@ const AdminCourses = () => {
                                         // @ts-ignore
                                         setImage(e.target.files[0])} required />
                                 </div>
-                                <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
+                                <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]" disabled={isPending}>Submit</Button>
                             </form>
                         </DialogContent>
                     </Dialog>
