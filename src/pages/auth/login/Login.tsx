@@ -32,13 +32,12 @@ const Login = () => {
                     setTimeout(() => { setRegisterLoading(false) }, 2000)
                     const isAdmin = role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
                     localStorage.setItem("token", res.data);
+                    console.log(role);
+                    // isAdmin === "Admin" && role.isPayed === true
                     if (isAdmin === "Admin") {
                         setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
-
                     } else {
-                        setTimeout(() => { navigate("/courses-dashboard") }, 2000)
-
-                            ;
+                        setTimeout(() => { navigate("/courses-dashboard") }, 2000);
                     }
                 }
             }

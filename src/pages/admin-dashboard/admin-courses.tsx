@@ -99,7 +99,7 @@ const AdminCourses = () => {
                         </DialogContent>
                     </Dialog>
                 </div>
-                <div className="my-6">
+                <div className="my-6 hidden md:block">
                     <Table className="">
                         <TableHeader>
                             <TableRow>
@@ -112,11 +112,18 @@ const AdminCourses = () => {
                         <TableBody>
                             {
                                 AllCourses?.map((course: CourseType, index: number) => (
-                                    <AdminCourseTr course={course} key={index} />
+                                    <AdminCourseTr course={course} key={index} ind={1} />
                                 ))
                             }
                         </TableBody>
                     </Table>
+                </div>
+                <div className="my-6 md:hidden grid grid-cols-1 gap-6 place-items-center">
+                    {
+                        AllCourses?.map((course: CourseType, index: number) => (
+                            <AdminCourseTr course={course} key={index} ind={2} />
+                        ))
+                    }
                 </div>
             </div>
         </>

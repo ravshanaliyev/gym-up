@@ -2,11 +2,11 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Button } from "../ui/button"
 import { Trash2 } from "lucide-react"
 
-const DeleteCoursebtn = ({ deleteCourse, id }: { deleteCourse: any, id: number }) => {
+const DeleteCoursebtn = ({ deleteCourse, id, ind }: { deleteCourse: any, id: number, ind: number }) => {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button className=" h-9 w-9  hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
+                <Button className={`${ind === 1 ? 'h-[36px] w-[36px]' : 'w-full h-full py-2'}  hover:bg-opacity-90 text-white`} size={'icon'}><Trash2 className={`h-4 w-4 ${ind === 2 && 'mr-1'} `} /> {ind === 1 ? "" : "Delete"}</Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
