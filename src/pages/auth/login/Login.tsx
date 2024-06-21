@@ -36,8 +36,10 @@ const Login = () => {
                     // isAdmin === "Admin" && role.isPayed === true
                     if (isAdmin === "Admin" && role.IsPayed === "True") {
                         setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
+                    } else if (isAdmin === "Admin" && role.IsPayed === "False") {
+                        setTimeout(() => { window.location.href = "/user-dashboard" }, 2000);
                     } else {
-                        setTimeout(() => { navigate("/courses-dashboard") }, 2000);
+                        setTimeout(() => { navigate("/") }, 2000);
                     }
                 }
             }

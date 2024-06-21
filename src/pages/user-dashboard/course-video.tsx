@@ -4,13 +4,11 @@ import { useParams } from "react-router-dom"
 const CourseVid = () => {
     const { id } = useParams()
     const { data } = useGetCourseVideos(id)
-
-
     return (
         <div className="w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
                 {data?.data?.data?.map((video: any) => (
-                    <div className="bg-white max-w-[350px] w-full border shadow-sm rounded-lg">
+                    <div key={video.id} className="bg-white max-w-[350px] w-full border shadow-sm rounded-lg">
                         <video controlsList="nodownload" className="h-[280px] max-w-[350px] w-full rounded-t-lg" autoPlay muted loop controls >
                             <source className="max-w-[350px] w-full" src={`https://api.bekgym.uz/videos/${video?.attachment?.fileName}`} />
                         </video>

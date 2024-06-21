@@ -1,64 +1,64 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import UserPasswordUpdate from "@/components/shared/user-password-update"
+import UserUpdate from "@/components/shared/user-update"
+import { useToast } from "@/components/ui/use-toast"
+import { useUpdatePassword } from "@/service/mutation/useUpdatePassword"
+import { useUpdateUser } from "@/service/mutation/useUpdateUser"
+import { useGetUser } from "@/service/query/useGetUser"
 import { jwtDecode } from "jwt-decode"
 
 const UserAccount = () => {
-    const user = jwtDecode(localStorage.getItem('token')!)
-
+    const { toast } = useToast()
+    const token = localStorage.getItem('token')
+    const user: any = token && jwtDecode(token!)
+    const { mutate, isPending } = useUpdateUser()
+    const { mutate: mutatePass } = useUpdatePassword()
+    const { data, isLoading } = useGetUser(user.Id)
+    const onSubmit = (data: any) => {
+        mutate({ ...data, id: Number(user.Id), isPayed: true }, {
+            onSuccess: (res) => {
+                console.log(res);
+                toast({
+                    title: 'Success',
+                    description: 'User updated successfully',
+                })
+            },
+            onError: (error) => {
+                console.log(error);
+                toast({
+                    title: 'Error',
+                    description: error.message,
+                })
+            }
+        })
+    }
+    const onSubmitPassword = (values: any) => {
+        const { oldPass, newPass } = values
+        mutatePass({ oldPass, newPass }, {
+            onSuccess: (res) => {
+                console.log(res);
+                toast({
+                    title: 'Success',
+                    description: 'Password updated successfully',
+                })
+            },
+            onError: (error) => {
+                console.log(error);
+                toast({
+                    title: 'Error',
+                    description: error.message,
+                })
+            }
+        })
+    }
     return (
-        <div className="flex flex-col gap-6">
-            <div>
-                <form className="border rounded-xl p-5 shadow bg-white">
-                    <h3 className="text-xl">Personal Information</h3>
-                    <p className="text-sm">Details about your personal information</p>
-                    <hr className="my-5" />
-                    <div className="block md:flex gap-6 my-6">
-                        <div className="w-full md:w-1/2">
-                            <Label htmlFor="phone">Phone</Label>
-                            <Input id="phone" type="text"
-                                // @ts-ignore
-                                defaultValue={user.Phone} />
-                        </div>
-                    </div>
-                    <div className="block md:flex gap-6 my-6 ">
-                        <div className="w-full md:w-1/2">
-                            <Label htmlFor="firstName">First Name</Label>
-                            <Input id="firstName"
-                                // @ts-ignore
-                                defaultValue={user.FirstName} />
-                        </div>
-                        <div className="w-full md:w-1/2 mt-4 md:mt-0">
-                            <Label htmlFor="lastName">Last Name</Label>
-                            <Input id="lastName"
-                                // @ts-ignore
-                                defaultValue={user.LastName} />
-                        </div>
-                    </div>
-                    <div className="flex justify-end">
-                        <Button variant={'outline'} >Save Changes</Button>
-                    </div>
-                </form>
-            </div>
-            <div>
-                <form className="border rounded-xl p-5 shadow bg-white">
-                    <h3 className="text-xl">Change Password</h3>
-                    <p className="text-sm">Details about your account password change</p>
-                    <hr className="my-5" />
-                    <div className="block md:flex gap-6 my-6">
-                        <div className="w-full md:w-1/3">
-                            <Label htmlFor="currentPassword">Current Password</Label>
-                            <Input type="password" placeholder="Current Password" id="currentPassword" />
-                        </div>
-                        <div className="w-full md:w-1/3 mt-4 md:mt-0">
-                            <Label htmlFor="newPassword">New Password</Label>
-                            <Input type="password" placeholder="New Password" id="newPassword" />
-                        </div>
-                    </div>
-                    <div className="flex justify-end">
-                        <Button type="submit" variant={'outline'}>Save Changes</Button>
-                    </div>
-                </form>
+        <div>
+            <div className="flex flex-col gap-6">
+                {
+                    isLoading ? <h3>Loading...</h3> : (
+                        <UserUpdate submit={onSubmit} data={data} isPending={isPending} />
+                    )
+                }
+                <UserPasswordUpdate onSubmitPassword={onSubmitPassword} />
             </div>
         </div>
     )
