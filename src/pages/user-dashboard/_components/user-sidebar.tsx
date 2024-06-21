@@ -5,7 +5,6 @@ import { useGetCourses } from "@/service/query/useGetCourses";
 
 const UserSidebar = () => {
     const { data } = useGetCourses()
-    console.log(data);
 
     return (
         <div>

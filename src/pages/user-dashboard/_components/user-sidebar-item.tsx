@@ -4,9 +4,6 @@ import { useLocation } from "react-router-dom";
 const UserSidebarItem = ({ icon: Icon, label, path }: { icon?: any, label: string, path: string }) => {
     const { pathname } = useLocation()
     const isActive = pathname === path;
-    console.log(pathname);
-    console.log(path);
-
 
     return (
         <div>

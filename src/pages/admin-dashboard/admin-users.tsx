@@ -36,7 +36,6 @@ const AdminUsers = () => {
     const { mutate: delUser } = useDeleteUser()
     const { mutate: upgradeUser } = useUpgradeUser()
     const { mutate: downgradeUser } = useDowngradeUser()
-    console.log(data?.data);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -49,8 +48,7 @@ const AdminUsers = () => {
     })
     function onSubmit(values: z.infer<typeof formSchema>) {
         mutate(values, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
                 setIsOpen(false)
                 toast({

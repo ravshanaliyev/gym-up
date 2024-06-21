@@ -20,7 +20,6 @@ const AdminGallery = () => {
     const [image, setImage] = useState(null)
     const [search, setSearch] = useState("")
     const [isOpen, setIsOpen] = useState(false)
-    console.log(data);
 
     function onSubmit(values: any) {
         const formData = new FormData()
@@ -29,8 +28,7 @@ const AdminGallery = () => {
         formData.append("Image", image as any)
 
         mutate(formData, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-gallery'] })
                 setIsOpen(false)
             },
@@ -45,8 +43,7 @@ const AdminGallery = () => {
 
     const deleteImg = (id: number) => {
         deleteImage(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-gallery'] })
             },
             onError: (error) => {

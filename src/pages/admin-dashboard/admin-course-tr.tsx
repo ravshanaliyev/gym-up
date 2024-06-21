@@ -13,17 +13,14 @@ const AdminCourseTr = ({ course, ind }: { course: CourseType, ind: number }) => 
 
     const { mutate: delCourse } = useDeleteCourse()
 
-    const [currentCourse, setCurrentCourse] = useState<any>(null)
-
-    console.log(currentCourse);
+    const [_, setCurrentCourse] = useState<any>(null)
 
 
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const deleteCourse = (id: number) => {
         delCourse(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-courses'] })
             },
             onError: (error) => {
