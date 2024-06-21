@@ -1,8 +1,14 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
+import { useNavigate } from "react-router-dom"
 
 
 const UserHeader = () => {
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        localStorage.removeItem("token")
+        navigate("/auth/login")
+    }
     return (
         <div className='w-full h-[80px] shadow-md flex items-center barlow bg-white  justify-between px-8'>
             <h3 className="text-black text-center text-xl barlow font-semibold">Gym Up</h3>
@@ -22,7 +28,7 @@ const UserHeader = () => {
                 <DropdownMenuContent className="w-56">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleLogout}>
                         Log out
                         <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                     </DropdownMenuItem>

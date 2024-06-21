@@ -2,11 +2,16 @@ import { Settings, Computer, UserRound, Users, Images } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 import { SquareMenu } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Sheet, SheetClose, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import AdminSidebarItem from './admin-sidebar-item'
 
 const AdminHeader = () => {
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        localStorage.removeItem("token")
+        navigate("/auth/login")
+    }
     return (
         <div className='w-full h-[80px] shadow-xl flex items-center barlow bg-white justify-between px-8'>
             <div className='flex items-center lg:hidden '>
@@ -79,7 +84,7 @@ const AdminHeader = () => {
                         </Link>
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleLogout()}>
                         Log out
                         <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                     </DropdownMenuItem>

@@ -1,4 +1,4 @@
-import { CirclePlay, Settings, User } from "lucide-react";
+import { CirclePlay, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import UserSidebarItem from "./user-sidebar-item";
 import { useGetCourses } from "@/service/query/useGetCourses";
