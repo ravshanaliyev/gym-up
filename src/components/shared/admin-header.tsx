@@ -5,6 +5,7 @@ import { SquareMenu } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Sheet, SheetClose, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import AdminSidebarItem from './admin-sidebar-item'
+import { jwtDecode } from "jwt-decode";
 
 const AdminHeader = () => {
     const navigate = useNavigate()
@@ -12,6 +13,8 @@ const AdminHeader = () => {
         localStorage.removeItem("token")
         navigate("/auth/login")
     }
+    const user = jwtDecode(localStorage.getItem("token")!)
+
     return (
         <div className='w-full h-[80px] shadow-xl flex items-center barlow bg-white justify-between px-8'>
             <div className='flex items-center lg:hidden '>
@@ -39,7 +42,9 @@ const AdminHeader = () => {
                 <DropdownMenuTrigger asChild>
                     <div className="flex items-center gap-2 cursor-pointer">
                         <div className='flex flex-col items-end'>
-                            <h4 className='text-[14px] font-semibold'>Thomas Anree</h4>
+                            <h4 className='text-[14px] font-semibold'>{
+                                //@ts-ignore
+                                user.FirstName} {user.LastName}</h4>
                             <p className='text-[12px] font-medium'>Trainer</p>
                         </div>
                         <Avatar>

@@ -5,6 +5,7 @@ import { CirclePlay, SquareMenu, User } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
 import UserSidebarItem from "./user-sidebar-item"
 import { useGetCourses } from "@/service/query/useGetCourses"
+import { jwtDecode } from "jwt-decode"
 
 
 const UserHeader = () => {
@@ -13,6 +14,7 @@ const UserHeader = () => {
         localStorage.removeItem("token")
         navigate("/auth/login")
     }
+    const user = jwtDecode(localStorage.getItem("token")!)
 
     const { data } = useGetCourses()
     return (
@@ -48,7 +50,10 @@ const UserHeader = () => {
                 <DropdownMenuTrigger asChild>
                     <div className="flex items-center gap-2 cursor-pointer">
                         <div className='flex flex-col items-end'>
-                            <h4 className='text-[14px] font-semibold'>Thomas Anree</h4>
+                            <h4 className='text-[14px] font-semibold'>
+                                {
+                                    //@ts-ignore
+                                    user.FirstName} {user.LastName}</h4>
                             <p className='text-[12px] font-medium'>User</p>
                         </div>
                         <Avatar>
