@@ -2,7 +2,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Button } from "../ui/button"
 import { Trash2 } from "lucide-react"
 
-const DeleteCoursebtn = ({ deleteCourse, id, ind }: { deleteCourse: any, id: number, ind: number }) => {
+const DeleteCoursebtn = ({ deleteCourse, id, ind }: { deleteCourse: any, id: number, ind?: number }) => {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>

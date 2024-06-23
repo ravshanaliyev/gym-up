@@ -10,6 +10,7 @@ import { useState } from "react"
 import { useDeleteImage } from "@/service/mutation/useDeleteImage"
 import { Trash2 } from "lucide-react"
 import AdminGalleryUpdate from "@/components/shared/admin-gallery-update"
+import DeleteCoursebtn from "@/components/shared/delete-coursebtn"
 
 
 const AdminGallery = () => {
@@ -92,7 +93,8 @@ const AdminGallery = () => {
                                 <h3 className="text-sm my-2  break-words">{item.description}</h3>
                                 <div className="flex items-center gap-4 justify-between mt-2">
                                     <AdminGalleryUpdate gallery={item} />
-                                    <Button onClick={() => deleteImg(item.id)} className="w-1/2"><Trash2 className="h-4 w-4 mr-1" /> Delete</Button>
+                                    {/* <Button onClick={() => deleteImg(item.id)} className="w-1/2"><Trash2 className="h-4 w-4 mr-1" /> Delete</Button> */}
+                                    <DeleteCoursebtn id={item.id} deleteCourse={deleteImg} />
                                 </div>
                             </div>
                         </div>

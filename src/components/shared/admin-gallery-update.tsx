@@ -37,7 +37,7 @@ const AdminGalleryUpdate = ({ gallery }: { gallery: any }) => {
         <div>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>
-                    <Button className="!bg-[#3C50E0] h-[40px] !hover:bg-[#5162e2] !text-white w-full"><SquarePen className="h-4 w-4 mr-1" /> Edit</Button>
+                    <Button className="!bg-[#3C50E0] h-[36px] !hover:bg-[#5162e2] !text-white w-full"><SquarePen className="h-4 w-4 mr-1" /> Edit</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <h3 className="text-lg text-center">Create Image</h3>

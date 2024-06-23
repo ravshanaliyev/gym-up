@@ -16,6 +16,7 @@ import { useUpgradeUser } from "@/service/mutation/useUpgradeUser"
 import { useDowngradeUser } from "@/service/mutation/useDowngradeUser"
 import AdminUserUpdate from "@/components/shared/admin-user-update"
 import { useToast } from "@/components/ui/use-toast"
+import DeleteCoursebtn from "@/components/shared/delete-coursebtn"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Firstname must be at least 2 characters.",
@@ -213,7 +214,8 @@ const AdminUsers = () => {
                                                 course?.role === 1 ? <Button onClick={() => handleDowngradeUser(course.id)} className="bg-green-500 h-9 w-9 hover:bg-green-500 hover:bg-opacity-90 text-white" size={'icon'}><ArrowDown className="h-5 w-5" /></Button> : <Button onClick={() => handleUpgradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowUp className="h-5 w-5" /></Button>
                                             }
                                             <AdminUserUpdate user={course} />
-                                            <Button onClick={() => handleDelUser(course.id)} className="bg-red-500 h-9 w-9 hover:bg-red-500 hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
+                                            {/* <Button onClick={() => handleDelUser(course.id)} className="bg-red-500 h-9 w-9 hover:bg-red-500 hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button> */}
+                                            <DeleteCoursebtn id={course.id} deleteCourse={handleDelUser} ind={1} />
                                         </div>
                                     </TableCell>
                                 </TableRow>
