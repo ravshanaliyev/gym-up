@@ -44,11 +44,11 @@ const AdminGalleryUpdate = ({ gallery }: { gallery: any }) => {
                     <form onSubmit={onSubmit} className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
                             <Label htmlFor="name">Name</Label>
-                            <Input type="text" id="name" placeholder="Name" value={Name} onChange={(e) => setName(e.target.value)} />
+                            <Input type="text" id="name" placeholder="Name" value={Name} onChange={(e) => setName(e.target.value.trimStart())} />
                         </div>
                         <div className="flex flex-col gap-2">
                             <Label htmlFor="name">Description</Label>
-                            <Input type="text" id="name" placeholder="Description" value={Description} onChange={(e) => setDescription(e.target.value)} />
+                            <Input type="text" id="name" placeholder="Description" value={Description} onChange={(e) => setDescription(e.target.value.trimStart())} />
                         </div>
                         <div className="flex flex-col gap-2">
                             <Label htmlFor="name">Image</Label>

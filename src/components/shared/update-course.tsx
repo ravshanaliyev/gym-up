@@ -28,23 +28,6 @@ const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpe
     const { id } = course;
     const updatedCourse = { id, title, description, image }
 
-    // const onUpdateSubmit = (value: any) => {
-    //     updateCourse({ ...value, id }, {
-    //         onSuccess: () => {
-    //             client.invalidateQueries({ queryKey: ['get-courses'] });
-    //             setIsOpen(false);
-    //             toast({
-    //                 title: "Course updated successfully",
-    //                 description: "You can add more courses",
-    //             });
-    //         },
-    //         onError: (error) => {
-    //             console.log(error);
-    //         }
-    //     });
-    // };
-
-
     const handleUpdateCourse = (e: Event) => {
         e.preventDefault()
         console.log(updatedCourse);
@@ -81,11 +64,11 @@ const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpe
                     <form onSubmit={handleUpdateCourse as any} className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
                             <Label htmlFor="title">Name</Label>
-                            <Input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                            <Input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value.trimStart())} />
                         </div>
                         <div className="flex flex-col gap-2">
                             <Label htmlFor="description">Description</Label>
-                            <Input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                            <Input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value.trimStart())} />
                         </div>
                         <div className="flex flex-col gap-2">
                             <Label htmlFor="name">Image</Label>

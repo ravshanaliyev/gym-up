@@ -47,7 +47,13 @@ const AdminUsers = () => {
         },
     })
     function onSubmit(values: z.infer<typeof formSchema>) {
-        mutate(values, {
+        const formData = new FormData()
+        formData.append("firstname", values.firstname.trimStart())
+        formData.append("lastname", values.lastname.trimStart())
+        formData.append("phone", values.phone)
+        formData.append("password", values.password)
+
+        mutate(formData, {
             onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
                 setIsOpen(false)

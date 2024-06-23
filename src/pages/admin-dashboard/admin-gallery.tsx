@@ -23,8 +23,8 @@ const AdminGallery = () => {
 
     function onSubmit(values: any) {
         const formData = new FormData()
-        formData.append("Name", values.name)
-        formData.append("Description", values.description)
+        formData.append("Name", values.name.trimStart())
+        formData.append("Description", values.description.trimStart())
         formData.append("Image", image as any)
 
         mutate(formData, {
@@ -85,11 +85,11 @@ const AdminGallery = () => {
             <div className="grid  grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6">
                 {
                     filteredData?.map((item: any) => (
-                        <div key={item.id} className="border rounded-xl">
+                        <div key={item.id} className="border rounded-xl h-fit">
                             <img className="w-full h-[220px] object-cover rounded-t-xl" src={`https://api.bekgym.uz/images/${item?.attachment?.fileName}`} alt="" />
-                            <div className="flex flex-col p-2 truncate">
+                            <div className="flex flex-col p-2">
                                 <h3 className="text-lg ">{item.name?.length > 25 ? item.name.substring(0, 25) + "..." : item.name}</h3>
-                                <h3 className="text-sm my-2">{item.description.length > 25 ? item.description.substring(0, 25) + "..." : item.description}</h3>
+                                <h3 className="text-sm my-2  break-words">{item.description}</h3>
                                 <div className="flex items-center gap-4 justify-between mt-2">
                                     <AdminGalleryUpdate gallery={item} />
                                     <Button onClick={() => deleteImg(item.id)} className="w-1/2"><Trash2 className="h-4 w-4 mr-1" /> Delete</Button>

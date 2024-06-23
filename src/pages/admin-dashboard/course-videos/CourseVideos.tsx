@@ -79,7 +79,7 @@ const CourseVideos = () => {
                     </DialogContent>
                 </Dialog>
             </div>
-            <div className="w-full grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 place-items-center">
+            <div className="w-full grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
                 {
                     data?.data?.data?.map((video: VideoType) =>
                         <VideoCard video={video} key={video.id} />

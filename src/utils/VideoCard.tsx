@@ -62,13 +62,13 @@ const VideoCard = ({ video }: { video: VideoType }) => {
     })
   }
   return (
-    <div className="bg-white max-w-[320px] w-full border shadow-sm rounded-lg">
+    <div className="bg-white max-w-[320px] h-fit w-full border shadow-sm rounded-lg">
       <video controlsList="nodownload" className="h-[280px] max-w-[350px] w-full rounded-t-lg" autoPlay muted loop controls >
         <source className="max-w-[350px] w-full" src={`https://api.bekgym.uz/videos/${video?.attachment?.fileName}`} />
       </video>
       <div className="p-2">
         <h3 className="text-[#1c2434] font-[600] text-[18px] mt-2">{video.name}</h3>
-        <p className="my-2 whitespace-normal">{video.description}</p>
+        <p className="my-2 whitespace-normal break-words">{video.description}</p>
         <div className="flex items-center gap-3 w-full justify-between">
           <Dialog open={isOpen} onOpenChange={setIsOpen as any}>
             <DialogTrigger asChild>
@@ -102,7 +102,7 @@ const VideoCard = ({ video }: { video: VideoType }) => {
               </form>
             </DialogContent>
           </Dialog>
-          <Button onClick={() => handleDeleteVideo(video.id)} className="w-full bg-[#ff1414] hover:bg-[#5162e2] " size={'sm'}>Delete</Button>
+          <Button onClick={() => handleDeleteVideo(video.id)} className="w-full bg-[#ff1414] hover:bg-[#ff1414] " size={'sm'}>Delete</Button>
         </div>
       </div>
     </div>
