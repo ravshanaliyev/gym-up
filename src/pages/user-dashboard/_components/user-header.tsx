@@ -14,8 +14,8 @@ const UserHeader = () => {
         localStorage.removeItem("token")
         navigate("/auth/login")
     }
-    const user = jwtDecode(localStorage.getItem("token")!)
-
+    const user: any = jwtDecode(localStorage.getItem("token")!)
+    const role: any = user && user["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
     const { data } = useGetCourses()
     return (
         <div className='w-full h-[80px] shadow-md flex items-center barlow bg-white  justify-between px-8'>
@@ -26,8 +26,10 @@ const UserHeader = () => {
                     </SheetTrigger>
                     <SheetContent side={'left'} className='bg-[#1c2434] text-white'>
                         <div className="flex flex-col space-y-4 mt-8">
-                            <h3 className="text-white font-bold text-[16px] text-center">Courses</h3>
-                            {data?.data.map((link: any) => (
+                            {
+                                role === "Admin" && <h3 className="text-white font-bold text-[16px] text-center">Courses</h3>
+                            }
+                            {role === "Admin" && data?.data.map((link: any) => (
                                 <SheetClose asChild key={link.id}>
                                     <Link to={`/user-dashboard/courses/${link.id}`}>
                                         <UserSidebarItem icon={CirclePlay} label={link.title} path={`/user-dashboard/courses/${link.id}`} />
