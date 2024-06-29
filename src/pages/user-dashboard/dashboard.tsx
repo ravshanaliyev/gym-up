@@ -13,7 +13,7 @@ const UserDashboard = () => {
 
     const tokenAdmin: any = token && jwtDecode(token)
 
-    const role: any = token && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+    const role: any = tokenAdmin && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
 
 
     useEffect(() => {
