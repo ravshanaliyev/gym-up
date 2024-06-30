@@ -62,8 +62,8 @@ const VideoCard = ({ video }: { video: VideoType }) => {
     })
   }
   return (
-    <div className="bg-white max-w-[320px] h-fit w-full border shadow-sm rounded-lg">
-      <video controlsList="nodownload" className="h-[280px] max-w-[350px] w-full rounded-t-lg" autoPlay muted loop controls >
+    <div className="bg-white w-full md:max-w-[320px] h-fit  border shadow-sm rounded-lg">
+      <video controlsList="nodownload" className="h-[280px] md:max-w-[350px] w-full rounded-t-lg" autoPlay muted loop controls >
         <source className="max-w-[350px] w-full" src={`https://api.bekgym.uz/videos/${video?.attachment?.fileName}`} />
       </video>
       <div className="p-2">
