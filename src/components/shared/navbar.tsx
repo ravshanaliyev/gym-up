@@ -71,8 +71,8 @@ const Navbar = () => {
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">Contact</Link></li>
                                 {
                                     // @ts-ignore
-                                    user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10' size={'lg'}>{user?.FirstName?.slice(0, 1)}</Button>
-                                        : <Button className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
+                                    user ? <Button onClick={() => user.IsPayed === "True" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10' size={'lg'}>{user?.FirstName?.slice(0, 1)}</Button>
+                                        : <Button onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
                                 }
 
                             </ul>
