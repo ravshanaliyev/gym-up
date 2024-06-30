@@ -23,7 +23,7 @@ const AdminGalleryUpdate = ({ gallery }: { gallery: any }) => {
     const onSubmit = (e: any) => {
         e.preventDefault()
         mutate(updateImage, {
-            onSuccess: (res) => {
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-gallery'] })
                 setIsOpen(false)
             },

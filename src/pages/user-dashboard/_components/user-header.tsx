@@ -14,7 +14,7 @@ const UserHeader = () => {
         localStorage.removeItem("token")
         navigate("/auth/login")
     }
-    const user: any = jwtDecode(localStorage.getItem("token")!)
+    const user: any = localStorage.getItem("token") && jwtDecode(localStorage.getItem("token")!)
     const role: any = user && user["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
     const { data } = useGetCourses()
     return (
@@ -55,7 +55,7 @@ const UserHeader = () => {
                             <h4 className='text-[14px] font-semibold'>
                                 {
                                     //@ts-ignore
-                                    user.FirstName} {user.LastName}</h4>
+                                    user?.FirstName} {user?.LastName}</h4>
                             <p className='text-[12px] font-medium'>User</p>
                         </div>
                         <Avatar>

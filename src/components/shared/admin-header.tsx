@@ -13,7 +13,7 @@ const AdminHeader = () => {
         localStorage.removeItem("token")
         navigate("/auth/login")
     }
-    const user = jwtDecode(localStorage.getItem("token")!)
+    const user = localStorage.getItem("token") && jwtDecode(localStorage.getItem("token")!)
 
     return (
         <div className='w-full h-[80px] shadow-xl flex items-center barlow bg-white justify-between px-8'>
@@ -44,7 +44,7 @@ const AdminHeader = () => {
                         <div className='flex flex-col items-end'>
                             <h4 className='text-[14px] font-semibold'>{
                                 //@ts-ignore
-                                user.FirstName} {user.LastName}</h4>
+                                user?.FirstName} {user?.LastName}</h4>
                             <p className='text-[12px] font-medium'>Trainer</p>
                         </div>
                         <Avatar>
