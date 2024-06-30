@@ -15,8 +15,8 @@ import { useDeleteUser } from "@/service/mutation/useDeleteUser"
 import { useUpgradeUser } from "@/service/mutation/useUpgradeUser"
 import { useDowngradeUser } from "@/service/mutation/useDowngradeUser"
 import AdminUserUpdate from "@/components/shared/admin-user-update"
-import { useToast } from "@/components/ui/use-toast"
 import DeleteCoursebtn from "@/components/shared/delete-coursebtn"
+import { toast } from "sonner"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Firstname must be at least 2 characters.",
@@ -29,7 +29,6 @@ const formSchema = z.object({
 })
 
 const AdminUsers = () => {
-    const { toast } = useToast()
     const { data } = useGetUsers()
     const [search, setSearch] = useState("")
     const [isOpen, setIsOpen] = useState(false)
@@ -58,15 +57,13 @@ const AdminUsers = () => {
             onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
                 setIsOpen(false)
-                toast({
-                    title: "User added successfully",
+                toast("User added successfully", {
                     description: "You can add more users",
                 })
             },
             onError: (error) => {
                 console.log(error);
-                toast({
-                    title: "Error",
+                toast("User not added", {
                     description: error.message,
                 })
             }

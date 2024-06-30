@@ -4,15 +4,14 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { useUpdateCourse } from "@/service/mutation/useUpdateCourse";
 import { client } from "@/service/QueryClient";
-import { useToast } from "../ui/use-toast";
 import { Pencil } from "lucide-react";
 import { CourseType } from "@/@types/types";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpen: boolean, setIsOpen: Function }) => {
     console.log(isOpen);
 
-    const { toast } = useToast();
     const { mutate: updateCourse } = useUpdateCourse();
 
     const [title, setTitle] = useState("")
@@ -36,15 +35,11 @@ const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpe
                 console.log(res);
                 client.invalidateQueries({ queryKey: ['get-courses'] });
                 setIsOpen(false);
-                toast({
-                    title: "Course updated successfully",
-                    description: "You can add more courses",
-                });
+                toast('Course updated successfully');
             },
             onError: (error) => {
                 console.log(error);
-                toast({
-                    title: "There was an error",
+                toast('There was an error', {
                     description: error.message,
                 });
             }

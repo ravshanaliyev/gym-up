@@ -1,13 +1,12 @@
 import UserPasswordUpdate from "@/components/shared/user-password-update"
 import UserUpdate from "@/components/shared/user-update"
-import { useToast } from "@/components/ui/use-toast"
 import { useUpdatePassword } from "@/service/mutation/useUpdatePassword"
 import { useUpdateUser } from "@/service/mutation/useUpdateUser"
 import { useGetUser } from "@/service/query/useGetUser"
 import { jwtDecode } from "jwt-decode"
+import { toast } from "sonner"
 
 const Settings = () => {
-    const { toast } = useToast()
     const token = localStorage.getItem('token')
     const user: any = token && jwtDecode(token!)
     const { mutate, isPending } = useUpdateUser()
@@ -17,15 +16,13 @@ const Settings = () => {
         mutate({ ...data, id: Number(user.Id), isPayed: true }, {
             onSuccess: (res) => {
                 console.log(res);
-                toast({
-                    title: 'Success',
+                toast("Profile updated successfully", {
                     description: 'User updated successfully',
                 })
             },
             onError: (error) => {
                 console.log(error);
-                toast({
-                    title: 'Error',
+                toast("Profile not updated", {
                     description: error.message,
                 })
             }
@@ -36,15 +33,13 @@ const Settings = () => {
         mutatePass({ oldPass, newPass }, {
             onSuccess: (res) => {
                 console.log(res);
-                toast({
-                    title: 'Success',
+                toast("Password updated successfully", {
                     description: 'Password updated successfully',
                 })
             },
             onError: (error) => {
                 console.log(error);
-                toast({
-                    title: 'Error',
+                toast("There was an error", {
                     description: error.message,
                 })
             }

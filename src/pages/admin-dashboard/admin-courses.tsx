@@ -9,12 +9,11 @@ import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import { useCreateCourse } from "@/service/mutation/useCreateCourse"
 import { useEffect, useState } from "react"
-import { useToast } from "@/components/ui/use-toast"
 import AdminCourseTr from "./admin-course-tr"
+import { toast } from "sonner"
 
 
 const AdminCourses = () => {
-    const { toast } = useToast()
     const [search, setSearch] = useState("")
     const [AllCourses, setAllCourses] = useState<CourseType[]>([])
     const [isOpen, setIsOpen] = useState(false)
@@ -35,13 +34,13 @@ const AdminCourses = () => {
                 client.invalidateQueries({ queryKey: ['get-courses'] })
                 setIsOpen(false)
                 reset()
-                toast({
-                    title: "Course added successfully",
-                    description: "You can add more courses",
-                })
+                toast('Course added successfully')
             },
             onError: (error) => {
                 console.log(error);
+                toast('Course not added', {
+                    description: error.message
+                })
             }
         })
     }
