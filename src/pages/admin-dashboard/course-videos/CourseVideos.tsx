@@ -16,12 +16,12 @@ import { client } from "@/service/QueryClient";
 const CourseVideos = () => {
     const { toast } = useToast()
     const [isOpen, setIsOpen] = useState(false)
+    const [search, setSearch] = useState("")
     const { register, handleSubmit, reset } = useForm()
     const { id } = useParams()
     const [video, setVideo] = useState<VideoType | null>(null)
     const { data } = useGetCourseVideos(id)
     const { mutate, isPending } = useCreateVideo()
-    console.log(data?.data);
 
     function onSubmit(values: any) {
         const formData = new FormData()
@@ -46,10 +46,14 @@ const CourseVideos = () => {
             }
         })
     }
+    const filteredData = data?.data?.data?.filter((course: any) => {
+        return course.name.toLowerCase().includes(search.toLowerCase())
+    })
+
     return (
         <>
             <div className="flex justify-between border-b border-gray-400 pb-[1rem]">
-                <Input className="max-w-[400px] h-[40px]" placeholder="Search Video" />
+                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Video" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger asChild>
                         <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add Video</Button>
@@ -81,7 +85,7 @@ const CourseVideos = () => {
             </div>
             <div className="w-full grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
                 {
-                    data?.data?.data?.map((video: VideoType) =>
+                    filteredData?.map((video: VideoType) =>
                         <VideoCard video={video} key={video.id} />
                     )
                 }
