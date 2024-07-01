@@ -1,18 +1,20 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import Aos from 'aos'
 import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
-
+    const [resize, _] = useState(450)
     const navigate = useNavigate()
-
     useEffect(() => {
         Aos.init()
     }, [])
 
     return (
-        <div className='teko h-[600px] md:h-[640px] bg-black w-full flex justify-start items-center bg-fixed ' style={{ backgroundImage: 'url("https://themewagon.github.io/fitnessclub/assets/img/hero/h1_hero.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className='relative h-[600px] md:h-[640px] bg-black w-full flex justify-start items-center bg-fixed ' style={{ backgroundImage: resize < 480 ? 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png")' : 'url("https://themewagon.github.io/fitnessclub/assets/img/hero/h1_hero.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} >
+            {
+                resize < 480 && <div className="absolute inset-0   h-[600px]  w-full" style={{ background: `linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+            }
             <div className="container">
                 <div className=" flex flex-col justify-start w-full  md:w-[670px] md:ml-12">
                     <div className="flex items-center gap-4 text-[#ff1313]">
