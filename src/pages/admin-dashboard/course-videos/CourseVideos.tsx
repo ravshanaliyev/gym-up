@@ -52,7 +52,7 @@ const CourseVideos = () => {
 
     return (
         <>
-            <div className="flex justify-between border-b border-gray-400 pb-[1rem]">
+            <div className="flex justify-between border-b border-gray-400 pb-[1rem] gap-2">
                 <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Video" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger asChild>

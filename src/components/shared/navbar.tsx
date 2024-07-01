@@ -20,8 +20,8 @@ const Navbar = () => {
 
 
     const userData = localStorage.getItem("token");
-    const user = userData && jwtDecode(userData);
-    console.log(user);
+    const user: any = userData && jwtDecode(userData);
+    const role = user && user["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
 
     useEffect(() => {
@@ -32,6 +32,7 @@ const Navbar = () => {
                 });
         }
     }, [language, i18n]);
+
 
     return (
         <div className='navbar bg-black py-4 teko'>
@@ -52,7 +53,7 @@ const Navbar = () => {
                     </Select>
                     {
                         // @ts-ignore
-                        user ? <Button onClick={() => user.IsPayed === "True" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
+                        user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
                             : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase hidden md:block' >{t("navbar.become")}</Button>
                     }
                 </div>
