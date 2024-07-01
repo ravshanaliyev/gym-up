@@ -10,7 +10,7 @@ const Header = () => {
     }, [])
 
     return (
-        <div className='relative h-[600px] md:h-[640px] bg-black w-full flex justify-start items-center bg-fixed ' style={{ backgroundImage: window.innerWidth < 450 ? 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png")' : 'url("https://themewagon.github.io/fitnessclub/assets/img/hero/h1_hero.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} >
+        <div className='teko relative h-[600px] md:h-[640px] bg-black w-full flex justify-start items-center bg-fixed ' style={{ backgroundImage: window.innerWidth < 450 ? 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png")' : 'url("https://themewagon.github.io/fitnessclub/assets/img/hero/h1_hero.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} >
             {
                 window.innerWidth < 450 && <div className="absolute inset-0   h-[600px]  w-full" style={{ background: `linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
             }
