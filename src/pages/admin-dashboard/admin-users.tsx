@@ -111,10 +111,10 @@ const AdminUsers = () => {
     return (
         <div>
             <div className="flex items-center justify-between py-3 border-b-2 gap-4">
-                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search User" />
+                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px] text-sm md:text-[15px]" placeholder="Search User" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger>
-                        <div className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] text-white  py-2 rounded-md w-[110px]">Add User</div>
+                        <div className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] text-white  py-2 rounded-md w-[110px] flex items-center justify-center text-sm md:text-[15px]">Add User</div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
                         <Form {...form}>

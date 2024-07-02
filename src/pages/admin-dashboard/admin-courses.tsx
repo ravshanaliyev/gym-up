@@ -45,13 +45,6 @@ const AdminCourses = () => {
         })
     }
 
-
-
-    // const filteredCourses = Courses?.data?.filter((course: CourseType) => {
-    //     return course.title.toLowerCase().includes(search.toLowerCase())
-    // })
-
-
     useEffect(() => {
         if (search.length > 0) {
             const searchedData = Courses?.data?.filter((course: CourseType) => course.title.toLowerCase().includes(search.toLowerCase()))
@@ -62,19 +55,15 @@ const AdminCourses = () => {
         }
     }, [search, Courses])
 
-    console.log(AllCourses);
-
-
-
 
     return (
         <>
             <div>
                 <div className="flex justify-between items-center gap-4">
-                    <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Course" />
+                    <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px] text-sm md:text-[15px]" placeholder="Search Course" />
                     <Dialog open={isOpen} onOpenChange={setIsOpen}>
                         <DialogTrigger>
-                            <div className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white  py-2 rounded-md w-[110px]">Add Course</div>
+                            <div className="bg-[#3c50e0] hover:bg-[#3c50e0] hover:bg-opacity-90 text-white  h-[40px] flex justify-center items-center rounded-md w-[110px] text-sm md:text-[15px]">Add Course</div>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                             <h3 className="text-lg text-center">Add Course</h3>

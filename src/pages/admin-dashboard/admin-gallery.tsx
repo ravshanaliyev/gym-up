@@ -54,10 +54,10 @@ const AdminGallery = () => {
     return (
         <div>
             <div className="flex items-center justify-between py-3 border-b-2 gap-4">
-                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search Image" />
+                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px] text-sm md:text-[15px]" placeholder="Search Image" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                     <DialogTrigger asChild>
-                        <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add Image</Button>
+                        <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] text-sm md:text-[15px] font-normal">Add Image</Button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
                         <h3 className="text-lg text-center">Create Image</h3>
