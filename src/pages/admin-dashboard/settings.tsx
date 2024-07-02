@@ -11,9 +11,9 @@ const Settings = () => {
     const user: any = token && jwtDecode(token!)
     const { mutate, isPending } = useUpdateUser()
     const { mutate: mutatePass } = useUpdatePassword()
-    const { data, isLoading } = useGetUser(user.Id)
+    const { data, isLoading } = useGetUser(user?.Id)
     const onSubmit = (data: any) => {
-        mutate({ ...data, id: Number(user.Id), isPayed: true }, {
+        mutate({ ...data, id: Number(user?.Id), isPayed: true }, {
             onSuccess: (res) => {
                 console.log(res);
                 toast("Profile updated successfully", {

@@ -1,27 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 import { ROUTES } from "./lib/routes"
-import Gallery from "./pages/gallery"
-import Home from "./pages/home"
-import { AdminGallery, AdminUsers, Classes } from "./pages"
-import Shop from "./pages/shop"
-import About from "./pages/about"
-import Contact from "./pages/contact"
-import AdminDashboard from "./pages/admin-dashboard"
-import AdminProfile from "./pages/admin-dashboard/admin-profile"
-import Settings from "./pages/admin-dashboard/settings"
-import AdminCourses from "./pages/admin-dashboard/admin-courses"
-import CourseVideos from "./pages/admin-dashboard/course-videos/CourseVideos"
-import SingleCourse from "./pages/SingleCourse"
-import Auth from "./pages/auth/Auth"
-import Register from "./pages/auth/register/Register"
-import Login from "./pages/auth/login/Login"
-import CourseDashboard from "./pages/courseDashboard"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import CoursesTable from "./components/shared/courses-table"
-import UserDashboard from "./pages/user-dashboard/dashboard"
-import CourseVid from "./pages/user-dashboard/course-video"
-import UserAccount from "./pages/user-dashboard/user-account"
+import { About, AdminCourses, AdminDashboard, AdminGallery, AdminProfile, AdminUsers, Auth, Classes, Contact, CourseDashboard, CourseVid, CourseVideos, Gallery, Home, Login, Register, Settings, Shop, SingleCourse, UserAccount, UserDashboard } from "./pages";
 
 function App() {
   return (

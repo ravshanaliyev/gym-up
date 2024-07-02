@@ -8,7 +8,7 @@ import { jwtDecode } from "jwt-decode"
 const AdminProfile = () => {
     const token = localStorage.getItem('token')
     const user: any = token && jwtDecode(token)
-    const { data } = useGetUser(user.Id)
+    const { data } = useGetUser(user?.Id)
 
 
     return (

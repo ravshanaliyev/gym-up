@@ -12,5 +12,12 @@ import CourseVideos from "./admin-dashboard/course-videos/CourseVideos";
 import SingleCourse from "./SingleCourse";
 import Settings from "./admin-dashboard/settings";
 import AdminGallery from "./admin-dashboard/admin-gallery";
+import UserDashboard from "./user-dashboard/dashboard";
+import CourseVid from "./user-dashboard/course-video";
+import UserAccount from "./user-dashboard/user-account";
+import Auth from "./auth/Auth";
+import Login from "./auth/login/Login";
+import Register from "./auth/register/Register";
+import CourseDashboard from "./courseDashboard";
 
-export { About, Classes, Gallery, Home, Shop, AdminUsers, Contact, AdminDashboard, AdminProfile, Settings, AdminCourses, CourseVideos, SingleCourse, AdminGallery }
+export { About, Classes, UserDashboard, Gallery, Home, Shop, AdminUsers, Contact, AdminDashboard, AdminProfile, Settings, AdminCourses, CourseVideos, SingleCourse, AdminGallery, CourseVid, UserAccount, Auth, Login, Register, CourseDashboard }
