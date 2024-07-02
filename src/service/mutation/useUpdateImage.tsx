@@ -1,11 +1,11 @@
 import ApiInctance from "@/api";
 import { useMutation } from "@tanstack/react-query";
 
-export const useCreateCourse = () => {
+export const useUpdateImage = () => {
     return useMutation({
-        mutationFn: (data: FormData) => {
+        mutationFn: (data: any) => {
             //@ts-ignore
-            return ApiInctance.post(`/courses/create?Title=${data.title}&Description=${data.description}`, data, {
+            return ApiInctance.put(`/images/update?Id=${data.Id}&Name=${data.Name}&Description=${data.Description}`, data, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }

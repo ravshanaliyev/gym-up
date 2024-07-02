@@ -1,8 +1,5 @@
-import Footer from "@/components/shared/footer"
-import Navbar from "@/components/shared/navbar"
-import PagesHeader from "@/components/shared/pages-header"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import { Footer, Input, Navbar, PagesHeader } from "@/components"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 const Shop = () => {
     return (

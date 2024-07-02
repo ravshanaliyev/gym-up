@@ -1,4 +1,4 @@
-import { useLogin } from "@/service/mutation/useLogin";
+import { useLogin } from "@/service";
 import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -36,13 +36,13 @@ const Login = () => {
                     setTimeout(() => { setRegisterLoading(false) }, 2000)
                     const isAdmin = role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
                     localStorage.setItem("token", res.data);
-                    if (isAdmin === "Admin") {
-                        setTimeout(() => { navigate("/admin/courses") }, 2000);
-
+                    // isAdmin === "Admin" && role.isPayed === true
+                    if (isAdmin === "Admin" && role.IsPayed === "True") {
+                        setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
+                    } else if (isAdmin === "Admin" && role.IsPayed === "False") {
+                        setTimeout(() => { window.location.href = "/user-dashboard" }, 2000);
                     } else {
-                        setTimeout(() => { navigate("/user/dashboard") }, 2000)
-
-                            ;
+                        setTimeout(() => { navigate("/") }, 2000);
                     }
                 }
             }
@@ -65,17 +65,11 @@ const Login = () => {
     };
 
     const handleInputBlur = () => {
-        console.log('');
-
         // if (!phoneNumber.replace(/\s/g, '')) {
         //     setPhoneNumber('');
         // }
         // setFocused(false);
     };
-
-    console.log(password);
-    
-    
 
     return (
         <div>

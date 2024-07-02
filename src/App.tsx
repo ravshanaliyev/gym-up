@@ -1,25 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 import { ROUTES } from "./lib/routes"
-import Gallery from "./pages/gallery"
-import Home from "./pages/home"
-import { AdminGallery, AdminUsers, Classes } from "./pages"
-import Shop from "./pages/shop"
-import About from "./pages/about"
-import Contact from "./pages/contact"
-import AdminDashboard from "./pages/admin-dashboard"
-import AddCourse from "./pages/admin-dashboard/add-course"
-import AdminProfile from "./pages/admin-dashboard/admin-profile"
-import Settings from "./pages/admin-dashboard/settings"
-import AdminCourses from "./pages/admin-dashboard/admin-courses"
-import CourseVideos from "./pages/admin-dashboard/course-videos/CourseVideos"
-import SingleCourse from "./pages/SingleCourse"
-import Auth from "./pages/auth/Auth"
-import Register from "./pages/auth/register/Register"
-import Login from "./pages/auth/login/Login"
-import CourseDashboard from "./pages/courseDashboard"
-import {ToastContainer} from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import CoursesTable from "./components/shared/courses-table"
+import { About, AdminCourses, AdminDashboard, AdminGallery, AdminProfile, AdminUsers, Auth, Classes, Contact, CourseDashboard, CourseVid, CourseVideos, Gallery, Home, Login, Register, Settings, Shop, SingleCourse, UserAccount, UserDashboard } from "./pages";
 
 function App() {
   return (
@@ -34,28 +18,26 @@ function App() {
         <Route path={ROUTES.CONTACT} element={<Contact />} />
         <Route path={ROUTES.NOT_FOUND} element={<div>*</div>} />
         <Route path={ROUTES.ADMIN} element={<AdminDashboard />}>
-          <Route path={ROUTES.ADD_COURSE} element={<AddCourse />} />
           <Route path={ROUTES.PROFILE} element={<AdminProfile />} />
           <Route path={ROUTES.SETTINGS} element={<Settings />} />
           <Route path={ROUTES.ADMIN_COURSES} element={<AdminCourses />} />
           <Route path={ROUTES.ADMIN_COURSE_SINGLE} element={<CourseVideos />} />
-
           <Route path={ROUTES.ADMIN_USERS} element={<AdminUsers />} />
           <Route path={ROUTES.ADMIN_GALLERY} element={<AdminGallery />} />
         </Route>
-
-
-
-    <Route path="auth" element={<Auth/>}>
-        <Route  path="register" element={<Register/>}/>
-        <Route  path="login" element={<Login/>}/>
-    </Route>
-
-      <Route path="/courses-dashboard" element={<CourseDashboard/>}>
-        <Route path="course/:id" element={<CoursesTable/>}/>
-      </Route>
+        <Route path={ROUTES.USER_DASHBOARD} element={<UserDashboard />}>
+          <Route path={ROUTES.USER_DASHBOARD_COURSES} element={<CourseVid />} />
+          <Route path={ROUTES.USER_DASHBOARD_ACCOUNT} element={<UserAccount />} />
+        </Route>
+        <Route path="auth" element={<Auth />}>
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+        </Route>
+        <Route path="/courses-dashboard" element={<CourseDashboard />}>
+          <Route path="course/:id" element={<CoursesTable />} />
+        </Route>
       </Routes>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   )
 }

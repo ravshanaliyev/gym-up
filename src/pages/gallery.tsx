@@ -1,8 +1,4 @@
-import Footer from "@/components/shared/footer"
-import HomeGallery from "@/components/shared/home-gallery"
-import Navbar from "@/components/shared/navbar"
-import PagesHeader from "@/components/shared/pages-header"
-import { useGetGallery } from "@/service/query/useGetGallery"
+import { useGetGallery } from "@/service"
 import Marquee from "react-fast-marquee"
 
 import Image1 from "../assets/gallery1.jpg"
@@ -10,6 +6,7 @@ import Image2 from "../assets/gallery2.jpg"
 import Image3 from "../assets/gallery3.jpg"
 import Image4 from "../assets/gallery4.jpg"
 import Image5 from "../assets/gallery6.jpg"
+import { Footer, HomeGallery, Navbar, PagesHeader } from "@/components"
 
 
 const Gallery = () => {

@@ -1,15 +1,37 @@
-import Footer from "@/components/shared/footer"
-import Navbar from "@/components/shared/navbar"
-import PagesHeader from "@/components/shared/pages-header"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { IoHome } from "react-icons/io5";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { CgMail } from "react-icons/cg";
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import { useState } from "react"
+import { Button, Footer, Input, Navbar, PagesHeader, Textarea } from "@/components";
 
 
 const Contact = () => {
+    const { register, handleSubmit, reset } = useForm()
+    const [isPending, setIsPending] = useState(false)
+    const submit = (data: any) => {
+        setIsPending(true)
+        const telegramBotId = import.meta.env.VITE_APP_TELEGRAM_BOT_API
+        const telegramChatId = import.meta.env.VITE_APP_TELEGRAM_CHAT_ID
+
+        const response = fetch(`https://api.telegram.org/bot${telegramBotId}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: telegramChatId,
+                text: `Name: ${data.name}\nPhone: ${data.phone}\nMessage: ${data.message}`
+            })
+        }).then(() => reset()).finally(() => setIsPending(false))
+
+        toast.promise(response, {
+            loading: 'Sending message...',
+            success: 'Message sent successfully',
+            error: 'Something went wrong'
+        })
+    }
     return (
         <div>
             <Navbar />
@@ -18,17 +40,14 @@ const Contact = () => {
                 <h3 className="text-[28px]">Get In Touch</h3>
                 <div className="w-full block lg:flex justify-between gap-8">
                     <div className="w-full lg:w-2/3">
-                        <form>
-                            <div className="flex flex-col gap-7">
-                                <Textarea placeholder="Enter Message" className="pt-4 text-base" />
-                                <div className="flex gap-4">
-                                    <Input className="py-6 text-base" type="text" placeholder="Enter Your Name" />
-                                    <Input className="py-6 text-base" type="text" placeholder="Enter Your Email" />
-                                </div>
-                                <Input className="py-6 text-base" type="text" placeholder="Enter a subject" />
+                        <form onSubmit={handleSubmit(submit)}>
+                            <div className="flex flex-col gap-6">
+                                <Textarea {...register('message', { required: true })} disabled={isPending} placeholder="Enter Message" className="pt-4 text-base" />
+                                <Input {...register('name', { required: true })} disabled={isPending} className="py-6 text-base" type="text" placeholder="Enter Your Name" />
+                                <Input {...register('phone', { required: true })} disabled={isPending} className="py-6 text-base" type="text" placeholder="Enter Your Phone Number" />
                             </div>
                             <div className="flex justify-start mt-4">
-                                <Button type="submit" className="rounded-none text-base uppercase bg-white text-[#ff1313] border border-[#ff1313] hover:bg-[#ff1313] hover:text-white transition px-10 py-6" size={'lg'}>Send</Button>
+                                <Button type="submit" disabled={isPending} className="rounded-none text-base uppercase bg-white text-[#ff1313] border border-[#ff1313] hover:bg-[#ff1313] hover:text-white transition px-10 py-6" size={'lg'}>Send</Button>
                             </div>
                         </form>
                     </div>

@@ -2,16 +2,14 @@ import ApiInctance from "@/api";
 import { useMutation } from "@tanstack/react-query";
 
 
-export const useUpdateCourse = () => {
+export const useUpdateVideo = () => {
     return useMutation({
-        mutationKey: ['update-course'],
         mutationFn: (data: any) => {
-            return ApiInctance.put(`/courses/update?Id=${data.id}&Title=${data.title}&Description=${data.description}`, data, {
+            return ApiInctance.put(`/videos/update?Id=${data.id}&Name=${data.name}&Description=${data.description}&Teacher=${data.teacher}&CourseId=${data.courseId}`, data, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
             }).then(res => res.data)
-                .catch((error) => console.log(error))
         }
     })
 }

@@ -3,6 +3,12 @@ export type CourseType = {
     id: number,
     title: string,
     videos: string[]
+    attachment: {
+        id: number;
+        fileName: string
+        filePath: string
+    }
+    image: string
 }
 
 export type VideoType = {
@@ -24,8 +30,8 @@ export type VideoType = {
 
 
 
-export interface NewUserType  {
-    firstname: string ,
+export interface NewUserType {
+    firstname: string,
     lastname: string,
     phone: string,
     password: string

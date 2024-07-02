@@ -1,9 +1,10 @@
 import { UserPasswordUpdate, UserUpdate } from "@/components"
+import { useToast } from "@/components/ui/use-toast"
 import { useGetUser, useUpdatePassword, useUpdateUser } from "@/service"
 import { jwtDecode } from "jwt-decode"
-import { toast } from "sonner"
 
-const Settings = () => {
+const UserAccount = () => {
+    const { toast } = useToast()
     const token = localStorage.getItem('token')
     const user: any = token && jwtDecode(token!)
     const { mutate, isPending } = useUpdateUser()
@@ -12,12 +13,14 @@ const Settings = () => {
     const onSubmit = (data: any) => {
         mutate({ ...data, id: Number(user?.Id), isPayed: true }, {
             onSuccess: () => {
-                toast("Profile updated successfully", {
+                toast({
+                    title: 'Success',
                     description: 'User updated successfully',
                 })
             },
-            onError: (error) => {
-                toast("Profile not updated", {
+            onError: (error: any) => {
+                toast({
+                    title: 'Error',
                     description: error.message,
                 })
             }
@@ -27,12 +30,14 @@ const Settings = () => {
         const { oldPass, newPass } = values
         mutatePass({ oldPass, newPass }, {
             onSuccess: () => {
-                toast("Password updated successfully", {
+                toast({
+                    title: 'Success',
                     description: 'Password updated successfully',
                 })
             },
             onError: (error) => {
-                toast("There was an error", {
+                toast({
+                    title: 'Error',
                     description: error.message,
                 })
             }
@@ -52,4 +57,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default UserAccount

@@ -1,5 +1,5 @@
 import { NewUserType } from "@/@types/types";
-import { useRegister } from "@/service/mutation/useRegister";
+import { useRegister } from "@/service";
 import { useStore } from "@/store/useStore";
 import { ChangeEvent, FormEvent, useState } from "react"
 import { Link } from "react-router-dom";
@@ -31,8 +31,8 @@ const Register = () => {
     const { setRegisteredUser } = useStore()
 
     const newUserData: NewUserType = { firstname, lastname, phone: phoneNumber, password }
-    
-    
+
+
 
     const handleRegister = (e: FormEvent<HTMLFormElement>) => {
 
@@ -43,14 +43,13 @@ const Register = () => {
             onSuccess: (res) => {
                 if (res.statusCode === 200) {
                     localStorage.setItem('verify-number', phoneNumber)
-                    setTimeout(() => {setRegisterLoading(false)}, 2000)
-                    setTimeout(() => {setOpenVerify(true)}, 3000)
+                    setTimeout(() => { setRegisterLoading(false) }, 2000)
+                    setTimeout(() => { setOpenVerify(true) }, 3000)
                     setRegisteredUser(newUserData)
                 }
-                else  {
-                    setTimeout(() => {setRegisterLoading(false)}, 2000)
+                else {
+                    setTimeout(() => { setRegisterLoading(false) }, 2000)
                 }
-                console.log(res);
             }
         })
     }
@@ -64,7 +63,7 @@ const Register = () => {
         }
     };
 
-    
+
     const handleInputFocus = () => {
         if (!phoneNumber) {
             setPhoneNumber('+998');
@@ -73,7 +72,6 @@ const Register = () => {
     };
 
     const handleInputBlur = () => {
-        console.log('');
         // if (!phoneNumber.replace(/\s/g, '')) {
         //     setPhoneNumber('');
         // }
@@ -81,6 +79,7 @@ const Register = () => {
     };
 
     return (
+
             <>
         <div  >
             <h3 className="text-center text-[30px] font-[500] text-[#fff] tracking-[2px]">{t("auth.register")}</h3>
@@ -110,8 +109,9 @@ const Register = () => {
             </form>
         </div>
             <Verify openVerify={openVerify} setOpenVerify={setOpenVerify}/>
+
         </>
-    )   
+    )
 }
 
 export default Register

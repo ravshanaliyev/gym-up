@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components"
 import { Link } from "react-router-dom"
 import User from '../../assets/userr.jpg'
 import Background from '../../assets/Bg.jpg'
-import { useGetUser } from "@/service/query/useGetUser"
+import { useGetUser } from "@/service"
 import { jwtDecode } from "jwt-decode"
 
 const AdminProfile = () => {
     const token = localStorage.getItem('token')
     const user: any = token && jwtDecode(token)
-    const { data } = useGetUser(user.Id)
+    const { data } = useGetUser(user?.Id)
 
 
     return (

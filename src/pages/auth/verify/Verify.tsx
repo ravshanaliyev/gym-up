@@ -1,4 +1,4 @@
-import { useVerify } from "@/service/mutation/useVerify";
+import { useVerify } from "@/service";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -49,7 +49,6 @@ const Verify = ({ openVerify, setOpenVerify }: { openVerify: boolean, setOpenVer
 
         mutate(verifyData, {
             onSuccess: (res) => {
-                console.log(res);
                 if (res.statusCode === 200) {
                     localStorage.setItem("token", res.data)
                     setOpenVerify(false)

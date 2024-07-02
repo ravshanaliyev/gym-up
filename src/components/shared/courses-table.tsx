@@ -1,20 +1,10 @@
 import { VideoType } from "@/@types/types"
-import { useGetCourseVideos } from "@/service/query/useGetCourseVideos"
+import { useGetCourseVideos } from "@/service"
 import { Link, useParams } from "react-router-dom"
 
 const CoursesTable = () => {
-
-
     const { id } = useParams()
-
     const { data } = useGetCourseVideos(id)
-
-    console.log(data?.data.data);
-
-
-
-
-
     return (
         <div className='container my-10'>
             <table className="w-full text-center">
@@ -53,8 +43,8 @@ const CoursesTable = () => {
                     </tbody>
                 </table>
             </div>
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default CoursesTable
+export default CoursesTable

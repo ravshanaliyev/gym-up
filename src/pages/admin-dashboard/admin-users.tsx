@@ -1,19 +1,14 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
-import { useGetUsers } from "@/service/query/useGetUsers"
-import { ArrowDown, ArrowUp, Pencil, Trash2 } from "lucide-react"
+import { ArrowDown, ArrowUp } from "lucide-react"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
-import { useCreateUser } from "@/service/mutation/useCreateUser"
-import { client } from "@/service/QueryClient"
 import { useState } from "react"
-import { useDeleteUser } from "@/service/mutation/useDeleteUser"
-import { useUpgradeUser } from "@/service/mutation/useUpgradeUser"
-import { useDowngradeUser } from "@/service/mutation/useDowngradeUser"
+import { toast } from "sonner"
+import { client, useCreateUser, useDeleteUser, useDowngradeUser, useGetUsers, useUpgradeUser } from "@/service"
+import { AdminUserUpdate, Button, DeleteCoursebtn, Input } from "@/components"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Firstname must be at least 2 characters.",
@@ -33,7 +28,6 @@ const AdminUsers = () => {
     const { mutate: delUser } = useDeleteUser()
     const { mutate: upgradeUser } = useUpgradeUser()
     const { mutate: downgradeUser } = useDowngradeUser()
-    console.log(data?.data);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -45,27 +39,35 @@ const AdminUsers = () => {
         },
     })
     function onSubmit(values: z.infer<typeof formSchema>) {
-        mutate(values, {
-            onSuccess: (res) => {
-                console.log(res);
+        const formData = new FormData()
+        formData.append("firstname", values.firstname.trimStart())
+        formData.append("lastname", values.lastname.trimStart())
+        formData.append("phone", values.phone)
+        formData.append("password", values.password)
+
+        mutate(formData, {
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
                 setIsOpen(false)
+                toast("User added successfully", {
+                    description: "You can add more users",
+                })
             },
             onError: (error) => {
-                console.log(error);
+                toast("User not added", {
+                    description: error.message,
+                })
             }
         })
     }
     const filteredData = data?.data?.filter((course: any) => {
         return course.firstname.toLowerCase().includes(search.toLowerCase())
     })
-    console.log(filteredData);
 
 
     const handleDelUser = (id: number) => {
         delUser(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
             },
             onError: (error) => {
@@ -75,8 +77,7 @@ const AdminUsers = () => {
     }
     const handleUpgradeUser = (id: number) => {
         upgradeUser(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
             },
             onError: (error) => {
@@ -86,8 +87,7 @@ const AdminUsers = () => {
     }
     const handleDowngradeUser = (id: number) => {
         downgradeUser(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
             },
             onError: (error) => {
@@ -98,10 +98,10 @@ const AdminUsers = () => {
     return (
         <div>
             <div className="flex items-center justify-between py-3 border-b-2 gap-4">
-                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px]" placeholder="Search User" />
+                <Input onChange={(e) => setSearch(e.target.value)} className="max-w-[400px] h-[40px] text-sm md:text-[15px]" placeholder="Search User" />
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                    <DialogTrigger asChild>
-                        <Button className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Add User</Button>
+                    <DialogTrigger>
+                        <div className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2] text-white  py-2 rounded-md w-[110px] flex items-center justify-center text-sm md:text-[15px]">Add User</div>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px]">
                         <Form {...form}>
@@ -197,8 +197,9 @@ const AdminUsers = () => {
                                             {
                                                 course?.role === 1 ? <Button onClick={() => handleDowngradeUser(course.id)} className="bg-green-500 h-9 w-9 hover:bg-green-500 hover:bg-opacity-90 text-white" size={'icon'}><ArrowDown className="h-5 w-5" /></Button> : <Button onClick={() => handleUpgradeUser(course.id)} className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><ArrowUp className="h-5 w-5" /></Button>
                                             }
-                                            <Button className="bg-[#3c50e0] h-9 w-9 hover:bg-[#3c50e0] hover:bg-opacity-90 text-white" size={'icon'}><Pencil className="h-4 w-4" /></Button>
-                                            <Button onClick={() => handleDelUser(course.id)} className="bg-red-500 h-9 w-9 hover:bg-red-500 hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button>
+                                            <AdminUserUpdate user={course} />
+                                            {/* <Button onClick={() => handleDelUser(course.id)} className="bg-red-500 h-9 w-9 hover:bg-red-500 hover:bg-opacity-90 text-white" size={'icon'}><Trash2 className="h-4 w-4" /></Button> */}
+                                            <DeleteCoursebtn id={course.id} deleteCourse={handleDelUser} ind={1} />
                                         </div>
                                     </TableCell>
                                 </TableRow>

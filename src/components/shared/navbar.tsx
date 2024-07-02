@@ -20,7 +20,8 @@ const Navbar = () => {
 
 
     const userData = localStorage.getItem("token");
-    const user = userData && jwtDecode(userData);
+    const user: any = userData && jwtDecode(userData);
+    const role = user && user["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
 
     useEffect(() => {
@@ -31,6 +32,7 @@ const Navbar = () => {
                 });
         }
     }, [language, i18n]);
+
 
     return (
         <div className='navbar bg-black py-4 teko'>
@@ -51,8 +53,10 @@ const Navbar = () => {
                     </Select>
                     {
                         // @ts-ignore
-                        user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
-                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg  hidden md:block' >{t("navbar.become")}</Button>
+
+                        user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
+                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase hidden md:block' >{t("navbar.become")}</Button>
+
                     }
                 </div>
                 <div className='block lg:hidden'>
@@ -70,8 +74,8 @@ const Navbar = () => {
                                 <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">Contact</Link></li>
                                 {
                                     // @ts-ignore
-                                    user ? <Button className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10' size={'lg'}>{user?.FirstName?.slice(0, 1)}</Button>
-                                        : <Button className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
+                                    user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-[20px]  rounded-full h-10 w-fit' >{user?.FirstName}</Button>
+                                        : <Button onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
                                 }
 
                             </ul>

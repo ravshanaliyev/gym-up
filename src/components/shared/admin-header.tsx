@@ -2,11 +2,19 @@ import { Settings, Computer, UserRound, Users, Images } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 import { SquareMenu } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import { Sheet, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
+import { Link, useNavigate } from 'react-router-dom'
+import { Sheet, SheetClose, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import AdminSidebarItem from './admin-sidebar-item'
+import { jwtDecode } from "jwt-decode";
 
 const AdminHeader = () => {
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        localStorage.removeItem("token")
+        navigate("/auth/login")
+    }
+    const user = localStorage.getItem("token") && jwtDecode(localStorage.getItem("token")!)
+
     return (
         <div className='w-full h-[80px] shadow-xl flex items-center barlow bg-white justify-between px-8'>
             <div className='flex items-center lg:hidden '>
@@ -18,9 +26,11 @@ const AdminHeader = () => {
                         <h3 className="text-white text-center text-xl barlow font-semibold">Gym Up Admin</h3>
                         <div className="flex flex-col space-y-6 mt-8">
                             {sidebarLinks.map((link) => (
-                                <Link to={link.path} key={link.path}>
-                                    <AdminSidebarItem icon={link.icon} label={link.label} path={link.path} />
-                                </Link>
+                                <SheetClose asChild key={link.path}>
+                                    <Link to={link.path} >
+                                        <AdminSidebarItem icon={link.icon} label={link.label} path={link.path} />
+                                    </Link>
+                                </SheetClose>
                             ))}
                         </div>
                     </SheetContent>
@@ -32,7 +42,9 @@ const AdminHeader = () => {
                 <DropdownMenuTrigger asChild>
                     <div className="flex items-center gap-2 cursor-pointer">
                         <div className='flex flex-col items-end'>
-                            <h4 className='text-[14px] font-semibold'>Thomas Anree</h4>
+                            <h4 className='text-[14px] font-semibold'>{
+                                //@ts-ignore
+                                user?.FirstName} {user?.LastName}</h4>
                             <p className='text-[12px] font-medium'>Trainer</p>
                         </div>
                         <Avatar>
@@ -53,13 +65,19 @@ const AdminHeader = () => {
                         </Link>
                         <Link to={'/admin/courses'}>
                             <DropdownMenuItem className='cursor-pointer'>
-                                My Courses
+                                Courses
                                 <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         </Link>
-                        <Link to={'/admin/add-course'}>
+                        <Link to={'/admin/users'}>
                             <DropdownMenuItem className='cursor-pointer'>
-                                Add Course
+                                Users
+                                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                            </DropdownMenuItem>
+                        </Link>
+                        <Link to={'/admin/gallery'}>
+                            <DropdownMenuItem className='cursor-pointer'>
+                                Gallery
                                 <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         </Link>
@@ -71,7 +89,7 @@ const AdminHeader = () => {
                         </Link>
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleLogout()}>
                         Log out
                         <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                     </DropdownMenuItem>

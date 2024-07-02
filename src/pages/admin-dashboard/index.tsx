@@ -1,24 +1,25 @@
-import AdminHeader from "@/components/shared/admin-header";
-import AdminSidebar from "@/components/shared/admin-sidebar";
 import { useEffect } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import { AdminHeader, AdminSidebar } from "@/components";
 
 const AdminDashboard = () => {
     const { pathname } = useParams()
     const navigate = useNavigate()
 
-    const token: string | null = localStorage.getItem("token")
+    const tokenAdmin: any = localStorage.getItem("token") && jwtDecode(localStorage.getItem("token")!)
 
-
-    const tokenAdmin: any = token && jwtDecode(token)
-   
-    const role: any = token && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-
+    const role: any = tokenAdmin && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
 
     useEffect(() => {
-        role === "Admin" ? navigate("/admin/courses") : navigate("/auth/login")
-    }, [pathname, token])
+        // tokenAdmin === null && navigate("/auth/login")
+        // role === "Admin" && tokenAdmin?.IsPayed === "True" ? navigate("/admin/courses") : navigate("/auth/login")
+        if (tokenAdmin === null) {
+            navigate("/auth/login")
+        } else if (role === "Admin" && tokenAdmin?.IsPayed === "True") {
+            navigate("/admin/courses")
+        }
+    }, [pathname])
 
     return (
         <div className="w-full">
