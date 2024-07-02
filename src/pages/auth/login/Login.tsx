@@ -1,4 +1,4 @@
-import { useLogin } from "@/service/mutation/useLogin";
+import { useLogin } from "@/service";
 import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";

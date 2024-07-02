@@ -1,4 +1,4 @@
-import { useGetCourseVideos } from "@/service/query/useGetCourseVideos"
+import { useGetCourseVideos } from "@/service"
 import { useParams } from "react-router-dom"
 
 const CourseVid = () => {

@@ -1,7 +1,7 @@
 import { CirclePlay, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import UserSidebarItem from "./user-sidebar-item";
-import { useGetCourses } from "@/service/query/useGetCourses";
+import { useGetCourses } from "@/service";
 import { jwtDecode } from "jwt-decode";
 
 const UserSidebar = () => {

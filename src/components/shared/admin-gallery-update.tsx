@@ -2,10 +2,9 @@ import React, { useEffect } from 'react'
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
-import { useUpdateImage } from '@/service/mutation/useUpdateImage'
-import { client } from '@/service/QueryClient'
 import { SquarePen } from 'lucide-react'
 import { Button } from '../ui/button'
+import { client, useUpdateImage } from '@/service'
 
 const AdminGalleryUpdate = ({ gallery }: { gallery: any }) => {
     const { mutate } = useUpdateImage()

@@ -1,8 +1,6 @@
 import UserPasswordUpdate from "@/components/shared/user-password-update"
 import UserUpdate from "@/components/shared/user-update"
-import { useUpdatePassword } from "@/service/mutation/useUpdatePassword"
-import { useUpdateUser } from "@/service/mutation/useUpdateUser"
-import { useGetUser } from "@/service/query/useGetUser"
+import { useGetUser, useUpdatePassword, useUpdateUser } from "@/service"
 import { jwtDecode } from "jwt-decode"
 import { toast } from "sonner"
 

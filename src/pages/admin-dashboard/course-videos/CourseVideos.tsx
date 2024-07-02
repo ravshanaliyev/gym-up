@@ -1,16 +1,14 @@
 import { VideoType } from "@/@types/types";
-import { useGetCourseVideos } from "@/service/query/useGetCourseVideos";
 import VideoCard from "@/utils/VideoCard";
 import { Link, useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { useCreateVideo } from "@/service/mutation/useCreateVideo";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
-import { client } from "@/service/QueryClient";
+import { client, useCreateVideo, useGetCourseVideos } from "@/service";
 
 
 const CourseVideos = () => {

@@ -2,12 +2,11 @@ import { CourseType } from '@/@types/types'
 import DeleteCoursebtn from '@/components/shared/delete-coursebtn'
 import UpdateCourse from '@/components/shared/update-course'
 import { Button } from '@/components/ui/button'
-import { useDeleteCourse } from '@/service/mutation/useDeleteCourse'
 import { TableCell, TableRow } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { client } from "@/service/QueryClient"
 import { PenBox } from 'lucide-react'
 import { useState } from 'react'
+import { client, useDeleteCourse } from '@/service'
 
 const AdminCourseTr = ({ course, ind }: { course: CourseType, ind: number }) => {
 

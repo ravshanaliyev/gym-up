@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import User from '../../assets/userr.jpg'
 import Background from '../../assets/Bg.jpg'
-import { useGetUser } from "@/service/query/useGetUser"
+import { useGetUser } from "@/service"
 import { jwtDecode } from "jwt-decode"
 
 const AdminProfile = () => {

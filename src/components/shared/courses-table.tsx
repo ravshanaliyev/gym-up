@@ -1,5 +1,5 @@
 import { VideoType } from "@/@types/types"
-import { useGetCourseVideos } from "@/service/query/useGetCourseVideos"
+import { useGetCourseVideos } from "@/service"
 import { Link, useParams } from "react-router-dom"
 
 const CoursesTable = () => {
@@ -53,8 +53,8 @@ const CoursesTable = () => {
                     </tbody>
                 </table>
             </div>
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default CoursesTable
+export default CoursesTable

@@ -5,8 +5,7 @@ import { Input } from "../ui/input"
 import { useEffect, useState } from "react"
 import { Switch } from "@/components/ui/switch"
 import { Pencil } from "lucide-react"
-import { useUpdateUser } from "@/service/mutation/useUpdateUser"
-import { client } from "@/service/QueryClient"
+import { useUpdateUser, client } from "@/service"
 
 const AdminUserUpdate = ({ user }: { user: any }) => {
     const [isOpen, setIsOpen] = useState(false)

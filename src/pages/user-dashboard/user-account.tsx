@@ -1,9 +1,7 @@
 import UserPasswordUpdate from "@/components/shared/user-password-update"
 import UserUpdate from "@/components/shared/user-update"
 import { useToast } from "@/components/ui/use-toast"
-import { useUpdatePassword } from "@/service/mutation/useUpdatePassword"
-import { useUpdateUser } from "@/service/mutation/useUpdateUser"
-import { useGetUser } from "@/service/query/useGetUser"
+import { useGetUser, useUpdatePassword, useUpdateUser } from "@/service"
 import { jwtDecode } from "jwt-decode"
 
 const UserAccount = () => {
@@ -12,18 +10,16 @@ const UserAccount = () => {
     const user: any = token && jwtDecode(token!)
     const { mutate, isPending } = useUpdateUser()
     const { mutate: mutatePass } = useUpdatePassword()
-    const { data, isLoading } = useGetUser(user.Id)
+    const { data, isLoading } = useGetUser(user?.Id)
     const onSubmit = (data: any) => {
-        mutate({ ...data, id: Number(user.Id), isPayed: true }, {
-            onSuccess: (res) => {
-                console.log(res);
+        mutate({ ...data, id: Number(user?.Id), isPayed: true }, {
+            onSuccess: () => {
                 toast({
                     title: 'Success',
                     description: 'User updated successfully',
                 })
             },
-            onError: (error) => {
-                console.log(error);
+            onError: (error: any) => {
                 toast({
                     title: 'Error',
                     description: error.message,

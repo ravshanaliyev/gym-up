@@ -1,16 +1,14 @@
 import { CourseType } from "@/@types/types"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
-import { client } from "@/service/QueryClient"
-import { useGetCourses } from "@/service/query/useGetCourses"
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
-import { useCreateCourse } from "@/service/mutation/useCreateCourse"
 import { useEffect, useState } from "react"
 import AdminCourseTr from "./admin-course-tr"
 import { toast } from "sonner"
+import { client, useCreateCourse, useGetCourses } from "@/service"
 
 
 const AdminCourses = () => {

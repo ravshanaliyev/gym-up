@@ -1,5 +1,5 @@
 import { CourseType } from "@/@types/types";
-import { useGetCourses } from "@/service/query/useGetCourses"
+import { useGetCourses } from "@/service"
 import { Link, NavLink } from "react-router-dom"
 
 const CourseSidebar = () => {

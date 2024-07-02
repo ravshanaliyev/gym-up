@@ -4,7 +4,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/s
 import { CirclePlay, SquareMenu, User } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
 import UserSidebarItem from "./user-sidebar-item"
-import { useGetCourses } from "@/service/query/useGetCourses"
+import { useGetCourses } from "@/service"
 import { jwtDecode } from "jwt-decode"
 
 
