@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table"
 import { ArrowDown, ArrowUp } from "lucide-react"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
@@ -8,10 +6,9 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
 import { useState } from "react"
-import AdminUserUpdate from "@/components/shared/admin-user-update"
-import DeleteCoursebtn from "@/components/shared/delete-coursebtn"
 import { toast } from "sonner"
 import { client, useCreateUser, useDeleteUser, useDowngradeUser, useGetUsers, useUpgradeUser } from "@/service"
+import { AdminUserUpdate, Button, DeleteCoursebtn, Input } from "@/components"
 const formSchema = z.object({
     firstname: z.string().min(2, {
         message: "Firstname must be at least 2 characters.",

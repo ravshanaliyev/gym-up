@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components"
 import { Link } from "react-router-dom"
 import User from '../../assets/userr.jpg'
 import Background from '../../assets/Bg.jpg'

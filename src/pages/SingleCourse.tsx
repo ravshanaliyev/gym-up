@@ -1,5 +1,5 @@
 import { VideoType } from '@/@types/types'
-import Navbar from '@/components/shared/navbar'
+import { Navbar } from '@/components'
 import { useGetCourseVideos } from '@/service'
 import { ChangeEvent, useEffect, useLayoutEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'

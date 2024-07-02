@@ -1,12 +1,10 @@
 import { CourseType } from '@/@types/types'
-import DeleteCoursebtn from '@/components/shared/delete-coursebtn'
-import UpdateCourse from '@/components/shared/update-course'
-import { Button } from '@/components/ui/button'
 import { TableCell, TableRow } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { PenBox } from 'lucide-react'
 import { useState } from 'react'
 import { client, useDeleteCourse } from '@/service'
+import { Button, DeleteCoursebtn, UpdateCourse } from '@/components'
 
 const AdminCourseTr = ({ course, ind }: { course: CourseType, ind: number }) => {
 

@@ -1,15 +1,10 @@
-import Footer from "@/components/shared/footer"
-import Navbar from "@/components/shared/navbar"
-import PagesHeader from "@/components/shared/pages-header"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { IoHome } from "react-icons/io5";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { CgMail } from "react-icons/cg";
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { useState } from "react"
+import { Button, Footer, Input, Navbar, PagesHeader, Textarea } from "@/components";
 
 
 const Contact = () => {

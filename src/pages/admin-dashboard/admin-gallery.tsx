@@ -1,12 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { useForm } from "react-hook-form"
-import { Label } from "@/components/ui/label"
 import { useState } from "react"
-import AdminGalleryUpdate from "@/components/shared/admin-gallery-update"
-import DeleteCoursebtn from "@/components/shared/delete-coursebtn"
 import { client, useCreateImage, useDeleteImage, useGetGallery } from "@/service"
+import { AdminGalleryUpdate, Button, DeleteCoursebtn, Input, Label } from "@/components"
 
 
 const AdminGallery = () => {

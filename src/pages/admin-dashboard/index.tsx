@@ -1,8 +1,7 @@
-import AdminHeader from "@/components/shared/admin-header";
-import AdminSidebar from "@/components/shared/admin-sidebar";
 import { useEffect } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import { AdminHeader, AdminSidebar } from "@/components";
 
 const AdminDashboard = () => {
     const { pathname } = useParams()
