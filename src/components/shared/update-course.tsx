@@ -12,7 +12,6 @@ import { useEffect, useState } from "react";
 
 const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpen: boolean, setIsOpen: Function }) => {
     // const [isOpen, setIsOpen] = useState<boolean>(false);
-    console.log(isOpen);
     
     const { toast } = useToast();
     const { handleSubmit, register, reset } = useForm();
