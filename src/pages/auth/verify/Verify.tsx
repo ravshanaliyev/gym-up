@@ -49,7 +49,6 @@ const Verify = ({ openVerify, setOpenVerify }: { openVerify: boolean, setOpenVer
 
         mutate(verifyData, {
             onSuccess: (res) => {
-                console.log(res);
                 if (res.statusCode === 200) {
                     localStorage.setItem("token", res.data)
                     setOpenVerify(false)

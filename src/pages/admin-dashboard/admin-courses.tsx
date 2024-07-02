@@ -17,7 +17,6 @@ const AdminCourses = () => {
     const { data: Courses } = useGetCourses()
     const [image, setImage] = useState(null)
 
-
     const { mutate, isPending } = useCreateCourse()
 
     function onSubmit(values: any) {

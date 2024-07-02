@@ -46,7 +46,6 @@ const Register = () => {
                 else {
                     setTimeout(() => { setRegisterLoading(false) }, 2000)
                 }
-                console.log(res);
             }
         })
     }
@@ -69,7 +68,6 @@ const Register = () => {
     };
 
     const handleInputBlur = () => {
-        console.log('');
         // if (!phoneNumber.replace(/\s/g, '')) {
         //     setPhoneNumber('');
         // }

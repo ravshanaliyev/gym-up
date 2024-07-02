@@ -25,8 +25,7 @@ const AdminUserUpdate = ({ user }: { user: any }) => {
     const onSubmit = (e: any) => {
         e.preventDefault()
         mutate(updateUser, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
                 setIsOpen(false)
             },

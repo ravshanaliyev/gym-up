@@ -29,15 +29,13 @@ const UserAccount = () => {
     const onSubmitPassword = (values: any) => {
         const { oldPass, newPass } = values
         mutatePass({ oldPass, newPass }, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 toast({
                     title: 'Success',
                     description: 'Password updated successfully',
                 })
             },
             onError: (error) => {
-                console.log(error);
                 toast({
                     title: 'Error',
                     description: error.message,

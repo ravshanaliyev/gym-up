@@ -32,7 +32,6 @@ const Login = () => {
                     setTimeout(() => { setRegisterLoading(false) }, 2000)
                     const isAdmin = role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
                     localStorage.setItem("token", res.data);
-                    console.log(role);
                     // isAdmin === "Admin" && role.isPayed === true
                     if (isAdmin === "Admin" && role.IsPayed === "True") {
                         setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
@@ -62,17 +61,11 @@ const Login = () => {
     };
 
     const handleInputBlur = () => {
-        console.log('');
-
         // if (!phoneNumber.replace(/\s/g, '')) {
         //     setPhoneNumber('');
         // }
         // setFocused(false);
     };
-
-    console.log(password);
-
-
 
     return (
         <div>

@@ -7,7 +7,6 @@ import { client, useDeleteCourse } from '@/service'
 import { Button, DeleteCoursebtn, UpdateCourse } from '@/components'
 
 const AdminCourseTr = ({ course, ind }: { course: CourseType, ind: number }) => {
-
     const { mutate: delCourse } = useDeleteCourse()
 
     const [_, setCurrentCourse] = useState<any>(null)

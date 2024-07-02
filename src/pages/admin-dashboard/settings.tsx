@@ -11,14 +11,12 @@ const Settings = () => {
     const { data, isLoading } = useGetUser(user?.Id)
     const onSubmit = (data: any) => {
         mutate({ ...data, id: Number(user?.Id), isPayed: true }, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 toast("Profile updated successfully", {
                     description: 'User updated successfully',
                 })
             },
             onError: (error) => {
-                console.log(error);
                 toast("Profile not updated", {
                     description: error.message,
                 })
@@ -28,14 +26,12 @@ const Settings = () => {
     const onSubmitPassword = (values: any) => {
         const { oldPass, newPass } = values
         mutatePass({ oldPass, newPass }, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 toast("Password updated successfully", {
                     description: 'Password updated successfully',
                 })
             },
             onError: (error) => {
-                console.log(error);
                 toast("There was an error", {
                     description: error.message,
                 })

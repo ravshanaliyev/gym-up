@@ -11,8 +11,6 @@ const AdminDashboard = () => {
 
     const role: any = tokenAdmin && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
 
-    console.log(tokenAdmin);
-
     useEffect(() => {
         // tokenAdmin === null && navigate("/auth/login")
         // role === "Admin" && tokenAdmin?.IsPayed === "True" ? navigate("/admin/courses") : navigate("/auth/login")

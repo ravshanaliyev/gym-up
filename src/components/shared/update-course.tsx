@@ -9,8 +9,6 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpen: boolean, setIsOpen: Function }) => {
-    console.log(isOpen);
-
     const { mutate: updateCourse } = useUpdateCourse();
 
     const [title, setTitle] = useState("")
@@ -30,14 +28,12 @@ const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpe
         e.preventDefault()
         console.log(updatedCourse);
         updateCourse(updatedCourse, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-courses'] });
                 setIsOpen(false);
                 toast('Course updated successfully');
             },
             onError: (error) => {
-                console.log(error);
                 toast('There was an error', {
                     description: error.message,
                 });

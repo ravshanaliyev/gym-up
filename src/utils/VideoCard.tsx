@@ -46,7 +46,6 @@ const VideoCard = ({ video }: { video: VideoType }) => {
   }
   const handleUpdateSingleCourse = (e: any) => {
     e.preventDefault()
-    console.log(video);
     mutateVideo(updateSingleCourse, {
       onSuccess: () => {
         client.invalidateQueries({ queryKey: ['get-course-videos'] })

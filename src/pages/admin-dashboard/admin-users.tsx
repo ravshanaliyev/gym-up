@@ -54,7 +54,6 @@ const AdminUsers = () => {
                 })
             },
             onError: (error) => {
-                console.log(error);
                 toast("User not added", {
                     description: error.message,
                 })
@@ -64,13 +63,11 @@ const AdminUsers = () => {
     const filteredData = data?.data?.filter((course: any) => {
         return course.firstname.toLowerCase().includes(search.toLowerCase())
     })
-    console.log(filteredData);
 
 
     const handleDelUser = (id: number) => {
         delUser(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
             },
             onError: (error) => {
@@ -80,8 +77,7 @@ const AdminUsers = () => {
     }
     const handleUpgradeUser = (id: number) => {
         upgradeUser(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
             },
             onError: (error) => {
@@ -91,8 +87,7 @@ const AdminUsers = () => {
     }
     const handleDowngradeUser = (id: number) => {
         downgradeUser(id, {
-            onSuccess: (res) => {
-                console.log(res);
+            onSuccess: () => {
                 client.invalidateQueries({ queryKey: ['get-users'] })
             },
             onError: (error) => {

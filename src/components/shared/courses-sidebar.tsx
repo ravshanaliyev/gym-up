@@ -4,8 +4,6 @@ import { Link, NavLink } from "react-router-dom"
 
 const CourseSidebar = () => {
     const { data } = useGetCourses()
-
-
     return (
         <aside className="max-w-[270px] w-full py-[16px] px-[10px] bg-[#0A112E] h-[100vh] text-center">
             <Link className=" flex justify-center" to={'/'}><img src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" /></Link>

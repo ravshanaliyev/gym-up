@@ -3,18 +3,8 @@ import { useGetCourseVideos } from "@/service"
 import { Link, useParams } from "react-router-dom"
 
 const CoursesTable = () => {
-
-
     const { id } = useParams()
-
     const { data } = useGetCourseVideos(id)
-
-    console.log(data?.data.data);
-
-
-
-
-
     return (
         <div className='container my-10'>
             <table className="w-full text-center">
