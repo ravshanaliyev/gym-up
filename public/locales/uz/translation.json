@@ -1,11 +1,25 @@
 {
     "navbar": {
-        "home": "ASOSIY",
-        "about": "BIZ HAQIMIZDA",
-        "course": "KURSLAR",
-        "gallery": "RASMLAR",
-        "shop": "TOVARLAR",
-        "contact": "BOG'LANISH",
-        "become": "A'ZO BO'LISH"
+        "home": "Asosiy",
+        "about": "Biz Haqimizda",
+        "course": "Kurslar",
+        "gallery": "Rasmlar",
+        "shop": "Tovarlar",
+        "contact": "Bog'lanish",
+        "become": "A'zo bo'lish"
+    },
+    "hero": {
+        "with": "U'lug'bek bilan",
+        "main_text": "Yaxshi va sog'lom hayot uchun mukammal tana shaklini yarating."
+    },
+    "auth": {
+        "firstname": "Isminigiz",
+        "lastname": "Familiyangiz",
+        "phone": "Telefon raqam",
+        "password": "Parol",
+        "if_not_account": "Agar ro'yxatdan o'tmagan bo'lsangiz",
+        "if_already_exist": "Agar profilingiz mavjud bo'lsa",
+        "login": "Kirish",
+        "register": "Ro'yxatdan o'tish"
     }
 }

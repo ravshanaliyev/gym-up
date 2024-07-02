@@ -1,11 +1,25 @@
 {
     "navbar": {
-        "home": "HOME",
-        "about": "ABOUT US",
-        "course": "COURSES",
-        "gallery": "GALLERY",
-        "shop": "SHOP",
-        "contact": "CONTACT",
-        "become": "BECOME A MEMBER"
+        "home": "Home",
+        "about": "About Us",
+        "course": "Courses",
+        "gallery": "Gallery",
+        "shop": "Shop",
+        "contact": "Contact",
+        "become": "Become a member"
+    },
+    "hero": {
+        "with": "With Ulug'bek",
+        "main_text": "Build Perfect body Shape for good and Healthy life."
+    },
+    "auth": {
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "phone": "Phone Number",
+        "password": "Password",
+        "if_not_account": "If you don't have an account",
+        "if_already_exist": "If already have an account",
+        "login": "Login",
+        "register": "Register"
     }
 }

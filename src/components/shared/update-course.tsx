@@ -9,6 +9,11 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpen: boolean, setIsOpen: Function }) => {
+
+    
+    const { toast } = useToast();
+    const { handleSubmit, register, reset } = useForm();
+
     const { mutate: updateCourse } = useUpdateCourse();
 
     const [title, setTitle] = useState("")
