@@ -1,19 +1,24 @@
 import { useLogin } from "@/service";
+import { ThrowOnError } from "@tanstack/react-query";
 import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
 
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
-    const [passwordType, setPasswordType] = useState("password");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    // HOOKS
     const [password, setPassword] = useState("");
     const [focused, setFocused] = useState(false);
-    const [registerLoading, setRegisterLoading] = useState<boolean>(false)
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [changeIcon, setChangeIcon] = useState(false);
+    const [passwordType, setPasswordType] = useState("password");
+    const [registerLoading, setRegisterLoading] = useState<boolean>(false)
+
+
     const navigate = useNavigate();
 
     const { mutate } = useLogin();
@@ -36,7 +41,6 @@ const Login = () => {
                     setTimeout(() => { setRegisterLoading(false) }, 2000)
                     const isAdmin = role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
                     localStorage.setItem("token", res.data);
-                    // isAdmin === "Admin" && role.isPayed === true
                     if (isAdmin === "Admin" && role.IsPayed === "True") {
                         setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
                     } else if (isAdmin === "Admin" && role.IsPayed === "False") {
@@ -45,7 +49,34 @@ const Login = () => {
                         setTimeout(() => { navigate("/") }, 2000);
                     }
                 }
-            }
+
+            },
+            onError: (error: any) => {
+                console.log(error);
+
+                if (error.response.status === 404) {
+                    setTimeout(() => {
+                        setRegisterLoading(false)
+                        toast.error("User not found", {
+                            hideProgressBar: false,
+                            autoClose: 2000
+                        })
+                    }, 2000)
+
+                }
+                else if (error.response.status === 401) {
+                    setTimeout(() => {
+                        setRegisterLoading(false)
+                        toast.error("Number or Password is incorrect", {
+                            hideProgressBar: false,
+                            autoClose: 2000
+                        })
+                    }, 2000)
+
+                }
+
+            },
+
         });
     };
 

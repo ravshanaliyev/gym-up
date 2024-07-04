@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+*
+
 .teko {
   font-family: 'Teko', sans-serif;
 }
@@ -13,6 +15,11 @@
   width: 6px !important;
 
 }
+
+*{
+  transition: .2s ease;
+}
+
 
 
 

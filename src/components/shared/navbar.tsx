@@ -55,7 +55,7 @@ const Navbar = () => {
                         // @ts-ignore
 
                         user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
-                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase hidden md:block' >{t("navbar.become")}</Button>
+                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg  hidden md:block' >{t("navbar.become")}</Button>
 
                     }
                 </div>
