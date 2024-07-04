@@ -41,8 +41,10 @@ const AdminCourseTr = ({ course, ind }: { course: CourseType, ind: number }) => 
                 </TableRow>
             }
             {
-                ind === 2 && <Link to={`${course.id}`} className="w-full border rounded-xl shadow-lg">
-                    <img className="w-full h-[220px] object-cover rounded-t-xl" src={`https://api.bekgym.uz/images/${course?.attachment?.fileName}`} alt="" />
+                ind === 2 && <div className='w-full border rounded-xl shadow-lg'>
+                    <Link to={`${course.id}`} className="">
+                        <img className="w-full h-[220px] object-cover rounded-t-xl" src={`https://api.bekgym.uz/images/${course?.attachment?.fileName}`} alt="" />
+                    </Link>
                     <div className="flex flex-col p-2 truncate">
                         <h3 className="text-lg ">{course.title?.length > 25 ? course.title.substring(0, 25) + "..." : course.title}</h3>
                         <h3 className="text-sm my-2">{course.description.length > 25 ? course.description.substring(0, 25) + "..." : course.description}</h3>
@@ -52,7 +54,7 @@ const AdminCourseTr = ({ course, ind }: { course: CourseType, ind: number }) => 
                             <UpdateCourse isOpen={isOpen} setIsOpen={setIsOpen} course={course} />
                         </div>
                     </div>
-                </Link>
+                </div>
             }
         </>
     )
