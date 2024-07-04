@@ -7,18 +7,12 @@
 @tailwind components;
 @tailwind utilities;
 
-*
-
-.teko {
+* .teko {
   font-family: 'Roboto', sans-serif;
 }
 
 ::-webkit-scrollbar {
   width: 6px !important;
-}
-
-*{
-  transition: .2s ease;
 }
 
 
