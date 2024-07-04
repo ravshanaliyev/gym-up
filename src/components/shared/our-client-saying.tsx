@@ -5,7 +5,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import CLient from '../../assets/client.jpg'
 import Autoplay from "embla-carousel-autoplay"
 const OurClientSaying = () => {
     return (
