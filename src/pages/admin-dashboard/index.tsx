@@ -17,6 +17,7 @@ const AdminDashboard = () => {
         // tokenAdmin === null && navigate("/auth/login")
         // role === "Admin" && tokenAdmin?.IsPayed === "True" ? navigate("/admin/courses") : navigate("/auth/login")
         role === "User" && navigate("/")
+
         if (tokenAdmin === null) {
             navigate("/auth/login")
         } else if (role === "Admin" && tokenAdmin?.IsPayed === "True") {

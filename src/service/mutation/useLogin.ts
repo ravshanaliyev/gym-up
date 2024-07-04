@@ -6,8 +6,7 @@ export const useLogin = () => {
         mutationFn: (login_data) => {            
             return ApiInctance.post("/auth/login", login_data)
             .then(res => res.data)
-            .catch(error => console.log(error)
-            )
+            .catch(error => {throw error} )
         }
     })
 }

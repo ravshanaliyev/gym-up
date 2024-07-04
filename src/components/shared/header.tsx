@@ -24,7 +24,8 @@ const Header = () => {
                         <div data-aos='fade-right' data-aos-duration='800' className='h-[3px] w-[50px] md:w-[100px] bg-[#ff1313] '></div>
                         <h3 data-aos='fade-right' data-aos-duration='800' className='  sm:text-lg md:text-xl'>{t("hero.with")}</h3>
                     </div>
-                    <h1 data-aos='fade-right' data-aos-delay='400' data-aos-duration='800' className='text-white text-[32px]   md:text-[52px] font-bold capitalize leading-snug my-4'>{t("hero.main_text")}</h1>
+                    <h1 data-aos='fade-right' data-aos-delay='400' data-aos-duration='800' style={langValue === 'ru'  ? {fontSize: '40px'} : langValue === 'uz'  ? {fontSize: '55px'} : {}} className='text-white text-[36px]   md:text-[64px] font-bold capitalize leading-snug my-4'>{t("hero.main_text")}</h1>
+
                     <div>
                         <Button onClick={() => navigate("/auth/login")} data-aos='fade-right' data-aos-delay='200' data-aos-duration='800' className='rounded-none text-base md:text-lg  px-8 md:px-12 py-4 md:!py-7' size={'lg'}>{t("navbar.become")}</Button>
                     </div>
