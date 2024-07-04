@@ -7,8 +7,6 @@ import { Pencil } from "lucide-react";
 import { CourseType } from "@/@types/types";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { useToast } from "react-toastify";
 
 const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpen: boolean, setIsOpen: Function }) => {
 
