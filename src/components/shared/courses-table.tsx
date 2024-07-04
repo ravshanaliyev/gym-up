@@ -1,47 +1,31 @@
-import { VideoType } from "@/@types/types"
-import { useGetCourseVideos } from "@/service"
-import { Link, useParams } from "react-router-dom"
+import { useGetCourses } from "@/service"
+import {
+    Dialog,
+    DialogContent,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import { Link } from "react-router-dom";
 
 const CoursesTable = () => {
-    const { id } = useParams()
-    const { data } = useGetCourseVideos(id)
+    const { data } = useGetCourses()
+    console.log(data);
+
     return (
         <div className='container my-10'>
-            <table className="w-full text-center">
-                <thead className="bg-[#445E87] sticky top-0 z-10">
-                    <tr>
-                        <th className="px-4 py-[10px] text-[#60ABD8] text-[16px]">Mavzu</th>
-                        <th className="px-4 py-[10px] text-[#60ABD8] text-[16px]">Video</th>
-                        <th className="px-4 py-[10px] text-[#60ABD8] text-[16px]">Holat</th>
-                        <th className="px-4 py-[10px] text-[#60ABD8] text-[16px]">Narxi</th>
-                        <th className="px-4 py-[10px] text-[#60ABD8] text-[16px]">Sana</th>
-                    </tr>
-                </thead>
-            </table>
-            <div className="h-[350px] overflow-y-auto">
-                <table className="w-full text-center">
-                    <tbody className="w-full">
-                        {data?.data.data.map((courseVideo: VideoType) => (
-                            <tr key={courseVideo.id} className="mt-[20px] py-[1rem]">
-                                <td className="px-4 py-4">
-                                    <Link className="text-[#fff]" to="">{courseVideo.name}</Link>
-                                </td>
-                                <td className="px-4 py-4 flex justify-center">
-                                    <Link to="" className="rounded-full bg-[blue] text-white flex items-center justify-center w-[20px] h-[20px]">
-                                        1
-                                    </Link>
-                                </td>
-                                <td className="px-4 py-4">
-                                    <Link to="" className="py-[7px] px-[10px] text-[15px] rounded-[5px] bg-[#1b751c] text-[#fff]">
-                                        Videoni Ko'rish
-                                    </Link>
-                                </td>
-                                <td className="px-4 py-4 text-[#fff]">100$</td>
-                                <td className="px-4 py-4 text-[#fff]">01.05.2024</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {data?.data?.map((course: any) => (
+                    <Dialog key={course.id}>
+                        <DialogTrigger asChild>
+                            <div className="w-full h-[250px] cursor-pointer lg:h-[300px] rounded-xl bg-[#f1f5f9] overflow-hidden flex justify-start items-end" style={{ backgroundImage: `url(https://api.bekgym.uz/images/${course?.attachment?.fileName})`, backgroundSize: 'cover' }}>
+                                <h3 className="text-3xl font-bold text-white p-4">{course.title}</h3>
+                            </div>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <h3 className="text-xl font-semibold">Bek Gymga xush kelibsiz</h3>
+                            <p className="text-lg">Kurslarni sotib olish uchun quyidagi <Link className="underline" to={`https://t.me/unusdv`}>unusdv</Link> telegram akkountga murojaat qiling. Kursni sotip olganingizdan so&#x27;ng u kishi sizga login va parolni yuboradi kurslarni ko&#x27;rish uchun.</p>
+                        </DialogContent>
+                    </Dialog>
+                ))}
             </div>
         </div>
     )
