@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 const Login = () => {
     const { t } = useTranslation();
@@ -53,18 +53,12 @@ const Login = () => {
                 if (error.response.status === 404) {
                     setTimeout(() => {
                         setRegisterLoading(false);
-                        toast.error("User not found", {
-                            hideProgressBar: false,
-                            autoClose: 2000
-                        });
+                        toast.error("User not found");
                     }, 2000);
                 } else if (error.response.status === 401) {
                     setTimeout(() => {
                         setRegisterLoading(false);
-                        toast.error("Number or Password is incorrect", {
-                            hideProgressBar: false,
-                            autoClose: 2000
-                        });
+                        toast.error("Number or Password is incorrect");
                     }, 2000);
                 }
             }
@@ -86,10 +80,10 @@ const Login = () => {
     };
 
     const handleInputBlur = () => {
-        if (!phoneNumber.replace(/\s/g, '')) {
-            setPhoneNumber('');
-        }
-        setFocused(false);
+        // if (!phoneNumber.replace(/\s/g, '')) {
+        //     setPhoneNumber('');
+        // }
+        // setFocused(false);
     };
 
     return (
