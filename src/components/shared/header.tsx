@@ -12,7 +12,7 @@ const Header = () => {
 
     const { t } = useTranslation()
 
-    const langValue = localStorage.getItem("lang")
+    // const langValue = localStorage.getItem("lang")
 
 
     return (
