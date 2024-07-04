@@ -7,7 +7,6 @@ import UserSidebarItem from "./user-sidebar-item"
 import { useGetCourses } from "@/service"
 import { jwtDecode } from "jwt-decode"
 
-
 const UserHeader = () => {
     const navigate = useNavigate()
     const handleLogout = () => {
@@ -36,7 +35,6 @@ const UserHeader = () => {
                                     </Link>
                                 </SheetClose>
                             ))}
-                            <h3 className="text-white font-bold text-[16px] text-center">Account</h3>
                             <SheetClose asChild>
                                 <Link to="/user-dashboard/account">
                                     <UserSidebarItem icon={User} label="Account" path="/user-dashboard/account" />

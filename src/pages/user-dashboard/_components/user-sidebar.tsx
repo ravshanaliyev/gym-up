@@ -22,7 +22,6 @@ const UserSidebar = () => {
                             <UserSidebarItem icon={CirclePlay} label={link.title} path={`/user-dashboard/courses/${link.id}`} />
                         </Link>
                     ))}
-                    <h3 className="text-white font-bold text-[18px] text-center">Account</h3>
                     <Link to="/user-dashboard/account">
                         <UserSidebarItem icon={User} label="Account" path="/user-dashboard/account" />
                     </Link>

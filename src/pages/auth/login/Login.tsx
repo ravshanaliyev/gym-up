@@ -3,10 +3,10 @@ import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Login = () => {
-
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
     const [passwordType, setPasswordType] = useState("password");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -31,20 +31,27 @@ const Login = () => {
         mutate(loginData, {
             onSuccess: (res) => {
                 if (res.statusCode === 200) {
+                    toast.success('Login success')
                     const token = res.data || localStorage.getItem('token');
                     const role = token && jwtDecode(token);
-                    setTimeout(() => { setRegisterLoading(false) }, 2000)
+                    setRegisterLoading(false)
                     const isAdmin = role["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
                     localStorage.setItem("token", res.data);
-                    // isAdmin === "Admin" && role.isPayed === true
                     if (isAdmin === "Admin" && role.IsPayed === "True") {
-                        setTimeout(() => { window.location.href = "/admin/courses" }, 2000);
+                        window.location.href = "/admin/courses"
                     } else if (isAdmin === "Admin" && role.IsPayed === "False") {
-                        setTimeout(() => { window.location.href = "/user-dashboard" }, 2000);
+                        window.location.href = "/user-dashboard"
                     } else {
-                        setTimeout(() => { navigate("/") }, 2000);
+                        navigate("/")
                     }
                 }
+            },
+            onError: (error) => {
+                setRegisterLoading(false)
+                console.log(error);
+                toast.error('Login failed', {
+                    description: error.message
+                })
             }
         });
     };
@@ -79,10 +86,9 @@ const Login = () => {
                     <input required placeholder="+998 XX XXX XXXX" onBlur={handleInputBlur} value={focused ? phoneNumber : ""} onFocus={handleInputFocus} onChange={(e) => handlePhoneNumberChange(e.target.value)} id="number" type="text" name="number" className=" bg-[#1b1b1b] p-[10px]    w-full h-[45px]  mt-[5px] outline-none indent-[5px] py-2  rounded-[6px]   " />
                 </label>
                 <label className="relative text-[16px] text-[#fff] text-left mt-5 inline-block w-full tracking-[.5px] font-[400]" htmlFor="password">{t("auth.password")}
-                    <input required value={password} onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value.trim())} id="password" type={passwordType} name="password" className="  bg-[#1b1b1b] p-[10px]    w-full h-[45px]  mt-[5px] outline-none indent-[5px] py-2  rounded-[6px] " />
+                    <input required value={password} onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value.trim())} id="password" type={passwordType} name="password" className=" bg-[#1b1b1b] p-[10px] w-full h-[45px]  mt-[5px] outline-none indent-[5px] py-2  rounded-[6px] " />
                     <span onClick={handleShowPassword} className="material-symbols-outlined absolute right-[2%] top-[60%] text-[20px] text-[#464545] cursor-pointer">{changeIcon ? "visibility_off" : "visibility"}</span>
                 </label>
-
                 <div style={registerLoading ? { cursor: "not-allowed" } : { cursor: "pointer" }} className="w-full mt-8 transition duration-[0.2s]  bg-[#ff1414]  text-[#fff]   text-[18px] font-[400] py-[7px] rounded-[6px] hover:bg-[#fa5757]">
                     {
                         registerLoading ? <div className="register-loader"></div>
