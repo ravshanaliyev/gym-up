@@ -3,7 +3,7 @@ import { Button } from '../ui/button'
 
 const AboutGym = () => {
     return (
-        <div className='container my-16'>
+        <div className='container  my-16'>
             <div className="w-full  mx-auto">
                 <div className="w-full  lg:flex items-center justify-center gap-x-20">
                     <div className="w-full max-w-[570px]  h-[600px] ">
