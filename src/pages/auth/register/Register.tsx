@@ -1,9 +1,7 @@
 import { NewUserType } from "@/@types/types";
 import { useRegister } from "@/service";
-import { useStore } from "@/store/useStore";
 import { ChangeEvent, FormEvent, useState } from "react"
 import { Link } from "react-router-dom";
-import Verify from "../verify/Verify";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
@@ -16,7 +14,6 @@ const Register = () => {
 
     const [passwordType, setPasswordType] = useState<string>("password")
     const [changeIcon, setChangeIcon] = useState<boolean>(false)
-    const [openVerify, setOpenVerify] = useState<boolean>(false)
     const [registerLoading, setRegisterLoading] = useState<boolean>(false)
     const [firstname, setFirstname] = useState<string>("")
     const [lastname, setLastname] = useState<string>("")
