@@ -56,21 +56,21 @@ const Contact = () => {
                             <div className="flex items-center gap-4">
                                 <IoHome className="text-3xl" />
                                 <div className="flex flex-col gap-0">
-                                    <h3 className="text-lg">Buttonwood, California.</h3>
+                                    <h3 className="text-lg">Tashkent, Uzbekistan.</h3>
                                     <p className="text-muted-foreground">Rosemead, CA 91770</p>
                                 </div>
                             </div>
                             <div className="flex  items-center gap-4">
                                 <MdOutlinePhonelinkRing className="text-3xl" />
                                 <div className="flex flex-col gap-0">
-                                    <h3 className="text-lg">+1 253 565 2365</h3>
+                                    <h3 className="text-lg">+998977772533</h3>
                                     <p className="text-muted-foreground">Mon to Fri 9am to 6pm</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
                                 <CgMail className="text-3xl" />
                                 <div className="flex flex-col gap-0">
-                                    <h3 className="text-lg">support@colorlib.com</h3>
+                                    <h3 className="text-lg">azharinc@gmail.com</h3>
                                     <p className="text-muted-foreground">Send us your query anytime!</p>
                                 </div>
                             </div>
