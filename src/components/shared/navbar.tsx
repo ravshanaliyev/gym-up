@@ -14,7 +14,7 @@ const Navbar = () => {
 
     const { i18n, t } = useTranslation()
     const currentLang: any = localStorage.getItem("lang")
-    const navigate = useNavigate()    
+    const navigate = useNavigate()
 
     const [language, setLanguage] = useState<string>(currentLang);
 
@@ -40,11 +40,11 @@ const Navbar = () => {
                 <Link to={'/'}><img className='w-[120px] md:w-full' src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" alt="" /></Link>
                 <div className='flex items-center gap-x-[1rem]'>
                     <ul className='hidden lg:flex gap-8 items-center'>
-                        <li style={currentLang === 'ru' ? {fontSize: "16px"} : {} } className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/">{t("navbar.home")}</Link></li>
-                        <li style={currentLang === 'ru' ? {fontSize: "16px"} : {} } className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/courses">{t("navbar.course")}</Link></li>
-                        <li style={currentLang === 'ru' ? {fontSize: "16px"} : {} } className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/gallery">{t("navbar.gallery")}</Link></li>
-                        <li style={currentLang === 'ru' ? {fontSize: "16px"} : {} } className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/about">{t("navbar.about")}</Link></li>
-                        <li style={currentLang === 'ru' ? {fontSize: "16px"} : {} } className='text-white hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">{t("navbar.contact")}</Link></li>
+                        <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/">{t("navbar.home")}</Link></li>
+                        <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/courses">{t("navbar.course")}</Link></li>
+                        <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/gallery">{t("navbar.gallery")}</Link></li>
+                        <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/about">{t("navbar.about")}</Link></li>
+                        <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/contact">{t("navbar.contact")}</Link></li>
                     </ul>
                     <Select className="language-select" value={language} onChange={(e: SelectChangeEvent<string>) => setLanguage(e.target.value)} labelId="demo-simple-select-autowidth-label" id="demo-simple-select-autowidth" autoWidth  >
                         <MenuItem className='text-[#fff] flex ' value="uz"><img src={UzbFlag} width={24} height={14} /><span className='text-[#fff]'>UZ</span></MenuItem>
@@ -55,7 +55,7 @@ const Navbar = () => {
                         // @ts-ignore
 
                         user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
-                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase hidden md:block' >{t("navbar.become")}</Button>
+                            : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-base uppercase hidden md:block' >{t("navbar.become")}</Button>
 
                     }
                 </div>
@@ -66,16 +66,16 @@ const Navbar = () => {
                         </SheetTrigger>
                         <SheetContent side={'left'}>
                             <ul className='flex flex-col gap-4 mt-8 items-center'>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/">Home</Link></li>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/about">About Me</Link></li>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/courses">Courses</Link></li>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/gallery">Gallery</Link></li>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/shop">Shop</Link></li>
-                                <li className=' hover:text-[#ff1313] transition text-[20px]'><Link to="/contact">Contact</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[16px]'><Link to="/">Home</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[16px]'><Link to="/about">About Me</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[16px]'><Link to="/courses">Courses</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[16px]'><Link to="/gallery">Gallery</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[16px]'><Link to="/shop">Shop</Link></li>
+                                <li className=' hover:text-[#ff1313] transition text-[16px]'><Link to="/contact">Contact</Link></li>
                                 {
                                     // @ts-ignore
                                     user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-[20px]  rounded-full h-10 w-fit' >{user?.FirstName}</Button>
-                                        : <Button onClick={() => navigate("/auth/login")} className='rounded-none text-lg uppercase' size={'lg'}>{t("navbar.become")}</Button>
+                                        : <Button onClick={() => navigate("/auth/login")} className='rounded-none text-base uppercase' size={'lg'}>{t("navbar.become")}</Button>
                                 }
 
                             </ul>
