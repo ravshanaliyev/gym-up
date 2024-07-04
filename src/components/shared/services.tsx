@@ -13,19 +13,19 @@ const Services = () => {
                     </div>
                     <h3 className="text-[20px] lg:text-[24px] my-3 lg:my-4 font-bold text-white text-center lg:text-left teko">PUSH YOUR LIMITS FORWARD WE OFFER TO YOU</h3>
                     <div className="cards grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 lg:mt-12 place-items-center">
-                        <div className="card bg-white text-black max-w-[370px] h-[370px] py-10 px-12 text-center group mb-4">
+                        <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoIosFitness className="text-[50px] mx-auto" />
                             <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
                             <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
                             <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
                         </div>
-                        <div className="card bg-white text-black max-w-[370px] h-[370px] py-10 px-12 text-center group mb-4">
+                        <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoFitness className="text-[50px] mx-auto" />
                             <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
                             <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
                             <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
                         </div>
-                        <div className="card bg-white text-black max-w-[370px] h-[370px] py-10 px-12 text-center group mb-4">
+                        <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoMdFitness className="text-[50px] mx-auto" />
                             <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
                             <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
