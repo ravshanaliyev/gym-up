@@ -12,9 +12,7 @@ import { useToast } from "react-toastify";
 
 const UpdateCourse = ({ course, isOpen, setIsOpen }: { course: CourseType, isOpen: boolean, setIsOpen: Function }) => {
 
-    
-    const { toast } = useToast();
-    const { handleSubmit, register, reset } = useForm();
+
 
     const { mutate: updateCourse } = useUpdateCourse();
 

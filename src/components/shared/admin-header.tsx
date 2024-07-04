@@ -6,7 +6,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Sheet, SheetClose, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import AdminSidebarItem from './admin-sidebar-item'
 import { jwtDecode } from "jwt-decode";
-
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
+import { Button } from "../ui/button"
 const AdminHeader = () => {
     const navigate = useNavigate()
     const handleLogout = () => {
@@ -89,10 +90,26 @@ const AdminHeader = () => {
                         </Link>
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => handleLogout()}>
-                        Log out
-                        <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                    </DropdownMenuItem>
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button className="w-full" size={'sm'}>
+                                Log out
+                            </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    This action cannot be undone. This will permanently delete your
+                                    account and remove your data from our servers.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction onClick={() => handleLogout()}>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>

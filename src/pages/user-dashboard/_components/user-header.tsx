@@ -6,7 +6,18 @@ import { Link, useNavigate } from "react-router-dom"
 import UserSidebarItem from "./user-sidebar-item"
 import { useGetCourses } from "@/service"
 import { jwtDecode } from "jwt-decode"
-
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Button } from "@/components"
 
 const UserHeader = () => {
     const navigate = useNavigate()
@@ -36,7 +47,6 @@ const UserHeader = () => {
                                     </Link>
                                 </SheetClose>
                             ))}
-                            <h3 className="text-white font-bold text-[16px] text-center">Account</h3>
                             <SheetClose asChild>
                                 <Link to="/user-dashboard/account">
                                     <UserSidebarItem icon={User} label="Account" path="/user-dashboard/account" />
@@ -74,10 +84,30 @@ const UserHeader = () => {
                         </DropdownMenuItem>
                     </Link>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleLogout}>
+                    {/* <DropdownMenuItem onClick={handleLogout}>
                         Log out
                         <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                    </DropdownMenuItem>
+                    </DropdownMenuItem> */}
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button className="w-full" size={'sm'}>
+                                Log out
+                            </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    This action cannot be undone. This will permanently delete your
+                                    account and remove your data from our servers.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction onClick={() => handleLogout()}>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>

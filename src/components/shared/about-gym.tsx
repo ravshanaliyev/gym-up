@@ -1,4 +1,6 @@
+
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { Button } from '../ui/button'
 
 const AboutGym = () => {
@@ -23,6 +25,7 @@ const AboutGym = () => {
                         <p className='text-base text-[#212025] mb-4 barlow font-semibold max-w-[600px]'>{t("about.main_text")}</p>
                         <p className='text-base text-[#212025] my-4 barlow max-w-[520px]'>{t("about.sub_text")}</p>
                         <Button className='rounded-none text-xl  px-10 !py-6' size={'lg'}>{t("navbar.become")}</Button>
+
                     </div>
                 </div>
             </div>

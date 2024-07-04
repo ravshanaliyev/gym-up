@@ -10,8 +10,14 @@ const AdminDashboard = () => {
     const tokenAdmin: any = localStorage.getItem("token") && jwtDecode(localStorage.getItem("token")!)
 
     const role: any = tokenAdmin && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+    console.log(tokenAdmin);
+
 
     useEffect(() => {
+        // tokenAdmin === null && navigate("/auth/login")
+        // role === "Admin" && tokenAdmin?.IsPayed === "True" ? navigate("/admin/courses") : navigate("/auth/login")
+        role === "User" && navigate("/")
+
         if (tokenAdmin === null) {
             navigate("/auth/login")
         } else if (role === "Admin" && tokenAdmin?.IsPayed === "True") {
