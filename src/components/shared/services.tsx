@@ -1,6 +1,7 @@
 import { IoIosFitness, IoMdFitness } from "react-icons/io";
 import { IoFitness } from "react-icons/io5";
 import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
 
 const Services = () => {
     return (
@@ -17,19 +18,25 @@ const Services = () => {
                             <IoIosFitness className="text-[50px] mx-auto" />
                             <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
                             <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
-                            <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
+                            <Link to={'about'}>
+                                <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
+                            </Link>
                         </div>
                         <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
+                            <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">HEALTH CARING</h3>
                             <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
-                            <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
+                            <Link to={'about'}>
+                                <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
+                            </Link>
                         </div>
                         <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoMdFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">QUALITY EQUIPMENT</h3>
+                            <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">GYM STRATEGIES</h3>
                             <p className="text-base text-[#303133] barlow">The sea freight service has grown consider ably in recent years. We spend timetting to kn. We spend timetting to kn.</p>
-                            <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
+                            <Link to={'about'}>
+                                <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full  transition duration-300'>Discover More About Us</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

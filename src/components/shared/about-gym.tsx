@@ -1,6 +1,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/button'
+import { Link } from 'react-router-dom'
 
 const AboutGym = () => {
 
@@ -23,7 +24,9 @@ const AboutGym = () => {
                         <h2 style={lang === 'ru' ? { fontSize: "27px" } : {}} className='text-[44px] font-bold text-[#2c234d] leading-snug my-4 teko max-w-[520px]'>{t("about.main_title")}</h2>
                         <p className='text-base text-[#212025] mb-4 barlow font-semibold max-w-[600px]'>{t("about.main_text")}</p>
                         <p className='text-base text-[#212025] my-4 barlow max-w-[520px]'>{t("about.sub_text")}</p>
-                        <Button className='rounded-none text-xl  px-10 !py-6' size={'lg'}>{t("navbar.become")}</Button>
+                        <Link to={'/auth/login'}>
+                            <Button className='rounded-none text-xl  px-10 !py-6' size={'lg'}>{t("navbar.become")}</Button>
+                        </Link>
 
                     </div>
                 </div>

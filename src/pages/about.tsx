@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div>
             <Navbar />
-            <PagesHeader title={'About Me'} />
+            <PagesHeader title={'About Us'} />
             <AboutGym />
             <HomeGallery />
             <OurClientSaying />
