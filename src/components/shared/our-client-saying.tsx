@@ -5,6 +5,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import CLient from '../../assets/client.jpg'
 import Autoplay from "embla-carousel-autoplay"
 const OurClientSaying = () => {
     return (
@@ -12,7 +13,7 @@ const OurClientSaying = () => {
             <div className="container">
                 <div className="w-full lg:max-w-[1200px] mx-auto block  md:flex items-center justify-between gap-2">
                     <div className="w-full md:max-w-[480px] h-[620px]">
-                        <img className="w-full h-full object-cover" src="https://themewagon.github.io/fitnessclub/assets/img/gallery/about2.png" alt="" />
+                        <img className="w-full h-full object-cover" src={'https://e1.pxfuel.com/desktop-wallpaper/76/925/desktop-wallpaper-body-builder-men-workout.jpg'} alt="" />
                     </div>
                     <div className="w-full mt-6 md:w-1/2 md:mt-0">
                         <div className="flex items-center justify-center lg:justify-start  gap-4 text-[#ff1313]">
