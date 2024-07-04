@@ -22,7 +22,7 @@ const CoursesTable = () => {
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                             <h3 className="text-xl font-semibold">Bek Gymga xush kelibsiz</h3>
-                            <p className="text-lg">Kurslarni sotib olish uchun quyidagi <Link className="underline" to={`https://t.me/unusdv`}>unusdv</Link> telegram akkountga murojaat qiling. Kursni sotip olganingizdan so&#x27;ng u kishi sizga login va parolni yuboradi kurslarni ko&#x27;rish uchun.</p>
+                            <p className="text-lg">Kurslarni sotib olish uchun quyidagi <Link className="underline" to={`https://t.me/unusdv`}>unusdv</Link> telegram akkountga murojaat qiling. Kursni bir martalik to&#39;lov orqali sotib olishingiz mumkin. </p>
                         </DialogContent>
                     </Dialog>
                 ))}
