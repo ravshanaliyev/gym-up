@@ -21,5 +21,18 @@
         "if_already_exist": "Agar profilingiz mavjud bo'lsa",
         "login": "Kirish",
         "register": "Ro'yxatdan o'tish"
+    },
+    "about": {
+        "sub_title": "Men Haqimda",
+        "main_title":  "Xavfsiz tanani shakllantirish uchun qimmatli vaqtimizni tejaydigan to'g'ri yechimlar!",
+        "main_text": "Brook sizning xizmatlaringizni moslashuvchan, qulay va cdpose tartiblari bilan taqdim etadi. Cheksiz o'zlashtirish imkoniyatlari bilan siz o'zingiz yoqtirgan sxemalar va elementlarni tanlashingiz mumkin. Dizaynerlarning piksel-mukammal replikatsiyasi mo'ljallangan.",
+        "sub_text": "Brook sizning xizmatlaringizni moslashuvchan, qulay va asosiy maqsadli sxemalar bilan taqdim etadi. Sevimli tartiblaringizni tanlashingiz mumkin."
+    },
+    "offer": {
+        "title": "Iyul oyiga aʼzolik taklifi hozir mavjud",
+        "services": "Boshqa xizmatlar"
+    },
+    "gallery-content":{
+        "best_fitness": "Zal fotolari"
     }
 }
