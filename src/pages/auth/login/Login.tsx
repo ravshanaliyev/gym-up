@@ -48,18 +48,12 @@ const Login = () => {
                 }
             },
             onError: (error: any) => {
-                console.log(error);
-
                 if (error.response.status === 404) {
-                    setTimeout(() => {
-                        setRegisterLoading(false);
-                        toast.error("User not found");
-                    }, 2000);
+                    setRegisterLoading(false);
+                    toast.error("User not found");
                 } else if (error.response.status === 401) {
-                    setTimeout(() => {
-                        setRegisterLoading(false);
-                        toast.error("Number or Password is incorrect");
-                    }, 2000);
+                    setRegisterLoading(false);
+                    toast.error("Number or Password is incorrect");
                 }
             }
         });
