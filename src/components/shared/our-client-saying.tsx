@@ -12,8 +12,10 @@ const OurClientSaying = () => {
         <div className="h-full py-6 lg:py-0  lg:h-[800px] flex flex-col justify-center">
             <div className="container">
                 <div className="w-full lg:max-w-[1200px] mx-auto block  md:flex items-center justify-between gap-2">
-                    <div className="w-full md:max-w-[480px] h-[620px]">
-                        <img className="w-full h-full object-cover" src={'https://e1.pxfuel.com/desktop-wallpaper/76/925/desktop-wallpaper-body-builder-men-workout.jpg'} alt="" />
+
+                    <div className="w-full md:max-w-[480px] h-[400px] object-cover lg:h-[620px]">
+                        <img className="w-full h-full object-cover" src="https://images.pexels.com/photos/3490348/pexels-photo-3490348.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+
                     </div>
                     <div className="w-full mt-6 md:w-1/2 md:mt-0">
                         <div className="flex items-center justify-center lg:justify-start  gap-4 text-[#ff1313]">

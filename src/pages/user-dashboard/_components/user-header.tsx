@@ -17,7 +17,6 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Button } from "@/components"
 
 const UserHeader = () => {
     const navigate = useNavigate()
@@ -90,9 +89,13 @@ const UserHeader = () => {
                     </DropdownMenuItem> */}
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
-                            <Button className="w-full" size={'sm'}>
+                            {/* <Button className="w-full" size={'sm'}>
                                 Log out
-                            </Button>
+                            </Button> */}
+                            <DropdownMenuItem onSelect={(e) => e.preventDefault()} className='cursor-pointer'>
+                                Log out
+                                <DropdownMenuShortcut>⌘Q</DropdownMenuShortcut>
+                            </DropdownMenuItem>
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                             <AlertDialogHeader>
