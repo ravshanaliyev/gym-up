@@ -5,6 +5,7 @@ import { ChangeEvent, FormEvent, useState } from "react"
 import { Link } from "react-router-dom";
 import Verify from "../verify/Verify";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 
 const Register = () => {
 
@@ -31,7 +32,6 @@ const Register = () => {
 
 
     const { mutate } = useRegister()
-    const { setRegisteredUser } = useStore()
 
     const newUserData: NewUserType = { firstname, lastname, phone: phoneNumber, password }
 
@@ -44,12 +44,13 @@ const Register = () => {
             onSuccess: (res) => {
                 if (res.statusCode === 200) {
                     localStorage.setItem('verify-number', phoneNumber)
-                    setTimeout(() => { setRegisterLoading(false) }, 2000)
-                    setTimeout(() => { setOpenVerify(true) }, 3000)
-                    setRegisteredUser(newUserData)
+                    setRegisterLoading(false)
+                    localStorage.setItem('token', res.data)
+                    window.location.href = "/"
+                    toast.success('Register success')
                 }
                 else {
-                    setTimeout(() => { setRegisterLoading(false) }, 2000)
+                    setRegisterLoading(false)
                 }
             }
         })
@@ -104,8 +105,6 @@ const Register = () => {
                     <Link to={'/auth/login'} className="mt-3 text-center inline-block font-[400] text-[#fff] text-[18px] m-auto hover:underline" >{t("auth.if_already_exist")},  <span className="text-[#1752e0]">{t("auth.login")}</span></Link>
                 </form>
             </div>
-            <Verify openVerify={openVerify} setOpenVerify={setOpenVerify} />
-
         </>
     )
 }

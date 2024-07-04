@@ -66,6 +66,7 @@ const Login = () => {
     };
 
     const handlePhoneNumberChange = (input_value: string) => {
+        setPhoneNumber(input_value);
         const pattern = /^\+998\s?\d{2}\s?\d{3}\s?\d{4}$/;
         if (pattern.test(input_value) || input_value === '') {
             setPhoneNumber(input_value);
@@ -118,7 +119,7 @@ const Login = () => {
                     />
                     <span
                         onClick={handleShowPassword}
-                        className="material-symbols-outlined absolute right-2 top-1/2 transform -translate-y-1/2 text-lg text-gray-500 cursor-pointer"
+                        className="material-symbols-outlined absolute right-2 top-1/2 transform translate-y-1 text-lg text-gray-500 cursor-pointer"
                     >
                         {changeIcon ? "visibility_off" : "visibility"}
                     </span>

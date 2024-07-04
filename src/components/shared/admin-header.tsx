@@ -40,7 +40,7 @@ const AdminHeader = () => {
             {/* <Input className='hidden md:block md:w-[300px] text-base' placeholder='Type To Search' /> */}
             <div></div>
             <DropdownMenu>
-                <DropdownMenuTrigger asChild>
+                <DropdownMenuTrigger asChild >
                     <div className="flex items-center gap-2 cursor-pointer">
                         <div className='flex flex-col items-end'>
                             <h4 className='text-[14px] font-semibold'>{
@@ -79,7 +79,7 @@ const AdminHeader = () => {
                         <Link to={'/admin/gallery'}>
                             <DropdownMenuItem className='cursor-pointer'>
                                 Gallery
-                                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                                <DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         </Link>
                         <Link to={'/admin/settings'}>
@@ -92,9 +92,13 @@ const AdminHeader = () => {
                     <DropdownMenuSeparator />
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
-                            <Button className="w-full" size={'sm'}>
+                            {/* <Button className="w-full" size={'sm'}>
                                 Log out
-                            </Button>
+                            </Button> */}
+                            <DropdownMenuItem onSelect={(e) => e.preventDefault()} className='cursor-pointer'>
+                                Log out
+                                <DropdownMenuShortcut>⌘Q</DropdownMenuShortcut>
+                            </DropdownMenuItem>
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                             <AlertDialogHeader>
