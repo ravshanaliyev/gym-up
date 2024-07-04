@@ -12,7 +12,6 @@ const Header = () => {
 
     const { t } = useTranslation()
 
-    const langValue = localStorage.getItem("lang")
 
     return (
         <div className='teko relative h-[600px] md:h-[640px] bg-black w-full flex justify-start items-center bg-fixed ' style={{ backgroundImage: window.innerWidth < 450 ? 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/gallery2.png")' : 'url("https://themewagon.github.io/fitnessclub/assets/img/hero/h1_hero.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} >
