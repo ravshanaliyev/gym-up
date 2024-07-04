@@ -38,29 +38,31 @@ const Navbar = () => {
         <div className='navbar bg-black py-4 teko'>
             <div className="container flex items-center justify-between">
                 <Link to={'/'}><img className='w-[120px] md:w-full' src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png" alt="" /></Link>
-                <div className='flex items-center gap-x-[1rem]'>
-                    <ul className='hidden lg:flex gap-8 items-center'>
+                <div className='hidden lg:flex items-center gap-x-[1rem]'>
+                    <ul className='flex gap-8 items-center'>
                         <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/">{t("navbar.home")}</Link></li>
                         <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/courses">{t("navbar.course")}</Link></li>
                         <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/gallery">{t("navbar.gallery")}</Link></li>
                         <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/about">{t("navbar.about")}</Link></li>
                         <li className='text-white hover:text-[#ff1313] transition text-[16px]'><Link to="/contact">{t("navbar.contact")}</Link></li>
                     </ul>
-                    <Select className="language-select" value={language} onChange={(e: SelectChangeEvent<string>) => setLanguage(e.target.value)} labelId="demo-simple-select-autowidth-label" id="demo-simple-select-autowidth" autoWidth  >
+                    <Select className="  language-select" value={language} onChange={(e: SelectChangeEvent<string>) => setLanguage(e.target.value)} labelId="demo-simple-select-autowidth-label" id="demo-simple-select-autowidth" autoWidth  >
                         <MenuItem className='text-[#fff] flex ' value="uz"><img src={UzbFlag} width={24} height={14} /><span className='text-[#fff]'>UZ</span></MenuItem>
                         <MenuItem className='text-[#fff] flex ' value="ru"><img src={RussiaFlag} /><span className='text-[#fff]'>RU</span></MenuItem>
                         <MenuItem className='text-[#fff] flex ' value="en"><img src={EnglishFlag} /><span className='text-[#fff]'>EN</span></MenuItem>
                     </Select>
                     {
                         // @ts-ignore
-
-                        user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
+                        user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='hidden md:flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
                             : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg  hidden md:block' >{t("navbar.become")}</Button>
-
-
                     }
                 </div>
                 <div className='block lg:hidden'>
+                    <Select className=" language-select" value={language} onChange={(e: SelectChangeEvent<string>) => setLanguage(e.target.value)} labelId="demo-simple-select-autowidth-label" id="demo-simple-select-autowidth" autoWidth  >
+                        <MenuItem className='text-[#fff] flex ' value="uz"><img src={UzbFlag} width={24} height={14} /><span className='text-[#fff]'>UZ</span></MenuItem>
+                        <MenuItem className='text-[#fff] flex ' value="ru"><img src={RussiaFlag} /><span className='text-[#fff]'>RU</span></MenuItem>
+                        <MenuItem className='text-[#fff] flex ' value="en"><img src={EnglishFlag} /><span className='text-[#fff]'>EN</span></MenuItem>
+                    </Select>
                     <Sheet>
                         <SheetTrigger>
                             <IoMdMenu className='block lg:hidden text-3xl text-white' />

@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 const Login = () => {
     const { t } = useTranslation();
@@ -48,30 +48,19 @@ const Login = () => {
                 }
             },
             onError: (error: any) => {
-                console.log(error);
-
                 if (error.response.status === 404) {
-                    setTimeout(() => {
-                        setRegisterLoading(false);
-                        toast.error("User not found", {
-                            hideProgressBar: false,
-                            autoClose: 2000
-                        });
-                    }, 2000);
+                    setRegisterLoading(false);
+                    toast.error("User not found");
                 } else if (error.response.status === 401) {
-                    setTimeout(() => {
-                        setRegisterLoading(false);
-                        toast.error("Number or Password is incorrect", {
-                            hideProgressBar: false,
-                            autoClose: 2000
-                        });
-                    }, 2000);
+                    setRegisterLoading(false);
+                    toast.error("Number or Password is incorrect");
                 }
             }
         });
     };
 
     const handlePhoneNumberChange = (input_value: string) => {
+        setPhoneNumber(input_value);
         const pattern = /^\+998\s?\d{2}\s?\d{3}\s?\d{4}$/;
         if (pattern.test(input_value) || input_value === '') {
             setPhoneNumber(input_value);
@@ -86,10 +75,10 @@ const Login = () => {
     };
 
     const handleInputBlur = () => {
-        if (!phoneNumber.replace(/\s/g, '')) {
-            setPhoneNumber('');
-        }
-        setFocused(false);
+        // if (!phoneNumber.replace(/\s/g, '')) {
+        //     setPhoneNumber('');
+        // }
+        // setFocused(false);
     };
 
     return (
@@ -124,7 +113,7 @@ const Login = () => {
                     />
                     <span
                         onClick={handleShowPassword}
-                        className="material-symbols-outlined absolute right-2 top-1/2 transform -translate-y-1/2 text-lg text-gray-500 cursor-pointer"
+                        className="material-symbols-outlined absolute right-2 top-1/2 transform translate-y-1 text-lg text-gray-500 cursor-pointer"
                     >
                         {changeIcon ? "visibility_off" : "visibility"}
                     </span>

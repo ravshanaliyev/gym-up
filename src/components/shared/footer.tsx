@@ -5,8 +5,8 @@ import { TbWorld } from "react-icons/tb";
 
 const Footer = () => {
     return (
-        <footer className="h-fit md:h-[500px] w-full bg-fixed" style={{ backgroundImage: 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/section_bg03.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="container w-full px-4  lg:mx-auto h-full grid grid-cols-2 lg:grid-cols-4 gap-4 py-10 place-items-center  ">
+        <footer className="h-fit md:h-[500px] w-full bg-fixed " style={{ backgroundImage: 'url("https://themewagon.github.io/fitnessclub/assets/img/gallery/section_bg03.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="container w-full px-4  lg:mx-auto h-full grid grid-cols-2 lg:grid-cols-4 gap-4 py-10   place-items-center">
                 <div>
                     <h4 className="text-white text-base lg:text-lg mb-4 teko">COMPANY</h4>
                     <ul>
@@ -35,13 +35,21 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="flex flex-col max-w-[270px]">
-                    <img className="max-w-[170px] h-[32px] object-cover" src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo2_footer.png" alt="" />
+                    <img className="max-w-[150px] h-[24px] object-cover" src="https://themewagon.github.io/fitnessclub/assets/img/logo/logo2_footer.png" alt="" />
                     <p className="my-6 text-[#c4c4c4] text-[14px] leading-[24px]">GThe trade war currently ensuing between te US anfd several natxions around thdhe globe, most fiercely with.</p>
                     <div className="flex items-center gap-4">
-                        <FaFacebookF className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
-                        <FaTwitter className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
-                        <TbWorld className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
-                        <FaInstagram className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
+                        <Link to={'/'}>
+                            <FaFacebookF className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
+                        </Link>
+                        <Link to={'/'}>
+                            <FaTwitter className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
+                        </Link>
+                        <Link to={'/'}>
+                            <TbWorld className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
+                        </Link>
+                        <Link to={'/'}>
+                            <FaInstagram className="text-[#c4c4c4] cursor-pointer text-base lg:text-lg" />
+                        </Link>
                     </div>
                 </div>
             </div>
