@@ -39,7 +39,7 @@ const Courses = () => {
                             <DialogContent className="sm:max-w-[425px] gap-2 py-8">
                                 <h3 className="text-xl font-semibold">Bek Gymga xush kelibsiz</h3>
                                 <p className="text-lg">Hurmatli foydalanuvchi, kurslardan foydalanish uchun quyidagi link orqali to&#39;lovni amalga oshiring. </p>
-                                <Link to={`https://t.me/frontdev17`} className="text-lg underline ">frontdev17 </Link>
+                                <Link to={`https://t.me/bekgymadmin`} className="text-lg underline ">bekgymadmin </Link>
                                 <p className="text-lg">To&#39;lovingiz muvaffaqiyatli amalga oshirilgach, kurslarga to&#39;liq kirish imkoniyatiga ega bo&#39;lasiz. </p>
                             </DialogContent>
                         </Dialog>
