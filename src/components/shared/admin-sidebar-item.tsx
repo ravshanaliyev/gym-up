@@ -7,6 +7,7 @@ const AdminSidebarItem = ({ icon: Icon, label, path }: { icon: any, label: strin
 
     return (
         <div
+        
             className={cn(
                 "flex items-center transition rounded-md  px-4 py-[10px] cursor-pointer text-white",
                 isActive && "bg-[#333A48]"
