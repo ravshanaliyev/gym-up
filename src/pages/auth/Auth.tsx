@@ -1,3 +1,4 @@
+import { Navbar } from "@/components";
 import { useEffect } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
@@ -21,7 +22,8 @@ const Auth = () => {
   return (
     <>
       <div className="auth-overlay">
-        <div className="flex auth-card backdrop-filter backdrop-brightness-100 bg-black max-w-[400px] w-full  shadow-[0_0_3px_#000]  rounded-[6px] p-4 m-auto mt-[4rem]">
+        <Navbar/>
+        <div className="flex  backdrop-filter backdrop-brightness-100 bg-black max-w-[400px] w-full  shadow-[0_0_3px_#000]  rounded-[6px] m-auto mt-[2.2rem]">
           <Outlet />
         </div>
       </div>

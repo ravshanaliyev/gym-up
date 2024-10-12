@@ -1,94 +1,111 @@
 {
-    "navbar": {
-        "home": "Home",
-        "about": "About Us",
-        "course": "Courses",
-        "gallery": "Gallery",
-        "shop": "Shop",
-        "contact": "Contact",
-        "become": "Become a member"
-    },
-    "hero": {
-        "with": "With Ulug'bek",
-        "main_text": "Build Perfect body Shape for good and Healthy life."
-    },
-    "auth": {
-        "firstname": "Firstname",
-        "lastname": "Lastname",
-        "phone": "Phone Number",
-        "password": "Password",
-        "if_not_account": "If you don't have an account",
-        "if_already_exist": "If already have an account",
-        "login": "Login",
-        "register": "Register"
-    },
-    "about": {
-        "sub_title": "About Us",
-        "main_title":  "Safe Body building proper Solutions That Saves our Valuable Time!",
-        "main_text": "Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replication of the designers is intended.",
-        "sub_text": "Brook presents your services with flexible, convefnient and chient anipurpose layouts. You can select your favorite layouts."
-    },
-    "offer": {
-        "title": "June membership offer available Now",
-        "services": "More Services"
-    },
-    "gallery-content":{
-        "best_fitness": "Gym gallery"
-    },
-    "footer": {
-        "company": "COMPANY",
-        "about_us": "About Us",
-        "company_info": "Company",
-        "press_blog": "Press & Blog",
-        "privacy_policy": "Privacy Policy",
-        "open_hour": "OPEN HOUR",
-        "monday": "Monday 11am-7pm",
-        "tuesday_friday": "Tuesday-Friday 11am-8pm",
-        "saturday": "Saturday 10am-6pm",
-        "sunday": "Sunday 11am-6pm",
-        "resources": "RESOURCES",
-        "home_insurance": "Home Insurance",
-        "travel_insurance": "Travel Insurance",
-        "business_insurance": "Business Insurance",
-        "health_insurance": "Health Insurance",
-        "trade_war_text": "The trade war currently ensuing between the US and several nations around the globe, most fiercely with."
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "course": "Courses",
+    "gallery": "Gallery",
+    "shop": "Shop",
+    "contact": "Contact",
+    "become": "Become a member"
+  },
+  "hero": {
+    "with": "With Ulug'bek",
+    "main_text": "Build Perfect body Shape for good and Healthy life."
+  },
+  "courses": {
+   "title": "ALL COURSES"
+  },
+  "about-us": {
+    "title": "About Us"
+  },
+  "auth": {
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "phone": "Phone Number",
+    "password": "Password",
+    "if_not_account": "If you don't have an account",
+    "if_already_exist": "If already have an account",
+    "login": "Login",
+    "register": "Register"
+  },
+  "about": {
+    "sub_title": "About Us",
+    "main_title": "Safe Body building proper Solutions That Saves our Valuable Time!",
+    "main_text": "Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replication of the designers is intended.",
+    "sub_text": "Brook presents your services with flexible, convefnient and chient anipurpose layouts. You can select your favorite layouts."
+  },
+  "offer": {
+    "title": "June membership offer available Now",
+    "services": "More Services"
+  },
+  "gallery-content": {
+    "best_fitness": "Gym gallery"
+  },
+  "footer": {
+    "company": "COMPANY",
+    "about_us": "About Us",
+    "company_info": "Company",
+    "press_blog": "Press & Blog",
+    "privacy_policy": "Privacy Policy",
+    "open_hour": "OPEN HOUR",
+    "monday": "Monday 11am-7pm",
+    "tuesday_friday": "Tuesday-Friday 11am-8pm",
+    "saturday": "Saturday 10am-6pm",
+    "sunday": "Sunday 11am-6pm",
+    "resources": "RESOURCES",
+    "home_insurance": "Home Insurance",
+    "travel_insurance": "Travel Insurance",
+    "business_insurance": "Business Insurance",
+    "health_insurance": "Health Insurance",
+    "trade_war_text": "The trade war currently ensuing between the US and several nations around the globe, most fiercely with."
+  },
+  "client_feedback": {
+    "title": "CLIENT FEEDBACK",
+    "subtitle": "WHAT OUR CLIENTS THINK ABOUT OUR GYM",
+    "role": "Gym Member",
+    "comments": {
+      "1": {
+        "name": "John Doe",
+        "comment": "Brook presents your services with flexible, convenient, and customizable layouts. You can select your favorite layouts and elements with unlimited customization possibilities. The pixel-perfect replication of their design is truly remarkable. I've been to many gyms, but the professionalism and dedication here are unparalleled. Every session feels like a step towards a healthier me, thanks to their attentive and experienced trainers."
       },
-      "client_feedback": {
-        "title": "CLIENT FEEDBACK",
-        "subtitle": "WHAT OUR CLIENTS THINK ABOUT OUR GYM",
-        "role": "Gym Member",
-        "comments": {
-          "1": {
-            "name": "John Doe",
-            "comment": "Brook presents your services with flexible, convenient, and customizable layouts. You can select your favorite layouts and elements with unlimited customization possibilities. The pixel-perfect replication of their design is truly remarkable. I've been to many gyms, but the professionalism and dedication here are unparalleled. Every session feels like a step towards a healthier me, thanks to their attentive and experienced trainers."
-          },
-          "2": {
-            "name": "Jane Smith",
-            "comment": "Their services are not only outstanding but also highly adaptable to my personal needs. The environment here is vibrant, making every workout enjoyable. The facilities are state-of-the-art, and their customer service is beyond expectations. Brook's attention to detail ensures that members feel comfortable and motivated at all times. I've seen immense progress in my fitness journey since joining!"
-          },
-          "3": {
-            "name": "Mark Taylor",
-            "comment": "This gym offers top-notch services with flexibility and precision in every aspect. The custom layouts and seamless functionality make it easy to focus on training. Their trainers guide you every step of the way, ensuring that you achieve your fitness goals efficiently. The atmosphere is incredibly motivating, and I love how they tailor their approach to fit every individual's needs."
-          },
-          "4": {
-            "name": "Lucy Williams",
-            "comment": "The atmosphere at the gym is both energetic and welcoming. From the layout of the equipment to the professionalism of the staff, everything is designed with the client in mind. The trainers are exceptional and always provide constructive feedback. I've been able to push past my limits thanks to their guidance, and the flexible scheduling is a huge bonus. A great experience overall!"
-          },
-          "5": {
-            "name": "David Brown",
-            "comment": "This gym truly stands out with its well-structured services and approachable staff. From day one, I felt welcomed and supported in my fitness journey. The facilities are modern, and the equipment is always in perfect condition. The environment motivates me to train harder, and the trainers offer excellent advice to keep me on track. Brook’s service and layout are flawless, making it a great place for anyone serious about fitness."
-          }
-        }
+      "2": {
+        "name": "Jane Smith",
+        "comment": "Their services are not only outstanding but also highly adaptable to my personal needs. The environment here is vibrant, making every workout enjoyable. The facilities are state-of-the-art, and their customer service is beyond expectations. Brook's attention to detail ensures that members feel comfortable and motivated at all times. I've seen immense progress in my fitness journey since joining!"
       },
-        "services": {
-          "our_services": "OUR SERVICES FOR YOU",
-          "push_limits": "PUSH YOUR LIMITS FORWARD WE OFFER TO YOU",
-          "quality_equipment": "QUALITY EQUIPMENT",
-          "health_caring": "HEALTH CARING",
-          "gym_strategies": "GYM STRATEGIES",
-          "discover_more": "Discover More About Us",
-          "service_description": "The sea freight service has grown considerably in recent years. We spend time getting to know you and your needs."
-        }
-      
+      "3": {
+        "name": "Mark Taylor",
+        "comment": "This gym offers top-notch services with flexibility and precision in every aspect. The custom layouts and seamless functionality make it easy to focus on training. Their trainers guide you every step of the way, ensuring that you achieve your fitness goals efficiently. The atmosphere is incredibly motivating, and I love how they tailor their approach to fit every individual's needs."
+      },
+      "4": {
+        "name": "Lucy Williams",
+        "comment": "The atmosphere at the gym is both energetic and welcoming. From the layout of the equipment to the professionalism of the staff, everything is designed with the client in mind. The trainers are exceptional and always provide constructive feedback. I've been able to push past my limits thanks to their guidance, and the flexible scheduling is a huge bonus. A great experience overall!"
+      },
+      "5": {
+        "name": "David Brown",
+        "comment": "This gym truly stands out with its well-structured services and approachable staff. From day one, I felt welcomed and supported in my fitness journey. The facilities are modern, and the equipment is always in perfect condition. The environment motivates me to train harder, and the trainers offer excellent advice to keep me on track. Brook’s service and layout are flawless, making it a great place for anyone serious about fitness."
+      }
     }
-    
+  },
+  "services": {
+    "our_services": "OUR SERVICES FOR YOU",
+    "push_limits": "PUSH YOUR LIMITS FORWARD WE OFFER TO YOU",
+    "quality_equipment": "QUALITY EQUIPMENT",
+    "health_caring": "HEALTH CARING",
+    "gym_strategies": "GYM STRATEGIES",
+    "discover_more": "Discover More About Us",
+    "service_description": "The sea freight service has grown considerably in recent years. We spend time getting to know you and your needs."
+  },
+  "contact": {
+    "get_in_touch": "Get in Touch",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Submit",
+    "address": "Our Address",
+    "address_name": "Tashkent, Novza",
+    "office_hours": "Office Hours",
+    "send_message": "Send us a message",
+    "contact_us_today": "Contact Us Today"
+  }
+}
