@@ -34,5 +34,60 @@
     },
     "gallery-content":{
         "best_fitness": "Zal fotolari"
+    },
+   "footer": {
+    "company": "KOMPANIYA",
+    "about_us": "Biz haqimizda",
+    "company_info": "Kompaniya",
+    "press_blog": "Matbuot va blog",
+    "privacy_policy": "Maxfiylik siyosati",
+    "open_hour": "ISHLASH VAQTI",
+    "monday": "Dushanba 11am-7pm",
+    "tuesday_friday": "Seshanba-Juma 11am-8pm",
+    "saturday": "Shanba 10am-6pm",
+    "sunday": "Yakshanba 11am-6pm",
+    "resources": "RESURSLAR",
+    "home_insurance": "Uy sug'urtasi",
+    "travel_insurance": "Sayohat sug'urtasi",
+    "business_insurance": "Biznes sug'urtasi",
+    "health_insurance": "Salomatlik sug'urtasi",
+    "trade_war_text": "Hozirgi vaqtda AQSh va dunyodagi bir nechta mamlakatlar o'rtasidagi eng qattiq davom etayotgan savdo urushi."
+  },
+  "client_feedback": {
+    "title": "MIJOZLAR FIKRI",
+    "subtitle": "MIJOZLARIMIZ ZALIMIZ HAQIDA NIMA DEYISHADI",
+    "role": "Zal A'zosi",
+    "comments": {
+      "1": {
+        "name": "Jon Doe",
+        "comment": "Brook sizning xizmatlaringizni moslashuvchan, qulay va sozlanadigan tartibda taqdim etadi. Siz o'zingiz yoqtirgan tartib va elementlarni cheksiz moslash imkoniyatlari bilan tanlashingiz mumkin. Ularning dizaynini mukammal takrorlash juda ta'sirli. Ko'plab zallarda bo'ldim, lekin bu yerdagi professionallik va sadoqat misli ko'rilmagan. Har bir mashg'ulot diqqatli va tajribali trenerlar tufayli sog'lom hayot sari qadam bo'lib tuyuladi."
+      },
+      "2": {
+        "name": "Jane Smit",
+        "comment": "Ularning xizmatlari nafaqat ajoyib, balki shaxsiy ehtiyojlarimga moslashadi. Bu yerning muhitini yaxshi ko'raman, har bir mashg'ulot maroqli o‘tadi. O'qitish texnologiyalari zamonaviy, xizmat ko'rsatish esa kutilganidan yuqori. Brook har bir tafsilotga e'tibor beradi va bu a'zolarni doimo qulay va motivatsiyalangan his qilishlariga yordam beradi. Bu yerga qo'shilganimdan beri juda katta o'zgarishlarni ko'rdim!"
+      },
+      "3": {
+        "name": "Mark Teylor",
+        "comment": "Bu zal barcha xizmatlarini moslashuvchanlik va aniq reja asosida taklif qiladi. Moslashuvchan tartiblar va mukammal funksionallik mashg‘ulotlarga to‘liq e’tibor qaratish imkonini beradi. Trenerlar sizning fitness maqsadlaringizga samarali yetaklaydi. Atmosfera ajoyib va ular har bir mijozga alohida e'tibor qaratishadi, bu menga juda yoqadi."
+      },
+      "4": {
+        "name": "Lusi Uilyams",
+        "comment": "Zaldagi muhit ham energiyaga boy, ham do‘stona. Jihozlarning joylashuvidan tortib, xodimlarning professionalligigacha hamma narsa mijozlar ehtiyojlarini hisobga olgan holda tashkil etilgan. Trenerlar juda kuchli va har doim foydali fikrlar berishadi. Ularning ko‘rsatmalari tufayli men o‘z chegaralarimni yengib o‘ta oldim va moslashuvchan jadval katta bonusdir. Ajoyib tajriba bo'ldi!"
+      },
+      "5": {
+        "name": "Devid Braun",
+        "comment": "Bu zal o'zining tuzilgan xizmatlari va ochiq xodimlari bilan ajralib turadi. Birinchi kundan boshlab o'zimni bu yerda juda qulay his qildim va fitness yo‘limda to‘liq yordam oldim. Jihozlar zamonaviy va doimo mukammal holatda. Muhit meni yanada kuchliroq shug‘ullanishga undaydi va trenerlarning maslahatlari meni yo‘ldan adashmaslikka yordam beradi. Brook xizmatlari va dizayni juda mukammal, bu fitness bilan jiddiy shug‘ullanishni istaganlar uchun ajoyib joy."
+      }
     }
+  },
+    "services": {
+      "our_services": "SIZ UCHUN XIZMATLARIMIZ",
+      "push_limits": "O'Z CHEGARALARINGIZNI OSHIRING, BIZ SIZGA TAKLIF QILAMIZ",
+      "quality_equipment": "SIFATLI USKUNALAR",
+      "health_caring": "SALOMATLIKKA G'AMXO'RLIK",
+      "gym_strategies": "ZAL STRATEGIYALARI",
+      "discover_more": "Biz haqimizda ko'proq bilib oling",
+      "service_description": "So'nggi yillarda dengiz yuk tashish xizmati sezilarli darajada o'sdi. Biz siz va sizning ehtiyojlaringiz bilan tanishish uchun vaqt ajratamiz."
+    }
+  
 }
