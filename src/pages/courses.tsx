@@ -4,6 +4,7 @@ import { DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { useGetCourses } from "@/service"
 import { jwtDecode } from "jwt-decode"
 import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
 
 const Courses = () => {
@@ -20,10 +21,14 @@ const Courses = () => {
     console.log(Courses?.data);
 
 
+    const { t } = useTranslation(); 
+
+
+
     return (
         <div>
             <Navbar />
-            <PagesHeader title={'All Courses'} />
+            <PagesHeader title={t('courses.title')} />
             <div className="container my-8 lg:my-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {Courses?.data?.map((course: CourseType) => (

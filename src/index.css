@@ -63,10 +63,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .auth-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-image: url('/src/assets/BgGym.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;

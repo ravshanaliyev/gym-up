@@ -12,6 +12,12 @@
         "with": "U'lug'bek bilan",
         "main_text": "Yaxshi va sog'lom hayot uchun mukammal tana shaklini yarating."
     },
+    "courses": {
+      "title": "Barcha Kurslar"
+    },
+    "about-us": {
+    "title": "Biz Haqimizda"
+  },
     "auth": {
         "firstname": "Isminigiz",
         "lastname": "Familiyangiz",
@@ -88,6 +94,19 @@
       "gym_strategies": "ZAL STRATEGIYALARI",
       "discover_more": "Biz haqimizda ko'proq bilib oling",
       "service_description": "So'nggi yillarda dengiz yuk tashish xizmati sezilarli darajada o'sdi. Biz siz va sizning ehtiyojlaringiz bilan tanishish uchun vaqt ajratamiz."
-    }
-  
+    },
+      "contact": {
+        "get_in_touch": "Biz bilan bog'laning",
+        "name": "Ism",
+        "email": "Elektron pochta",
+        "phone": "Telefon",
+        "message": "Xabar",
+        "submit": "Yuborish",
+        "address": "Bizning manzil",
+        "address_name": "Toshkent, Novza",
+        "office_hours": "Ish vaqti",
+        "send_message": "Bizga xabar yuboring",
+        "contact_us_today": "Bugun biz bilan bog'laning"
+      }
+      
 }
