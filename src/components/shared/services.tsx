@@ -19,7 +19,7 @@ const Services = () => {
                     <div className="cards grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 lg:mt-12 place-items-center">
                         <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoIosFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">{t('services.quality_equipment')}</h3>
+                            <h3 className="text-[17px] font-semibold mt-6 mb-4 teko">{t('services.quality_equipment')}</h3>
                             <p className="text-base text-[#303133] barlow">{t('services.service_description')}</p>
                             <Link to={'about'}>
                                 <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full transition duration-300'>{t('services.discover_more')}</Button>
@@ -27,7 +27,7 @@ const Services = () => {
                         </div>
                         <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">{t('services.health_caring')}</h3>
+                            <h3 className="text-[17px] font-semibold mt-6 mb-4 teko">{t('services.health_caring')}</h3>
                             <p className="text-base text-[#303133] barlow">{t('services.service_description')}</p>
                             <Link to={'about'}>
                                 <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full transition duration-300'>{t('services.discover_more')}</Button>
@@ -35,7 +35,7 @@ const Services = () => {
                         </div>
                         <div className="card bg-white text-black max-w-[370px] h-fit py-8 px-10 lg:py-10 lg:px-12 text-center group mb-4">
                             <IoMdFitness className="text-[50px] mx-auto" />
-                            <h3 className="text-[20px] font-semibold mt-6 mb-4 teko">{t('services.gym_strategies')}</h3>
+                            <h3 className="text-[17px] font-semibold mt-6 mb-4 teko">{t('services.gym_strategies')}</h3>
                             <p className="text-base text-[#303133] barlow">{t('services.service_description')}</p>
                             <Link to={'about'}>
                                 <Button className='rounded-none teko text-sm lg:text-base px-10 h-[45px] mt-6 w-full transition duration-300'>{t('services.discover_more')}</Button>

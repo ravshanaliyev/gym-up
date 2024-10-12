@@ -73,9 +73,9 @@ const Register = () => {
     return (
         <>
             <div>
-                <h3 className="text-center text-[30px] font-[500] text-[#fff] tracking-[2px]">{t("auth.register")}</h3>
+                <h3 className="text-center text-2xl font-medium text-white tracking-wider">{t("auth.register")}</h3>
                 <form onSubmit={handleRegister} className="w-full text-center">
-                    <label className="text-[16px] text-[#fff] text-left mt-5 inline-block w-full tracking-[.5px] font-[400]" htmlFor="firstname">
+                    <label className="text-lg text-white text-left mt-4  inline-block w-full tracking-wide font-normal" htmlFor="firstname">
                         {t("auth.firstname")}
                         <input
                             value={firstname}
@@ -83,10 +83,10 @@ const Register = () => {
                             id="firstname"
                             type="text"
                             name="firstname"
-                            className="bg-[#1b1b1b] p-[10px] w-full h-[42px] mt-[5px] outline-none indent-[5px] py-2 rounded-[6px]"
+                            className="bg-gray-900 p-2 w-full h-12 mt-2 outline-none rounded-md"
                         />
                     </label>
-                    <label className="text-[16px] text-[#fff] text-left mt-5 inline-block w-full tracking-[.5px] font-[400]" htmlFor="lastname">
+                    <label className="text-lg text-white text-left mt-4 inline-block w-full tracking-wide font-normal" htmlFor="lastname">
                         {t("auth.lastname")}
                         <input
                             value={lastname}
@@ -94,35 +94,32 @@ const Register = () => {
                             id="lastname"
                             type="text"
                             name="lastname"
-                            className="bg-[#1b1b1b] p-[10px] w-full h-[42px] mt-[5px] outline-none indent-[5px] py-2 rounded-[6px]"
+                            className="bg-gray-900 p-2 w-full h-12 mt-2 outline-none rounded-md"
                         />
                     </label>
-                    <label className="text-[16px] text-[#fff] text-left mt-5 inline-block w-full tracking-[.5px] font-[400]" htmlFor="number">
+                    <label className="text-lg text-white text-left mt-4 inline-block w-full tracking-wide font-normal" htmlFor="number">
                         {t("auth.phone")}
-                        <div className="flex">
+                        <div className="flex items-center gap-x-2 ">
                             <select
                                 value={phoneCode}
                                 onChange={(e: ChangeEvent<HTMLSelectElement>) => setPhoneCode(e.target.value)}
-                                className="bg-[#1b1b1b] p-[10px] w-[30%] h-[42px] mt-[5px] outline-none rounded-[6px]"
+                                className="bg-gray-900 p-2 h-12 mt-2 outline-none rounded-md"
                             >
                                 <option value="+998">+998</option>
-                                <option value="+1">+1</option>
-                                <option value="+44">+44</option>
-                                {/* Boshqa kodlar */}
                             </select>
                             <input
-                                placeholder="XX XXX XX XX"
+                                placeholder="99-123-45-67"
                                 value={focused ? phoneNumber : ""}
                                 onFocus={handleInputFocus}
                                 onChange={(e) => handlePhoneNumberChange(e.target.value)}
                                 id="number"
                                 type="text"
                                 name="number"
-                                className="bg-[#1b1b1b] p-[10px] w-[70%] h-[42px] mt-[5px] outline-none indent-[5px] py-2 rounded-[6px]"
+                                className="bg-gray-900 p-2 w-[100%] h-12 mt-2 outline-none rounded-md"
                             />
                         </div>
                     </label>
-                    <label className="relative text-[16px] text-[#fff] text-left mt-5 inline-block w-full tracking-[.5px] font-[400]" htmlFor="password">
+                    <label className="relative text-lg text-white text-left mt-4 inline-block w-full tracking-wide font-normal" htmlFor="password">
                         {t("auth.password")}
                         <input
                             value={password}
@@ -130,23 +127,23 @@ const Register = () => {
                             id="password"
                             type={passwordType}
                             name="password"
-                            className="bg-[#1b1b1b] p-[10px] w-full h-[42px] mt-[5px] outline-none indent-[5px] py-2 rounded-[6px]"
+                            className="bg-gray-900 p-2 w-full h-12 mt-2 outline-none rounded-md"
                         />
                         <span
                             onClick={handleShowPassword}
-                            className="material-symbols-outlined absolute right-[2%] top-[60%] text-[20px] text-[#464545] cursor-pointer"
+                            className="material-symbols-outlined absolute right-2 top-[70%] transform -translate-y-1/2 text-lg text-gray-500 cursor-pointer"
                         >
                             {changeIcon ? "visibility_off" : "visibility"}
                         </span>
                     </label>
                     <div
                         style={registerLoading ? { cursor: "not-allowed" } : { cursor: "pointer" }}
-                        className="w-full mt-8 transition duration-[0.2s] bg-[#ff1414] text-[#fff] text-[18px] font-[400] py-[7px] rounded-[6px] hover:bg-[#fa5757]"
+                        className="w-full mt-8 transition duration-200 bg-red-600 text-white text-lg font-normal py-2 rounded-md hover:bg-red-500"
                     >
-                        {registerLoading ? <div className="register-loader"></div> : <button type="submit" className="">{t("auth.register")}</button>}
+                        {registerLoading ? <div className="register-loader"></div> : <button type="submit">{t("auth.register")}</button>}
                     </div>
-                    <Link to="/auth/login" className="mt-3 text-center inline-block font-[400] text-[#fff] text-[18px] m-auto hover:underline">
-                        {t("auth.if_already_exist")}, <span className="text-[#1752e0]">{t("auth.login")}</span>
+                    <Link to="/auth/login" className="mt-3 text-center inline-block font-normal text-white text-lg m-auto hover:underline">
+                        {t("auth.if_already_exist")}, <span className="text-blue-600">{t("auth.login")}</span>
                     </Link>
                 </form>
             </div>
