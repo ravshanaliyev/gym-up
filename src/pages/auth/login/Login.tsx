@@ -85,20 +85,13 @@ const Login = () => {
         <div>
             <h3 className="text-center text-2xl font-medium text-white tracking-wider">{t("auth.login")}</h3>
             <form onSubmit={handleLogin} className="w-full text-center">
-                <label className="text-lg text-white text-left mt-8 inline-block w-full tracking-wide font-normal" htmlFor="number">
-                    {t("auth.phone")}
-                    <input
-                        required
-                        placeholder="+998 XX XXX XXXX"
-                        onBlur={handleInputBlur}
-                        value={focused ? phoneNumber : ""}
-                        onFocus={handleInputFocus}
-                        onChange={(e) => handlePhoneNumberChange(e.target.value)}
-                        id="number"
-                        type="text"
-                        name="number"
-                        className="bg-gray-900 p-2 w-full h-12 mt-1 outline-none indent-1 rounded-md"
-                    />
+            
+                <label className="text-lg relative text-white text-left mt-8 inline-block w-full tracking-wide font-normal" htmlFor="number">{t("auth.phone")}
+                    <div className="absolute flex items-center gap-x-[8px]  top-[52%] left-[2%]">
+                        <img className="max-w-[50px] object-cover w-full h-[17px]" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/1024px-Flag_of_Uzbekistan.svg.png"  alt="" />
+                        <p>+998</p>
+                    </div>
+                    <input  required  placeholder=""  onBlur={handleInputBlur}  value={focused ? phoneNumber : ""}  onFocus={handleInputFocus}  onChange={(e) => handlePhoneNumberChange(e.target.value)}  id="number"  type="text"  name="number"  className="bg-gray-900 p-2 w-full h-12 mt-1 outline-none indent-[4.9rem] rounded-md"/>
                 </label>
                 <label className="relative text-lg text-white text-left mt-5 inline-block w-full tracking-wide font-normal" htmlFor="password">
                     {t("auth.password")}
