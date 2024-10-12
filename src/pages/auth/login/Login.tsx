@@ -10,8 +10,8 @@ const Login = () => {
 
     // HOOKS
     const [password, setPassword] = useState("");
-    const [focused, setFocused] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [countryCode, setCountryCode] = useState("+998");
     const [changeIcon, setChangeIcon] = useState(false);
     const [passwordType, setPasswordType] = useState("password");
     const [registerLoading, setRegisterLoading] = useState<boolean>(false);
@@ -27,7 +27,7 @@ const Login = () => {
     const handleLogin = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setRegisterLoading(true);
-        const loginData: any = { phone: phoneNumber, password };
+        const loginData: any = { phone: `${countryCode} ${phoneNumber}`, password };
 
         mutate(loginData, {
             onSuccess: (res) => {
@@ -60,38 +60,45 @@ const Login = () => {
     };
 
     const handlePhoneNumberChange = (input_value: string) => {
-        setPhoneNumber(input_value);
-        const pattern = /^\+998\s?\d{2}\s?\d{3}\s?\d{4}$/;
-        if (pattern.test(input_value) || input_value === '') {
-            setPhoneNumber(input_value);
-        }
-    };
+        // Faqat raqamlar qabul qilinadi va maksimal uzunlik 9 raqam bilan cheklanadi
+        let formattedValue = input_value.replace(/\D/g, '').slice(0, 9);
 
-    const handleInputFocus = () => {
-        if (!phoneNumber) {
-            setPhoneNumber('+998');
+        // Raqamlarni chiziqcha bilan formatlash: 97-123-45-67
+        if (formattedValue.length > 2 && formattedValue.length <= 5) {
+            formattedValue = formattedValue.replace(/(\d{2})(\d{3})/, '$1-$2');
+        } else if (formattedValue.length > 5 && formattedValue.length <= 7) {
+            formattedValue = formattedValue.replace(/(\d{2})(\d{3})(\d{2})/, '$1-$2-$3');
+        } else if (formattedValue.length > 7) {
+            formattedValue = formattedValue.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1-$2-$3-$4');
         }
-        setFocused(true);
-    };
 
-    const handleInputBlur = () => {
-        // if (!phoneNumber.replace(/\s/g, '')) {
-        //     setPhoneNumber('');
-        // }
-        // setFocused(false);
+        setPhoneNumber(formattedValue);
     };
 
     return (
         <div>
             <h3 className="text-center text-2xl font-medium text-white tracking-wider">{t("auth.login")}</h3>
             <form onSubmit={handleLogin} className="w-full text-center">
-            
-                <label className="text-lg relative text-white text-left mt-8 inline-block w-full tracking-wide font-normal" htmlFor="number">{t("auth.phone")}
-                    <div className="absolute flex items-center gap-x-[8px]  top-[52%] left-[2%]">
-                        <img className="max-w-[50px] object-cover w-full h-[17px]" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/1024px-Flag_of_Uzbekistan.svg.png"  alt="" />
-                        <p>+998</p>
+                <label className="text-lg relative text-white text-left mt-8 inline-block w-full tracking-wide font-normal" htmlFor="number">
+                    {t("auth.phone")}
+                    <div className="flex items-center gap-x-2 mt-2">
+                        <select 
+                            value={countryCode} 
+                            onChange={(e) => setCountryCode(e.target.value)}
+                            className="bg-gray-900 p-2 h-12 text-white rounded-md">
+                            <option value="+998">+998</option>
+                        </select>
+                        <input
+                            required
+                            placeholder="97-123-45-67"
+                            value={phoneNumber}
+                            onChange={(e) => handlePhoneNumberChange(e.target.value)}
+                            id="number"
+                            type="text"
+                            name="number"
+                            className="bg-gray-900 p-2 w-full h-12 outline-none rounded-md"
+                        />
                     </div>
-                    <input  required  placeholder=""  onBlur={handleInputBlur}  value={focused ? phoneNumber : ""}  onFocus={handleInputFocus}  onChange={(e) => handlePhoneNumberChange(e.target.value)}  id="number"  type="text"  name="number"  className="bg-gray-900 p-2 w-full h-12 mt-1 outline-none indent-[4.9rem] rounded-md"/>
                 </label>
                 <label className="relative text-lg text-white text-left mt-5 inline-block w-full tracking-wide font-normal" htmlFor="password">
                     {t("auth.password")}
@@ -102,7 +109,7 @@ const Login = () => {
                         id="password"
                         type={passwordType}
                         name="password"
-                        className="bg-gray-900 p-2 w-full h-12 mt-1 outline-none indent-1 rounded-md"
+                        className="bg-gray-900 p-2 w-full h-12 mt-1 outline-none rounded-md"
                     />
                     <span
                         onClick={handleShowPassword}
@@ -120,6 +127,6 @@ const Login = () => {
             </form>
         </div>
     );
-}
+};
 
 export default Login;
