@@ -1,4 +1,4 @@
-import { Footer, Navbar } from "@/components";
+import {  Navbar } from "@/components";
 import { useEffect } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
