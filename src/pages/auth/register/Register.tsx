@@ -47,11 +47,9 @@ const Register = () => {
         });
     };
 
-    // Telefon raqamini chiziqchalar bilan formatlash: 97-123-45-67
     const handlePhoneNumberChange = (input_value: string) => {
         let formattedValue = input_value.replace(/\D/g, '').slice(0, 9);
 
-        // Chiziqcha qo'shib formatlash
         if (formattedValue.length > 2 && formattedValue.length <= 5) {
             formattedValue = formattedValue.replace(/(\d{2})(\d{3})/, '$1-$2');
         } else if (formattedValue.length > 5 && formattedValue.length <= 7) {
@@ -108,7 +106,7 @@ const Register = () => {
                                 <option value="+998">+998</option>
                             </select>
                             <input
-                                placeholder="99-123-45-67"
+                                placeholder="12-345-56-78"
                                 value={focused ? phoneNumber : ""}
                                 onFocus={handleInputFocus}
                                 onChange={(e) => handlePhoneNumberChange(e.target.value)}
