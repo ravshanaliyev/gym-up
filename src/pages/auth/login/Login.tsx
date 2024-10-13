@@ -60,10 +60,8 @@ const Login = () => {
     };
 
     const handlePhoneNumberChange = (input_value: string) => {
-        // Faqat raqamlar qabul qilinadi va maksimal uzunlik 9 raqam bilan cheklanadi
         let formattedValue = input_value.replace(/\D/g, '').slice(0, 9);
 
-        // Raqamlarni chiziqcha bilan formatlash: 97-123-45-67
         if (formattedValue.length > 2 && formattedValue.length <= 5) {
             formattedValue = formattedValue.replace(/(\d{2})(\d{3})/, '$1-$2');
         } else if (formattedValue.length > 5 && formattedValue.length <= 7) {
@@ -90,7 +88,7 @@ const Login = () => {
                         </select>
                         <input
                             required
-                            placeholder="97-123-45-67"
+                            placeholder="12-345-56-78"
                             value={phoneNumber}
                             onChange={(e) => handlePhoneNumberChange(e.target.value)}
                             id="number"
