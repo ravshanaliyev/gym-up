@@ -4,6 +4,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+import InputDemo from "@/utils/InputNumber";
+
 
 const Register = () => {
     const { t } = useTranslation();
@@ -71,6 +73,7 @@ const Register = () => {
                             className="bg-gray-900 p-2 w-full h-12 mt-2 outline-none rounded-md"
                         />
                     </label>
+                <InputDemo/>
                     <label className="text-lg text-white text-left mt-4 inline-block w-full tracking-wide font-normal" htmlFor="lastname">
                         {t("auth.lastname")}
                         <input

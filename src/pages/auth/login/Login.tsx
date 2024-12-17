@@ -28,7 +28,7 @@ const Login = () => {
     const handleLogin = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setRegisterLoading(true);
-        const loginData: any = { phone: `${countryCode} ${phoneNumber}`, password };
+        const loginData: any = { phone: `${countryCode}${phoneNumber}`, password };
 
         mutate(loginData, {
             onSuccess: (res) => {
@@ -60,19 +60,7 @@ const Login = () => {
         });
     };
 
-    const handlePhoneNumberChange = (input_value: string) => {
-        let formattedValue = input_value.replace(/\D/g, '').slice(0, 9);
-
-        if (formattedValue.length > 2 && formattedValue.length <= 5) {
-            formattedValue = formattedValue.replace(/(\d{2})(\d{3})/, '$1-$2');
-        } else if (formattedValue.length > 5 && formattedValue.length <= 7) {
-            formattedValue = formattedValue.replace(/(\d{2})(\d{3})(\d{2})/, '$1-$2-$3');
-        } else if (formattedValue.length > 7) {
-            formattedValue = formattedValue.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1-$2-$3-$4');
-        }
-
-        setPhoneNumber(formattedValue);
-    };
+   
 
     return (
         <div>
@@ -91,7 +79,7 @@ const Login = () => {
                             required
                             placeholder="12-345-56-78"
                             value={phoneNumber}
-                            onChange={(e) => handlePhoneNumberChange(e.target.value)}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
                             id="number"
                             type="text"
                             name="number"
