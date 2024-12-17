@@ -10,7 +10,8 @@ const AdminDashboard = () => {
     const tokenAdmin: any = localStorage.getItem("token") && jwtDecode(localStorage.getItem("token")!)
 
     const role: any = tokenAdmin && tokenAdmin["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-
+    console.log(role);
+    
     useEffect(() => {
         // tokenAdmin === null && navigate("/auth/login")
         // role === "Admin" && tokenAdmin?.IsPayed === "True" ? navigate("/admin/courses") : navigate("/auth/login")
@@ -18,7 +19,7 @@ const AdminDashboard = () => {
 
         if (tokenAdmin === null) {
             navigate("/auth/login")
-        } else if (role === "Admin" && tokenAdmin?.IsPayed === "True") {
+        } else if (role === "Admin") {
             navigate("/admin/courses")
         }
     }, [pathname])

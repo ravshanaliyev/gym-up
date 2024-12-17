@@ -1,7 +1,4 @@
-// Dependencies: pnpm install react-phone-number-input lucide-react
-
 "use client";
-
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
@@ -11,7 +8,7 @@ import * as RPNInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
 
 export default function InputDemo() {
-  const [value, setValue] = useState("");
+  const [phoneNumber,  setPhoneNumber] = useState("");
 
   return (
     <div className="space-y-2" dir="ltr">
@@ -24,20 +21,10 @@ export default function InputDemo() {
         inputComponent={PhoneInput}
         id="input-46"
         placeholder="Enter phone number"
-        value={value}
-        onChange={(newValue) => setValue(newValue ?? "")}
+        value={phoneNumber}
+        onChange={(newValue) => setPhoneNumber(newValue ?? "")}
       />
-      <p className="mt-2 text-xs text-muted-foreground" role="region" aria-live="polite">
-        Built with{" "}
-        <a
-          className="underline hover:text-foreground"
-          href="https://gitlab.com/catamphetamine/react-phone-number-input"
-          target="_blank"
-          rel="noopener nofollow"
-        >
-          react-phone-number-input
-        </a>
-      </p>
+     
     </div>
   );
 }

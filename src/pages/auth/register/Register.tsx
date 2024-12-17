@@ -4,8 +4,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import InputDemo from "@/utils/InputNumber";
-
+import uzbFlag from "@/assets/UzbFlag.svg"; 
 
 const Register = () => {
     const { t } = useTranslation();
@@ -16,10 +15,8 @@ const Register = () => {
     const [registerLoading, setRegisterLoading] = useState<boolean>(false);
     const [firstname, setFirstname] = useState<string>("");
     const [lastname, setLastname] = useState<string>("");
-    const [phoneNumber, setPhoneNumber] = useState<string>("97");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState<string>("");
-    const [phoneCode, setPhoneCode] = useState<string>("+998");
-    const [focused, setFocused] = useState<boolean>(false);
 
     const handleShowPassword = () => {
         setPasswordType((prevType) => (prevType === "text" ? "password" : "text"));
@@ -28,7 +25,7 @@ const Register = () => {
 
     const { mutate } = useRegister();
 
-    const newUserData: NewUserType = { firstname, lastname, phone: `${phoneCode}${phoneNumber}`, password };
+    const newUserData: NewUserType = { firstname, lastname, phone: `+998${phoneNumber}`, password };
 
     const handleRegister = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -49,13 +46,8 @@ const Register = () => {
         });
     };
 
+   
 
-    const handleInputFocus = () => {
-        if (!phoneNumber) {
-            setPhoneNumber("97");
-        }
-        setFocused(true);
-    };
 
     return (
         <>
@@ -65,6 +57,7 @@ const Register = () => {
                     <label className="text-lg text-white text-left mt-4  inline-block w-full tracking-wide font-normal" htmlFor="firstname">
                         {t("auth.firstname")}
                         <input
+                        autoComplete="off"
                             value={firstname}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => setFirstname(e.target.value.trimStart())}
                             id="firstname"
@@ -73,10 +66,10 @@ const Register = () => {
                             className="bg-gray-900 p-2 w-full h-12 mt-2 outline-none rounded-md"
                         />
                     </label>
-                <InputDemo/>
                     <label className="text-lg text-white text-left mt-4 inline-block w-full tracking-wide font-normal" htmlFor="lastname">
                         {t("auth.lastname")}
                         <input
+                        autoComplete="off"
                             value={lastname}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => setLastname(e.target.value.trimStart())}
                             id="lastname"
@@ -85,28 +78,27 @@ const Register = () => {
                             className="bg-gray-900 p-2 w-full h-12 mt-2 outline-none rounded-md"
                         />
                     </label>
-                    <label className="text-lg text-white text-left mt-4 inline-block w-full tracking-wide font-normal" htmlFor="number">
-                        {t("auth.phone")}
-                        <div className="flex items-center gap-x-2 ">
-                            <select
-                                value={phoneCode}
-                                onChange={(e: ChangeEvent<HTMLSelectElement>) => setPhoneCode(e.target.value)}
-                                className="bg-gray-900 p-2 h-12 mt-2 outline-none rounded-md"
-                            >
-                                <option value="+998">+998</option>
-                            </select>
-                            <input
-                                placeholder="12-345-56-78"
-                                value={focused ? phoneNumber : ""}
-                                onFocus={handleInputFocus}
-                                onChange={(e) => setPhoneNumber(e.target.value)}
-                                id="number"
-                                type="text"
-                                name="number"
-                                className="bg-gray-900 p-2 w-[100%] h-12 mt-2 outline-none rounded-md"
-                            />
+                    <label className="text-lg relative text-white text-left mt-8 inline-block w-full tracking-wide font-normal" htmlFor="number">
+                    {t("auth.phone")}
+                    <div className="flex items-center gap-x-0 mt-2 rounded-md bg-gray-900">
+                        <div className="flex items-center  p-2 h-12  ">
+                            <img src={uzbFlag} alt="UZB Flag" className="w-8 h-8 " />
+                            <span className="text-white ml-2">+998</span>
                         </div>
-                    </label>
+                        <input
+                        autoComplete="off"
+                            required
+                            placeholder="90 123 45 67"
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ""))} 
+                            id="number"
+                            type="text"
+                            name="number"
+                            maxLength={9} // Restrict input to 9 digits for Uzbekistan phone numbers
+                            className="bg-gray-900 p-2 w-fit h-12 outline-none  text-white"
+                        />
+                    </div>
+                </label>
                     <label className="relative text-lg text-white text-left mt-4 inline-block w-full tracking-wide font-normal" htmlFor="password">
                         {t("auth.password")}
                         <input
