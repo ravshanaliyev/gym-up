@@ -1,3 +1,4 @@
+import Input46 from "@/components/ui/phone-input";
 import { useLogin } from "@/service";
 import { jwtDecode } from "jwt-decode";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -97,6 +98,8 @@ const Login = () => {
                             className="bg-gray-900 p-2 w-full h-12 outline-none rounded-md"
                         />
                     </div>
+                {/* <Input46/> */}
+                    
                 </label>
                 <label className="relative text-lg text-white text-left mt-5 inline-block w-full tracking-wide font-normal" htmlFor="password">
                     {t("auth.password")}
@@ -128,3 +131,5 @@ const Login = () => {
 };
 
 export default Login;
+
+
