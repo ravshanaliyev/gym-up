@@ -23,6 +23,9 @@ const Navbar = () => {
     const user: any = userData && jwtDecode(userData);
     const role = user && user["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
+    console.log(role);
+    
+
 
     useEffect(() => {
         if (i18n && i18n.changeLanguage) {
@@ -53,7 +56,7 @@ const Navbar = () => {
                     </Select>
                     {
                         // @ts-ignore
-                        user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='hidden md:flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
+                        user ? <Button onClick={() =>  role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='hidden md:flex items-center justify-center text-xl uppercase rounded-full h-10 w-10'>{user?.FirstName?.slice(0, 1)}</Button>
                             : <Button size={'lg'} onClick={() => navigate("/auth/login")} className='rounded-none text-lg  hidden md:block' >{t("navbar.become")}</Button>
                     }
                 </div>
@@ -77,7 +80,7 @@ const Navbar = () => {
                                 <li className=' hover:text-[#ff1313] transition text-[16px]'><Link to="/contact">Contact</Link></li>
                                 {
                                     // @ts-ignore
-                                    user ? <Button onClick={() => user.IsPayed === "True" && role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-[20px]  rounded-full h-10 w-fit' >{user?.FirstName}</Button>
+                                    user ? <Button onClick={() =>   role === "Admin" ? navigate("/admin/courses") : navigate("/user-dashboard")} className='flex items-center justify-center text-[20px]  rounded-full h-10 w-fit' >{user?.FirstName}</Button>
                                         : <Button onClick={() => navigate("/auth/login")} className='rounded-none text-base uppercase' size={'lg'}>{t("navbar.become")}</Button>
                                 }
 
