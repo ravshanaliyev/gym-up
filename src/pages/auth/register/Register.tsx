@@ -26,7 +26,7 @@ const Register = () => {
 
     const { mutate } = useRegister();
 
-    const newUserData: NewUserType = { firstname, lastname, phone: `${phoneCode} ${phoneNumber}`, password };
+    const newUserData: NewUserType = { firstname, lastname, phone: `${phoneCode}${phoneNumber}`, password };
 
     const handleRegister = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -47,19 +47,6 @@ const Register = () => {
         });
     };
 
-    const handlePhoneNumberChange = (input_value: string) => {
-        let formattedValue = input_value.replace(/\D/g, '').slice(0, 9);
-
-        if (formattedValue.length > 2 && formattedValue.length <= 5) {
-            formattedValue = formattedValue.replace(/(\d{2})(\d{3})/, '$1-$2');
-        } else if (formattedValue.length > 5 && formattedValue.length <= 7) {
-            formattedValue = formattedValue.replace(/(\d{2})(\d{3})(\d{2})/, '$1-$2-$3');
-        } else if (formattedValue.length > 7) {
-            formattedValue = formattedValue.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1-$2-$3-$4');
-        }
-
-        setPhoneNumber(formattedValue);
-    };
 
     const handleInputFocus = () => {
         if (!phoneNumber) {
@@ -109,7 +96,7 @@ const Register = () => {
                                 placeholder="12-345-56-78"
                                 value={focused ? phoneNumber : ""}
                                 onFocus={handleInputFocus}
-                                onChange={(e) => handlePhoneNumberChange(e.target.value)}
+                                onChange={(e) => setPhoneNumber(e.target.value)}
                                 id="number"
                                 type="text"
                                 name="number"
