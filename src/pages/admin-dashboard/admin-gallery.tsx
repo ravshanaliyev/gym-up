@@ -8,7 +8,7 @@ import { AdminGalleryUpdate, Button, DeleteCoursebtn, Input, Label } from "@/com
 const AdminGallery = () => {
     const { data } = useGetGallery()
     const { register, handleSubmit } = useForm()
-    const { mutate } = useCreateImage()
+    const { mutate, isPending } = useCreateImage()
     const { mutate: deleteImage } = useDeleteImage()
     const [image, setImage] = useState(null)
     const [search, setSearch] = useState("")
@@ -69,7 +69,7 @@ const AdminGallery = () => {
                                     // @ts-ignore
                                     setImage(e.target.files[0])} />
                             </div>
-                            <Button type="submit" className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
+                            <Button type="submit" disabled={isPending} className="bg-[#3C50E0] h-[40px] hover:bg-[#5162e2]">Submit</Button>
                         </form>
                     </DialogContent>
                 </Dialog>

@@ -7,7 +7,7 @@ const ApiInctance: Axios = axios.create({
     headers: {
         "Content-Type": "application/json charset=utf-8",
         "Authorization": token && `Bearer ${token}`,
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
     }
 })
 
