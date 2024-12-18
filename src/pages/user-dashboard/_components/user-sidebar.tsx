@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import UserSidebarItem from "./user-sidebar-item";
 import { useGetCourses } from "@/service";
 import { jwtDecode } from "jwt-decode";
-
 const UserSidebar = () => {
     const { data } = useGetCourses()
     const token: any = localStorage.getItem("token") && jwtDecode(localStorage.getItem("token")!)
@@ -13,6 +12,9 @@ const UserSidebar = () => {
     return (
         <div>
             <div className="w-0 hidden lg:block md:w-[320px] barlow fixed bg-[#1c2434] overflow-y-scroll  h-screen pt-4 px-4">
+                <Link to="/" className="flex justify-center">
+                    <img className="w-fit" src={`https://themewagon.github.io/fitnessclub/assets/img/logo/logo.png`} alt="" />
+                </Link>
                 <div className="flex flex-col space-y-4 mt-8">
                     {
                         role === "Admin" && <h3 className="text-white font-bold text-[18px] text-center">Courses</h3>
